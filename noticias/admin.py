@@ -12,4 +12,10 @@ class ArticuloAdmin(admin.ModelAdmin):
     list_display = ("fecha", "titulo")
     form = ArticuloAdminForm
 
+    def save_model(self, request, obj, form, change):
+        if obj.autor == None:
+            obj.autor = request.user
+        obj.last_editor = request.user
+        obj.save()
+
 admin.site.register(Articulo, ArticuloAdmin)

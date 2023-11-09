@@ -21,9 +21,12 @@ class Categoria(models.Model):
 
 class Articulo(models.Model):
     titulo=models.CharField(max_length=150, null=False, blank= False)
-    fecha=models.DateField(null=True, blank=True, default=date.today)
-    autor = models.OneToOneField(User, on_delete=models.SET_NULL, null=True, blank= True, related_name="articulo")
+    fecha=models.DateField(auto_now_add=True)
+    updated = models.DateField(auto_now=True)
 
+    autor = models.OneToOneField(User, on_delete=models.SET_NULL, null=True, blank= True, related_name="articulos", editable=False)
+    last_editor = models.OneToOneField(User, on_delete=models.SET_NULL, null=True, blank= True, related_name="articulos_editados", editable=False)
+    
     texto=models.TextField(null=False, blank= False)
     
     imagen=models.ImageField(null=True, blank=True)
