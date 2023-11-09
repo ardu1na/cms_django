@@ -1,0 +1,7 @@
+core/settings.py
+*__pycache__
+/env
+*.sqlite3
+*migrations/
+/templates
+/ignore
