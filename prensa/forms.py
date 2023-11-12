@@ -1,5 +1,5 @@
 from django import forms
-from noticias.models import Articulo
+from prensa.models import Articulo
 
 class ArticuloAdminForm(forms.ModelForm):
     texto= forms.CharField(widget=forms.Textarea(attrs={'id':"richtext_field"}))

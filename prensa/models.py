@@ -1,4 +1,3 @@
-from datetime import date
 from django.db import models
 from django.utils.text import slugify
 from django.urls import reverse
@@ -20,23 +19,21 @@ class Categoria(models.Model):
 
 
 class Articulo(models.Model):
-    titulo=models.CharField(max_length=150, null=False, blank= False)
-    fecha=models.DateField(auto_now_add=True)
-    updated = models.DateField(auto_now=True)
+    titulo = models.CharField(max_length=150, null=False, blank= False, unique=True)
+    fecha = models.DateTimeField(auto_now_add=True)
+    updated = models.DateTimeField(auto_now=True)
 
-    autor = models.OneToOneField(User, on_delete=models.SET_NULL, null=True, blank= True, related_name="articulos", editable=False)
-    last_editor = models.OneToOneField(User, on_delete=models.SET_NULL, null=True, blank= True, related_name="articulos_editados", editable=False)
+    autor = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, blank= True, related_name="articulos", editable=False)
+    last_editor = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, blank= True, related_name="articulos_editados", editable=False)
     
     texto=models.TextField(null=False, blank= False)
     
-    imagen=models.ImageField(null=True, blank=True)
-
-    tags = models.ManyToManyField(Tag, related_name="articulos", null=True, blank=True)
+    tags = models.ManyToManyField(Tag, related_name="articulos", blank=True)
     categoria = models.ForeignKey(Categoria, on_delete=models.SET_NULL, null=True, blank= True, related_name="articulos")
 
     meta = models.TextField(null=True, blank=True)
 
-    descripcion=models.TextField(null=True, blank= True)
+    descripcion=models.CharField(max_length=500, null=True, blank= True)
 
     destacado = models.BooleanField(default=False)
     publicado = models.BooleanField(default=True)
@@ -45,8 +42,10 @@ class Articulo(models.Model):
 
 
     def save(self, *args, **kwargs):
-        self.slug = slugify(self.titulo)
-        super(Articulo, self).save(*args, **kwargs)
+        if self.slug == None:
+            self.slug = slugify(self.titulo)
+            
+        super().save(*args, **kwargs)
 
     def __str__(self):
         return self.titulo
