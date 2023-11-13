@@ -2,7 +2,6 @@ from django.db import models
 from django.utils.text import slugify
 from django.urls import reverse
 from django.contrib.auth.models import User   
-from tinymce.models import HTMLField  
 
 class Tag(models.Model):
     nombre=models.CharField(max_length=150, null=False, blank= False)
@@ -29,7 +28,7 @@ class Articulo(models.Model):
     titulo = models.CharField(max_length=150, null=False, blank= False, unique=True)
     image_top = models.ImageField(upload_to="posts", null=True, blank= True)
     texto = models.TextField(null=True, blank= True) 
-    descripcion = models.CharField(max_length=500, null=True, blank= True)
+    descripcion = models.TextField(null=True, blank= True)
 
     image_bottom = models.ImageField(upload_to="posts",null=True, blank= True)
    
@@ -41,7 +40,7 @@ class Articulo(models.Model):
 
 
     destacado = models.BooleanField(default=False)
-    publicado = models.BooleanField(default=True)
+    publicado = models.BooleanField(default=False)
 
     slug = models.SlugField(null=True, blank=True, unique=True, editable=False)
 
