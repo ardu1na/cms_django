@@ -1,6 +1,6 @@
 core/settings.py
 __pycache__
-/env
+/en
 *.sqlite3
 migrations/
 /ignore
@@ -11,3 +11,4 @@ migrations/
 db.sqlite3-journal
 .env
 /static
+/media

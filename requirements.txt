@@ -6,12 +6,17 @@ django-cors-headers==4.3.0
 django-filter==23.3
 django-import-export==3.3.1
 django-jazzmin==2.6.0
+django-tinymce==3.6.1
 djangorestframework==3.14.0
 et-xmlfile==1.1.0
 Markdown==3.5.1
 MarkupPy==1.14
+mysql-connector-python==8.2.0
+mysqlclient==2.2.0
 odfpy==1.4.1
 openpyxl==3.1.2
+Pillow==10.1.0
+protobuf==4.21.12
 python-decouple==3.8
 pytz==2023.3.post1
 PyYAML==6.0.1
