@@ -114,7 +114,7 @@
                     <h5>TAGS</h5>
                     <hr>
                     {% for tag in tags %}
-                        <a class="text-decoration-none mx-1" href="#"><span class="badge rounded-pill text-bg-success">{{tag.nombre}}<span></a>
+                        <a class="text-decoration-none mx-1" href="{% url 'tag' slug=tag.slug %}"><span class="badge rounded-pill text-bg-success">{{tag.nombre}}<span></a>
                     {% endfor %}
                 </div>
             </div>

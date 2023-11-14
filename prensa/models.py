@@ -13,6 +13,17 @@ from django.contrib.auth.models import User
 
 class Tag(models.Model):
     nombre=models.CharField(max_length=150, null=False, blank= False)
+    slug = models.SlugField(max_length=150, null=True, blank=True, unique=True, editable=False)
+
+
+
+
+    def save(self, *args, **kwargs):
+        if self.slug == None:
+            self.slug = slugify(self.nombre)
+            
+        super().save(*args, **kwargs)
+
     def __str__(self):
         return self.nombre
 

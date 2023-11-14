@@ -14,6 +14,9 @@
                 {% if categoria %}
                 <li class="breadcrumb-item active" aria-current="page">  <strong> {{ categoria }} </strong></li>
                 {% endif %}
+                {% if tag %}
+                <li class="breadcrumb-item active" aria-current="page">  <strong> {{ tag }} </strong></li>
+                {% endif %}
             </ol>
         </nav>
 
@@ -115,7 +118,7 @@
                 </div>
         
                 <div class="row my-5">                 
-                    <h5>MÁS CATEGORIAS</h5>
+                    <h5>CATEGORIAS</h5>
                     <hr>
                     <ul class="list-group">
                         {% for categoria in categorias %}
@@ -125,10 +128,10 @@
                 </div>
         
                 <div class="row mb-4">                 
-                    <h5>TAGS</h5>
+                    <h5>MÁS TAGS</h5>
                     <hr>
                     {% for tag in tags %}
-                        <a class="text-decoration-none mx-1" href="#"><span class="badge rounded-pill text-bg-success">{{tag.nombre}}<span></a>
+                        <a class="text-decoration-none mx-1" href="{% url 'tag' slug=tag.slug %}"><span class="badge rounded-pill text-bg-success">{{tag.nombre}}<span></a>
                     {% endfor %}
                 </div>
             </div>

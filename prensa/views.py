@@ -65,7 +65,7 @@ def categorias(request, slug):
     tags = Tag.objects.all()[:15]
     categorias = Categoria.objects.exclude(id=categoria.id)[:10]
 
-    template_name = 'page/prensa/categoria.html'
+    template_name = 'page/prensa/query.html'
     context = {
         'last' : last_articles,
         'articulos': articulos,
@@ -76,6 +76,27 @@ def categorias(request, slug):
     }
     return render (request, template_name, context)
 
+def tags(request, slug):
+    tag = Tag.objects.filter(slug=slug).last()
+    articulos_list = Articulo.objects.filter(publicado=True, tags=tag)
+    paginator = Paginator(articulos_list, 4) 
+    page = request.GET.get('page')
+    articulos = paginator.get_page(page)
 
+    last_articles =  Articulo.objects.filter(publicado=True).order_by('-fecha')[:10]
+
+    tags = Tag.objects.exclude(id=tag.id)[:15]
+    categorias = Categoria.objects.all()[:10]
+
+    template_name = 'page/prensa/query.html'
+    context = {
+        'last' : last_articles,
+        'articulos': articulos,
+        'tags': tags,
+        'categorias': categorias,
+        'tag':tag,
+
+    }
+    return render (request, template_name, context)
 ## TODO: HACERLO CON PARAMS
 
