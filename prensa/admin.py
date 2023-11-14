@@ -1,16 +1,23 @@
 from django.contrib import admin
 
+from import_export.admin import ImportExportModelAdmin
+
 from prensa.models import Categoria, Articulo, Tag
 from prensa.forms import ArticuloAdminForm
-
+from prensa.resources import ArticuloResource
 
 admin.site.register(Categoria)
 admin.site.register(Tag)
 
 
-class ArticuloAdmin(admin.ModelAdmin):
+## todo: add class into tinymce in order to be able to expand horizontally the rich texteditor
+
+
+class ArticuloAdmin(ImportExportModelAdmin):
     list_display = ("fecha", "publicado", "titulo", "categoria", "descripcion","autor", 'last_editor', 'updated')
     form = ArticuloAdminForm
+    resource_class = ArticuloResource
+
     fieldsets = (
         (None, {'fields': ('publicado','titulo','image_top','texto','image_bottom')},
          ),

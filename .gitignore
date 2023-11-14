@@ -1,6 +1,6 @@
 core/settings.py
 __pycache__
-/en
+/env
 *.sqlite3
 migrations/
 /ignore

@@ -5,33 +5,61 @@
 {% block 'content' %}
 <!-- Pagina del detalle de la nota de Prensa id: {{ object.id }}-->
 
-            <div class="container my-3">
+        <div class="container my-4">
 
-                        <div class="col-md-9 mb-4">
-                            <div class="card">
-                                {% if object.image_top %} <img src="{{ object.image_top.url }}" class="img-fluid" alt="{{ object.titulo }} - Prensa de la Municipalidad de El Bolsón"> {% endif %}                     
-                                
-                            
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb ">
+                  <li class="breadcrumb-item "><a class="text-decoration-none text-secondary" href="{% url 'index' %}">Inicio</a></li>
+                  <li class="breadcrumb-item"><a class="text-decoration-none text-secondary" href="#">Prensa</a></li>
+                  {% if object.categoria %}
+                  <li class="breadcrumb-item"><a class="text-decoration-none text-secondary" href="#">{{ object.categoria}}</a></li>
+                  {% endif %}
+                  <!--crear prensa views y filters para categoria buscador y tags-->
+                  <li class="breadcrumb-item active" aria-current="page"> {{object.titulo}}</li>
+                </ol>
+              </nav>
 
-                                <div class="card-body">
-                                    <h5 class="card-title">{{ object.titulo }}</h5>
-                                    <p class="card-text">{{ object.fecha }}</p>
-                                    <hr>
-                                    <p class="card-text">{{ object.texto|safe }}</p>
+              <br>
 
-                                </div>
-                            
-                            
+            <div class="row">
+               
+                <div class="col-md-8 mb-4">
+                    <div class="card">
+                        
+                        <div class="card-body">
+                            <h4 class="card-title">{{ object.titulo }}</h4>
+                            <p class="card-text">{{ object.fecha }}</p>
+                            <p class="card-text">
+                                {% for tag in object.tags.all %}
+                                <span class="badge rounded-pill text-bg-success">{{tag.nombre}}</span>
+                                {% endfor %}
+                            </p>
 
-                                {% if object.image_bottom %} <img src="{{ object.image_bottom.url }}" class="img-fluid my-2" alt="{{ object.titulo }} - Prensa de la Municipalidad de El Bolsón"> {% endif %}    
-
-
-                                {% if object.updated %} <p class="text-secondary mx-3"> (actualizado: {{ object.updated }})</p> {% endif %} 
-                            </div>
-
-
+                            <hr>
+                            {% if object.image_top %} <img src="{{ object.image_top.url }}" class="img-fluid" alt="{{ object.titulo }} - Prensa de la Municipalidad de El Bolsón"> {% endif %}                     
+                        
+                            <p class="card-text">{{ object.texto|safe }}</p>
                         </div>
+                                                
 
+                        {% if object.image_bottom %} <img src="{{ object.image_bottom.url }}" class="img-fluid my-2" alt="{{ object.titulo }} - Prensa de la Municipalidad de El Bolsón"> {% endif %}    
+
+                        {% if object.updated %}
+                            <hr>
+                            <p class="text-secondary mx-3"> (actualizado: {{ object.updated }})</p>
+                        {% endif %} 
+                    </div>
+                </div>
+
+                <div class="col-md-2 ms-5">                        
+                    <h5>ÚLTIMAS NOTICIAS</h5>
+                    <hr>
+                    {% for article in articles %}
+                    <p><a class="text-decoration-none text-secondary" href="{{article.get_absolute_url}}"><i class="bi bi-play-fill"></i> {{ article.titulo }}</a></p>
+                    {% endfor %}
+                </div>
             </div>
+
+        </div>
 
 {% endblock %}

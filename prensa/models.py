@@ -53,6 +53,15 @@ class Articulo(models.Model):
     slug = models.SlugField(max_length=150, null=True, blank=True, unique=True, editable=False)
 
 
+    @property
+    def tags_names_list(self):
+        tags = self.tags
+        names = []
+        for tag in tags:
+            names.append(tag.nombre)
+        return names if names > 0 else None
+
+
     def save(self, *args, **kwargs):
         if self.slug == None:
             self.slug = slugify(self.titulo)
