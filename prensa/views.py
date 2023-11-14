@@ -31,41 +31,51 @@ def articulo(request, slug):
 
 
 def prensa(request):
-    if 'categoria' in request.GET:
-        template_name = 'page/prensa/query.html'
-        categoria_get = request.GET.get('categoria')
-        categoria = Categoria.objects.filter(nombre=categoria_get).first()
-        articulos_list = Articulo.objects.filter(publicado=True, categoria=categoria)
-        paginator = Paginator(articulos_list, 2) 
-        page = request.GET.get('page')
-        articulos = paginator.get_page(page)
+    articulos_list = Articulo.objects.filter(publicado=True)
+    paginator = Paginator(articulos_list, 1) 
+    page = request.GET.get('page')
+    articulos = paginator.get_page(page)
 
-        context = {
-            'articulos': articulos,
-            'categoria': categoria,
+    last_articles =  Articulo.objects.filter(publicado=True).order_by('-fecha')[:10]
+    last_destacados = Articulo.objects.filter(publicado=True, destacado=True).order_by('-fecha')[:4]
 
-        }
-    else:
-        articulos_list = Articulo.objects.filter(publicado=True)
-        paginator = Paginator(articulos_list, 1) 
-        page = request.GET.get('page')
-        articulos = paginator.get_page(page)
+    tags = Tag.objects.all()[:15]
+    categorias = Categoria.objects.all()[:10]
 
-        last_articles =  Articulo.objects.filter(publicado=True).order_by('-fecha')[:10]
-        last_destacados = Articulo.objects.filter(publicado=True, destacado=True).order_by('-fecha')[:3]
+    template_name = 'page/prensa/prensa.html'
+    context = {
+        'destacados': last_destacados,
+        'last' : last_articles,
+        'articulos': articulos,
+        'tags': tags,
+        'categorias': categorias,
 
-        tags = Tag.objects.all()[:15]
-        categorias = Categoria.objects.all()[:10]
-
-        template_name = 'page/prensa/prensa.html'
-        context = {
-            'destacados': last_destacados,
-            'last' : last_articles,
-            'articulos': articulos,
-            'tags': tags,
-            'categorias': categorias,
-
-        }
+    }
     return render (request, template_name, context)
+
+def categorias(request, slug):
+    categoria = Categoria.objects.filter(slug=slug).last()
+    articulos_list = Articulo.objects.filter(publicado=True, categoria=categoria)
+    paginator = Paginator(articulos_list, 4) 
+    page = request.GET.get('page')
+    articulos = paginator.get_page(page)
+
+    last_articles =  Articulo.objects.filter(publicado=True).order_by('-fecha')[:10]
+
+    tags = Tag.objects.all()[:15]
+    categorias = Categoria.objects.exclude(id=categoria.id)[:10]
+
+    template_name = 'page/prensa/categoria.html'
+    context = {
+        'last' : last_articles,
+        'articulos': articulos,
+        'tags': tags,
+        'categorias': categorias,
+        'categoria':categoria,
+
+    }
+    return render (request, template_name, context)
+
+
 ## TODO: HACERLO CON PARAMS
 

@@ -1,0 +1,144 @@
+{% extends 'page/layout/base.html' %}
+
+{% load static %}
+{% block 'title' %}| Prensa {% endblock %} 
+{% block 'content' %}
+<!-- Pagina del detalle de la nota de Prensa id: {{ object.id }}-->
+
+    <div class="container my-4">
+
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb ">
+                <li class="breadcrumb-item "><a class="text-decoration-none text-secondary" href="{% url 'index' %}">Inicio</a></li>
+                <li class="breadcrumb-item"><a class="text-decoration-none text-secondary" href="{% url 'prensa' %}">Prensa</a></li>
+                {% if categoria %}
+                <li class="breadcrumb-item active" aria-current="page">  <strong> {{ categoria }} </strong></li>
+                {% endif %}
+            </ol>
+        </nav>
+
+        <br>
+
+            
+            
+            
+        <div class="row">
+            <div class="col-md-10">
+                {% if articulos %}
+                <br>
+
+                <div class="container">
+                      
+                    <div class="row">
+                        {% for article in articulos  %} <!-- Artículo {{ article.id }} -->
+                        
+                            <div class="col-md-5 mb-4 mx-1">
+                                <div class="card">
+                            
+                                    <img 
+                                    {% if article.image_top %}
+                                        src="{{ article.image_top.url }}"
+                                    {% else %}
+                                    {% if article.image_bottom %}
+                                        src="{{ article.image_bottom.url }}"
+                                    {% else %}
+                                        src="{% static 'img/logo.png' %}"
+        
+                                    {% endif %}                {% endif %}                     
+                                        
+                                    class="card-img-top" alt="{{ article.titulo }} Municipalidad de El Bolsón">
+        
+                                    <div class="card-body">
+                                        <h5 class="card-title">{{ article.titulo }}</h5>
+                                        <p class="card-text">{{ article.fecha }}</p>
+                                        <hr>
+                                        <p class="card-text">{{ article.texto|safe|slice:":200" }} ...</p>
+                                        <a href="{{ article.get_absolute_url }}" class="btn btn-success btn-lg rounded-pill mb-4">Leer más</a>
+                                    </div>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+            
+                </div>
+
+                    
+                    <!-- PAGINATION -->
+                    {% if articulos.has_other_pages %}
+                    <nav aria-label="Page navigation">
+                    <ul class="pagination justify-content-center mt-3">
+                        {% if articulos.has_previous %}
+                        <li class="page-item">
+                            <a class="page-link" href="?page={{ articulos.previous_page_number }}" tabindex="-1" aria-label="Previous">
+                            <span aria-hidden="true">&laquo;</span>
+                            </a>
+                        </li>
+                        {% endif %}
+
+                        {% for page_num in articulos.paginator.page_range %}
+                            {% if articulos.number == page_num %}
+                                <li class="page-item active"><a class="page-link">{{ page_num }}</a></li>
+                            {% elif page_num > articulos.number|add:'-3' and page_num < articulos.number|add:'3' %}
+                                <li class="page-item"><a class="page-link" href="?page={{ page_num }}">{{ page_num }}</a></li>
+                            {% endif %}
+                        {% endfor %}
+
+                        {% if articulos.has_next %}
+                        <li class="page-item">
+                            <a class="page-link" href="?page={{ articulos.next_page_number }}" aria-label="Next">
+                            <span aria-hidden="true">&raquo;</span>
+                            </a>
+                        </li>
+                        {% endif %}
+                    </ul>
+                    </nav>
+                    {% endif %}
+
+                {% else %}
+                    <div class="card m-2">
+                        <div class="card-body">
+                            <h4 class="card-title">No encontrado</h4>
+                            <p class="card-text">No se han podido hallar artículos para esta categoría.</p>
+                            <hr>
+                        </div>
+                    </div>
+                {% endif %}
+            </div>
+        
+            <div class="col-md-2 sticky-top h-100">       
+                <div class="row">                 
+                    <h5>ÚLTIMAS NOTICIAS</h5>
+                    <hr>
+                    {% for article in last %}
+                        <p><a class="text-decoration-none text-secondary" href="{{article.get_absolute_url}}"><i class="bi bi-play-fill"></i> {{ article.titulo }}</a></p>
+                    {% endfor %}
+                </div>
+        
+                <div class="row my-5">                 
+                    <h5>MÁS CATEGORIAS</h5>
+                    <hr>
+                    <ul class="list-group">
+                        {% for categoria in categorias %}
+                            <li class="list-group-item"><a class="text-decoration-none text-secondary" href="{% url 'categoria' slug=categoria.slug %}"> {{ categoria.nombre }}</a></li>
+                        {% endfor %}
+                    </ul>
+                </div>
+        
+                <div class="row mb-4">                 
+                    <h5>TAGS</h5>
+                    <hr>
+                    {% for tag in tags %}
+                        <a class="text-decoration-none mx-1" href="#"><span class="badge rounded-pill text-bg-success">{{tag.nombre}}<span></a>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+        
+    
+    </div>
+
+    
+    
+
+
+{% endblock %}

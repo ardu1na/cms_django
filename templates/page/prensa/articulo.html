@@ -12,7 +12,7 @@
                   <li class="breadcrumb-item "><a class="text-decoration-none text-secondary" href="{% url 'index' %}">Inicio</a></li>
                   <li class="breadcrumb-item"><a class="text-decoration-none text-secondary" href="{% url 'prensa' %}">Prensa</a></li>
                   {% if object.categoria %}
-                  <li class="breadcrumb-item"><a class="text-decoration-none text-secondary" href="#">{{ object.categoria}}</a></li>
+                  <li class="breadcrumb-item"><a class="text-decoration-none text-secondary" href="{% url 'categoria' slug=object.categoria.slug %}">{{ object.categoria}}</a></li>
                   {% endif %}
                   <!--crear prensa views y filters para categoria buscador y tags-->
                   <li class="breadcrumb-item active" aria-current="page"> {{object.titulo}}</li>
