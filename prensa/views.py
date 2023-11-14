@@ -5,6 +5,8 @@ from prensa.models import Articulo
 
 
 ## TODO: ADD PAGINATION into main prensa page
+## custom error pages
+
 
 
 def index(request):

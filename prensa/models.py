@@ -3,6 +3,14 @@ from django.utils.text import slugify
 from django.urls import reverse
 from django.contrib.auth.models import User   
 
+## TODO MAYBE IMAGE MUST BE ANOTHER MODEL WITH EXTRA DATA
+# title, alt, height, weight, class, etc
+
+## TODO BUSCADOR + boton sig articl 
+
+
+
+
 class Tag(models.Model):
     nombre=models.CharField(max_length=150, null=False, blank= False)
     def __str__(self):
