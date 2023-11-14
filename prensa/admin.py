@@ -9,7 +9,7 @@ admin.site.register(Tag)
 
 
 class ArticuloAdmin(admin.ModelAdmin):
-    list_display = ("fecha", "titulo", "categoria", "descripcion","autor", 'last_editor', 'updated')
+    list_display = ("fecha", "publicado", "titulo", "categoria", "descripcion","autor", 'last_editor', 'updated')
     form = ArticuloAdminForm
     fieldsets = (
         (None, {'fields': ('publicado','titulo','image_top','texto','image_bottom')},

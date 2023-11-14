@@ -2,6 +2,9 @@ from rest_framework import serializers
 
 from prensa.models import Articulo, Categoria, Tag
 
+## TODO: serializer con titulo , descripcion y sino hay texto cortado, fecha, foto,  de las ultimas tres o cuatro notas o de destacados,
+
+
 
 
 class ArticuloListSerializer(serializers.ModelSerializer):

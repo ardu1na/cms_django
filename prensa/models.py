@@ -42,7 +42,7 @@ class Articulo(models.Model):
     destacado = models.BooleanField(default=False)
     publicado = models.BooleanField(default=False)
 
-    slug = models.SlugField(null=True, blank=True, unique=True, editable=False)
+    slug = models.SlugField(max_length=150, null=True, blank=True, unique=True, editable=False)
 
 
     def save(self, *args, **kwargs):
