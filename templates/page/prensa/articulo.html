@@ -10,7 +10,7 @@
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb ">
                   <li class="breadcrumb-item "><a class="text-decoration-none text-secondary" href="{% url 'index' %}">Inicio</a></li>
-                  <li class="breadcrumb-item"><a class="text-decoration-none text-secondary" href="#">Prensa</a></li>
+                  <li class="breadcrumb-item"><a class="text-decoration-none text-secondary" href="{% url 'prensa' %}">Prensa</a></li>
                   {% if object.categoria %}
                   <li class="breadcrumb-item"><a class="text-decoration-none text-secondary" href="#">{{ object.categoria}}</a></li>
                   {% endif %}
