@@ -1,0 +1,37 @@
+{% extends 'page/layout/base.html' %}
+
+{% load static %}
+{% block 'title' %}| Prensa {% endblock %} 
+{% block 'content' %}
+<!-- Pagina del detalle de la nota de Prensa id: {{ object.id }}-->
+
+            <div class="container my-3">
+
+                        <div class="col-md-9 mb-4">
+                            <div class="card">
+                                {% if object.image_top %} <img src="{{ object.image_top.url }}" class="img-fluid" alt="{{ object.titulo }} - Prensa de la Municipalidad de El Bolsón"> {% endif %}                     
+                                
+                            
+
+                                <div class="card-body">
+                                    <h5 class="card-title">{{ object.titulo }}</h5>
+                                    <p class="card-text">{{ object.fecha }}</p>
+                                    <hr>
+                                    <p class="card-text">{{ object.texto|safe }}</p>
+
+                                </div>
+                            
+                            
+
+                                {% if object.image_bottom %} <img src="{{ object.image_bottom.url }}" class="img-fluid my-2" alt="{{ object.titulo }} - Prensa de la Municipalidad de El Bolsón"> {% endif %}    
+
+
+                                {% if object.updated %} <p class="text-secondary mx-3"> (actualizado: {{ object.updated }})</p> {% endif %} 
+                            </div>
+
+
+                        </div>
+
+            </div>
+
+{% endblock %}

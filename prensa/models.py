@@ -55,7 +55,7 @@ class Articulo(models.Model):
         return self.titulo
 
     def get_absolute_url(self):
-        return reverse('prensa', args=[str(self.slug)])
+        return reverse('articulo', args=[str(self.slug)])
 
     class Meta:
         get_latest_by = "fecha"

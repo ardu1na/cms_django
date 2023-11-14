@@ -10,6 +10,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/prensa/', include('prensa.urls')),
     path('', index, name="index"),
-    path('prensa/<slug:slug>/', ArticleDetail.as_view(), name="prensa")
+    path('prensa/nota/<slug:slug>/', ArticleDetail.as_view(), name="articulo"),
+    path('prensa/', index, name="prensa"),
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

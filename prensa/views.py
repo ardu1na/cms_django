@@ -20,4 +20,4 @@ def index(request):
 
 class ArticleDetail(DetailView):
     model = Articulo
-    template_name = 'page/index.html' ## cambiarluego TODO
+    template_name = 'page/prensa/articulo.html' 

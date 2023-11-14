@@ -1,73 +1,66 @@
 {% extends 'page/layout/base.html' %}
 
 {% load static %}
+
 {% block 'content' %}
+<!-- contenido de la PAGINA DE INICIO -->
 
+    <!-- Hero Imagen y texto + BOTON -->
+            <div class="jumbotron jumbotron-fluid" style="position: relative; background: url('{% static 'img/index_img.jpg' %}') center/cover no-repeat; color: white; height: 600px; display: flex; align-items: center; justify-content: center;">
+                <div class="container text-center col-lg-6 my-5" style="background-color: rgba(0, 0, 0, 0.5); padding: -50px; margin-top: 150px;">
+                    <div class="my-4">
+                        <h2 class="display-4">AUDIENCIA PÚBLICA 2023</h2>
+                        <h4 class="display-4">Proyecto de Sistema de Desagües Cloacales</h4>
 
-<!-- Hero Imagen y texto al Inicio -->
-<div class="jumbotron jumbotron-fluid" style="position: relative; background: url('{% static 'img/index_img.jpg' %}') center/cover no-repeat; color: white; height: 600px; display: flex; align-items: center; justify-content: center;">
-    <div class="container text-center col-lg-6 my-5" style="background-color: rgba(0, 0, 0, 0.5); padding: -50px; margin-top: 150px;">
-        <div class="my-4">
-            <h2 class="display-4">AUDIENCIA PÚBLICA 2023</h2>
-            <h4 class="display-4">Proyecto de Sistema de Desagües Cloacales</h4>
+                        <p class="lead">
+                            La Municipalidad de El Bolsón informa que, mediante la resolución municipal 409/2023, se convoca a una audiencia pública en el marco del procedimiento de Evaluación del Estudio de Impacto Ambiental del proyecto de "Sistema de Desagües Cloacales para la Ciudad de El Bolsón”.</p>
+                    </div>
 
-            <p class="lead">
-                La Municipalidad de El Bolsón informa que, mediante la resolución municipal 409/2023, se convoca a una audiencia pública en el marco del procedimiento de Evaluación del Estudio de Impacto Ambiental del proyecto de "Sistema de Desagües Cloacales para la Ciudad de El Bolsón”.</p>
-        </div>
-
-        <!-- Botón a la nota : TODO: ADD LINK -->
-        <a class="btn btn-success btn-lg rounded-pill mb-4" href="#" role="button" style="color: white;">Más Información</a>
-    </div>
-</div>
-
-
-
-
-<!-- Sección de Resumen de Prensa -->
-<div class="container mt-5">
-    <h2 class="mb-4">Últimas noticias</h2>
-
-    <div class="row">
-        {% for article in articles %}
-        <!-- Artículo 1 -->
-        <div class="col-md-4 mb-4">
-            <div class="card">
-
-                {% comment %}
-
-                """ TODO: 
-                
-                    #
-                    LOOK FOR THE IMAGE  URL RENDER AND WHATSUP IF THERE IS NOT IMAGE"
-                    #
-                    MAKE THE LINK FOR THE DETAIL WITH THE SLUG TO
-                    #
-                """"
-                {% endcomment %}
-
-                <img 
-                {% if article.image_top %}
-                    src="{{ article.image_top.url }}"
-                {% else %}
-                {% if article.image_bottom %}
-                    src="{{ article.image_bottom.url }}"
-                {% else %}
-                    src="{% static 'logo.png' %}"
-
-                {% endif %}                {% endif %}                     
-                     
-                class="card-img-top" alt="{{ article.titulo }} Municipalidad de El Bolsón">
-
-                <div class="card-body">
-
-                    <h5 class="card-title">{{ article.titulo }}</h5>
-                    <p class="card-text">{{ article.fecha }}</p>
-                    <a href="{{ article.get_absolute_url }}" class="btn btn-success btn-lg rounded-pill mb-4">Leer más</a>
+                    <!-- Botón a la nota : TODO: ADD LINK -->
+                    <a class="btn btn-success btn-lg rounded-pill mb-4" href="http://127.0.0.1:8000/prensa/nota/audiencia-publica-2023-proyecto-de-sistema-de-desagues-cloacales/" role="button" style="color: white;">Más Información</a>
                 </div>
             </div>
-        </div>
-        {% endfor %}
-    </div>
-</div>
+
+
+
+
+    <!-- Sección de Resumen de Prensa -->
+            <div class="container mt-5">
+                {% if articles %}
+
+                    <h2 class="mb-4">Últimas noticias</h2>
+
+                    <div class="row">
+                        {% for article in articles %} <!-- Artículo {{ article.id }} -->
+                        
+                            <div class="col-md-4 mb-4">
+                                <div class="card">
+                            
+                                    <img 
+                                    {% if article.image_top %}
+                                        src="{{ article.image_top.url }}"
+                                    {% else %}
+                                    {% if article.image_bottom %}
+                                        src="{{ article.image_bottom.url }}"
+                                    {% else %}
+                                        src="{% static 'logo.png' %}"
+
+                                    {% endif %}                {% endif %}                     
+                                        
+                                    class="card-img-top" alt="{{ article.titulo }} Municipalidad de El Bolsón">
+
+                                    <div class="card-body">
+                                        <h5 class="card-title">{{ article.titulo }}</h5>
+                                        <p class="card-text">{{ article.fecha }}</p>
+                                        <a href="{{ article.get_absolute_url }}" class="btn btn-success btn-lg rounded-pill mb-4">Leer más</a>
+                                    </div>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+
+                {% endif %}
+
+            </div>
 
 {% endblock %}
