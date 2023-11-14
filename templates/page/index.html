@@ -6,7 +6,7 @@
 <!-- contenido de la PAGINA DE INICIO -->
 
     <!-- Hero Imagen y texto + BOTON -->
-            <div class="jumbotron jumbotron-fluid" style="position: relative; background: url('{% static 'img/index_img.jpg' %}') center/cover no-repeat; color: white; height: 600px; display: flex; align-items: center; justify-content: center;">
+            <div class="jumbotron jumbotron-fluid mb-5" style="position: relative; background: url('{% static 'img/index_img.jpg' %}') center/cover no-repeat; color: white; height: 600px; display: flex; align-items: center; justify-content: center;">
                 <div class="container text-center col-lg-6 my-5" style="background-color: rgba(0, 0, 0, 0.5); padding: -50px; margin-top: 150px;">
                     <div class="my-4">
                         <h2 class="display-4">AUDIENCIA PÚBLICA 2023</h2>
@@ -30,7 +30,7 @@
 
                     <h2 class="mb-4">Últimas noticias</h2>
 
-                    <div class="row">
+                    <div class="row mb-5">
                         {% for article in articles %} <!-- Artículo {{ article.id }} -->
                         
                             <div class="col-md-4 mb-4">

@@ -7,8 +7,20 @@
 
         <div class="container my-4">
 
+            <form method="GET" action="{% url 'prensa' %}" class="form-inline my-3 my-lg-0">
+                <div class="input-group">
+                    <input type="text" name="q" class="form-control" placeholder="Buscar..." aria-label="Buscar" aria-describedby="basic-addon2">
+                    <div class="input-group-append">
+                        <button class="btn btn-outline-secondary" type="submit">
+                            <i class="bi bi-search"></i>
+                        </button>
+                    </div>
+                </div>
+            </form>
+
+            
             <nav aria-label="breadcrumb">
-                <ol class="breadcrumb ">
+                <ol class="breadcrumb mt-4">
                   <li class="breadcrumb-item "><a class="text-decoration-none text-secondary" href="{% url 'index' %}">Inicio</a></li>
                   <li class="breadcrumb-item"><a class="text-decoration-none text-secondary" href="{% url 'prensa' %}">Prensa</a></li>
                   {% if object.categoria %}

@@ -1,12 +1,21 @@
 from django.core.paginator import Paginator
 from django.shortcuts import render
+from django.db.models import Q
+
 from prensa.models import Articulo, Tag, Categoria
 
 
-## TODO: ADD PAGINATION into main prensa page
+## TODO:
 ## custom error pages
-# !--crear prensa views y filters para categoria buscador y tags-->
+# !--crear prensa buscador -->
 ## achicador y renombrador de imagenes
+## test import export
+# create groups 4 prensa
+# add swagger docs
+# do fe with react
+# modulo mercado local
+
+
 
 def index(request):
     last_three_articles = Articulo.objects.filter(publicado=True).order_by('-fecha')[:3]
@@ -17,6 +26,12 @@ def index(request):
     }
     return render (request, template_name, context)
 
+
+
+
+
+###########################################################################
+################ PRENSA APP
 
 def articulo(request, slug):
     articulo = Articulo.objects.filter(slug=slug, publicado=True).last()
@@ -29,9 +44,16 @@ def articulo(request, slug):
     }
     return render (request, template_name, context)
 
-
 def prensa(request):
     articulos_list = Articulo.objects.filter(publicado=True)
+    query = request.GET.get('q')
+
+    if query:
+        articulos_list = articulos_list.filter(
+            Q(titulo__icontains=query) |
+            Q(texto__icontains=query)
+        )
+
     paginator = Paginator(articulos_list, 1) 
     page = request.GET.get('page')
     articulos = paginator.get_page(page)
@@ -98,5 +120,8 @@ def tags(request, slug):
 
     }
     return render (request, template_name, context)
-## TODO: HACERLO CON PARAMS
+
+################ END PRENSA
+###########################################################################
+
 
