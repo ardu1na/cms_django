@@ -3,14 +3,14 @@ from django.shortcuts import render
 from django.db.models import Q
 
 from prensa.models import Articulo, Tag, Categoria
-
+"""
 
 ## TODO:
-## custom error pages
 ## achicador y renombrador de imagenes
 ## test import-export
 # create groups 4 prensa
 
+DEPLOY NGNX GNUNICORN
 
 ## TODO NEXT FASE:
 # create special endpoints for gral querys
@@ -18,6 +18,13 @@ from prensa.models import Articulo, Tag, Categoria
 # do fe with react
 # modulo mercado local
 
+"""
+
+
+
+
+###########################################################################
+################ pagina de INICIO
 
 def index(request):
     last_three_articles = Articulo.objects.filter(publicado=True).order_by('-fecha')[:3]
@@ -27,6 +34,12 @@ def index(request):
 
     }
     return render (request, template_name, context)
+
+###########################################################################
+
+
+
+
 
 
 

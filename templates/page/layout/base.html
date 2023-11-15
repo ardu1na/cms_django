@@ -43,6 +43,9 @@
         {% block 'extra_styles' %}{% endblock %}
     </head>
     <body>
+
+        {% block 'body' %}
+
         <div class="container-fluid m-0 p-0">
             {% include 'page/layout/includes/header.html' %}
 
@@ -54,6 +57,7 @@
 
             {% include 'page/layout/includes/footer.html' %}
         </div>
+        {% endblock %}
 
         {% block 'extra_scripts' %}{% endblock %}
         <!-- BOOTSTRAP CDNS -->
