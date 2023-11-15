@@ -8,8 +8,12 @@ from prensa.models import Articulo, Tag, Categoria
 ## TODO:
 ## custom error pages
 ## achicador y renombrador de imagenes
-## test import export
+## test import-export
 # create groups 4 prensa
+
+
+## TODO NEXT FASE:
+# create special endpoints for gral querys
 # add swagger docs
 # do fe with react
 # modulo mercado local
