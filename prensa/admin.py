@@ -6,11 +6,13 @@ from prensa.models import Categoria, Articulo, Tag
 from prensa.forms import ArticuloAdminForm
 from prensa.resources import ArticuloResource
 
-admin.site.register(Categoria)
-admin.site.register(Tag)
-
 
 ## todo: add class into tinymce in order to be able to expand horizontally the rich texteditor
+
+admin.site.register(Categoria)
+
+admin.site.register(Tag)
+
 
 
 class ArticuloAdmin(ImportExportModelAdmin):

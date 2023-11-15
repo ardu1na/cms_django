@@ -7,14 +7,12 @@ from prensa.models import Articulo, Tag, Categoria
 
 ## TODO:
 ## custom error pages
-# !--crear prensa buscador -->
 ## achicador y renombrador de imagenes
 ## test import export
 # create groups 4 prensa
 # add swagger docs
 # do fe with react
 # modulo mercado local
-
 
 
 def index(request):
