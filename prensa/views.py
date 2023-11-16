@@ -7,8 +7,15 @@ from prensa.models import Articulo, Tag, Categoria
 
 ## TODO:
 ## achicador y renombrador de imagenes
-## test import-export
-# create groups 4 prensa
+# 
+
+
+# more security resources: https://djangopackages.org/grids/g/security/
+
+
+# al crear la app al crear al usuario
+ para Prensa ponerlo en grupo Prensa para otorgarle sus permisos y ponerlo como staff para que pueda acceder al panel
+
 
 
 DEPLOY NGNX ----¿ +GNUNICORN ? media?
@@ -53,12 +60,29 @@ def articulo(request, slug):
     articulo = Articulo.objects.filter(slug=slug, publicado=True).last()
     template_name = 'page/prensa/articulo.html'
     last_six_articles =  Articulo.objects.filter(publicado=True).order_by('-fecha').exclude(slug=articulo.slug)[:7]
+
+    
+    articulo_anterior = Articulo.objects.filter(publicado=True, fecha__lt=articulo.fecha).order_by('-fecha').first()
+    if articulo_anterior:
+        anterior = articulo_anterior.slug
+    else:
+        anterior = None
+    articulo_siguiente = Articulo.objects.filter(publicado=True, fecha__gt=articulo.fecha).order_by('fecha').first()
+    if articulo_siguiente:
+        siguiente = articulo_siguiente.slug
+    else:
+        siguiente = None
+
     context = {
         'articles' : last_six_articles,
         'object': articulo,
+        'anterior': anterior,
+        'siguiente': siguiente,
 
     }
     return render (request, template_name, context)
+
+
 
 def prensa(request):
     articulos_list = Articulo.objects.filter(publicado=True)
@@ -70,7 +94,7 @@ def prensa(request):
             Q(texto__icontains=query)
         )
 
-    paginator = Paginator(articulos_list, 1) 
+    paginator = Paginator(articulos_list, 2) 
     page = request.GET.get('page')
     articulos = paginator.get_page(page)
 

@@ -1,7 +1,6 @@
 {% extends 'page/layout/base.html' %}
 
 {% load static %}
-
 {% block 'content' %}
 <!-- contenido de la PAGINA DE INICIO -->
 
@@ -24,10 +23,10 @@
 
 
 
-
+    {% if articles %}
     <!-- Sección de Resumen de Prensa -->
             <div class="container mt-5">
-                {% if articles %}
+                
 
                     <h2 class="mb-4">Últimas noticias</h2>
 
@@ -60,9 +59,9 @@
                         {% endfor %}
                     </div>
 
-                {% endif %}
+                
 
             </div>
     <!-- FIN Sección de Resumen de Prensa -->
-
+    {% endif %}
 {% endblock %}
