@@ -9,7 +9,6 @@ from prensa.models import Articulo, Tag, Categoria
 ## achicador y renombrador de imagenes
 ## test import-export
 # create groups 4 prensa
-# add meta admin and change admin url
 
 
 DEPLOY NGNX ----¿ +GNUNICORN ? media?
