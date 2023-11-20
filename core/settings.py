@@ -68,7 +68,9 @@ INSTALLED_APPS = [
     'rest_framework',
     'corsheaders',
     'import_export',
-    #'tinymce',
+    'drf_yasg',
+
+    #'tinymce', # elegir si la renderización actual o un paquete
 
     'prensa',
 

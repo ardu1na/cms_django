@@ -4,6 +4,11 @@ from django.urls import path, include
 from django.conf.urls.static import static
 from django.shortcuts import render, redirect
 
+from rest_framework import permissions
+
+from drf_yasg.views import get_schema_view
+from drf_yasg import openapi
+
 from core import settings
 from prensa.views import index, articulo, prensa, categorias, tags
 
@@ -28,7 +33,27 @@ def fake_admin(request):
         return render(request, 'f_login.html')
     return redirect('index')
 
+
+
+## swager generation documentación 
+
+schema_view = get_schema_view(
+   openapi.Info(
+      title="DJANGO CMS API",
+      default_version='v1',
+      description="Beta version of endpoints",
+      contact=openapi.Contact(email="arduinadelbosque@gmail.com"),
+   ),
+   public=True,
+   permission_classes=(permissions.AllowAny,),
+)
+
+
 urlpatterns = [
+    # api docs
+    path('api/docs/', schema_view.with_ui('swagger', cache_timeout=0), name='schema-swagger-ui'),
+
+
     # panel de administración
     path('acceso_interno/', admin.site.urls),
     
