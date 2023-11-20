@@ -39,7 +39,7 @@
             
             <div class="col-md-8 mb-4">
                 {% if articulos %}
-                <div class="container">
+                <div class="container-fluid">
                       
                     <div class="row">
                         {% for article in articulos  %} <!-- Artículo {{ article.id }} -->
@@ -133,34 +133,36 @@
                 
             </div>
 
-            <div class="col-md-2 ms-5 mt-4">       
-                <div class="row">                 
-                    <h5>ÚLTIMAS NOTICIAS</h5>
-                    <hr>
-                    {% for article in last %}
-                        <p><a class="text-decoration-none text-secondary" href="{{article.get_absolute_url}}"><i class="bi bi-play-fill"></i> {{ article.titulo }}</a></p>
-                    {% endfor %}
-                </div>
-
-                <div class="row my-5">                 
-                    <h5>CATEGORIAS</h5>
-                    <hr>
-                    <ul class="list-group">
-
-                        {% for categoria in categorias %}
-                        <li class="list-group-item"><a class="text-decoration-none text-secondary" href="{% url 'categoria' slug=categoria.slug %}"> {{ categoria.nombre }}</a></li>
+            <div class="col-md-2 mt-4">
+                <div class="container-fluid">       
+                    <div class="row">                 
+                        <h5>ÚLTIMAS NOTICIAS</h5>
+                        <hr>
+                        {% for article in last %}
+                            <p><a class="text-decoration-none text-secondary" href="{{article.get_absolute_url}}"><i class="bi bi-play-fill"></i> {{ article.titulo }}</a></p>
                         {% endfor %}
-                    </ul>
+                    </div>
 
-                </div>
+                    <div class="row my-5">                 
+                        <h5>CATEGORIAS</h5>
+                        <hr>
+                        <ul class="list-group">
+
+                            {% for categoria in categorias %}
+                            <li class="list-group-item"><a class="text-decoration-none text-secondary" href="{% url 'categoria' slug=categoria.slug %}"> {{ categoria.nombre }}</a></li>
+                            {% endfor %}
+                        </ul>
+
+                    </div>
 
 
-                <div class="row">                 
-                    <h5>TAGS</h5>
-                    <hr>
-                    {% for tag in tags %}
-                        <a class="text-decoration-none mx-1" href="{% url 'tag' slug=tag.slug %}"><span class="badge rounded-pill text-bg-success">{{tag.nombre}}<span></a>
-                    {% endfor %}
+                    <div class="row">                 
+                        <h5>TAGS</h5>
+                        <hr>
+                        {% for tag in tags %}
+                            <a class="text-decoration-none mx-1" href="{% url 'tag' slug=tag.slug %}"><span class="badge rounded-pill text-bg-success">{{tag.nombre}}<span></a>
+                        {% endfor %}
+                    </div>
                 </div>
             </div>
         </div>

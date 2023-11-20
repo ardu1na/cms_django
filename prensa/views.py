@@ -82,8 +82,6 @@ def articulo(request, slug):
     }
     return render (request, template_name, context)
 
-
-
 def prensa(request):
     articulos_list = Articulo.objects.filter(publicado=True)
     query = request.GET.get('q')
