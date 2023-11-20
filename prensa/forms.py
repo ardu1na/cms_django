@@ -6,7 +6,16 @@ class ArticuloAdminForm(forms.ModelForm):
     class Meta:
         model = Articulo
         fields = '__all__'
+        
+
+
+
+
+
+
     """    
+## para la implementación de la libreria django-tinymice comentada en settings.py
+
 from django import forms 
 from tinymce import TinyMCE
 from prensa.models import Articulo 

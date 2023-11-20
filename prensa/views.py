@@ -22,9 +22,7 @@ DEPLOY NGNX ----¿ +GNUNICORN ? media?
 
 ## TODO NEXT FASE:
 # create special endpoints for gral querys
-# add swagger docs
 # do fe with react
-# modulo mercado local
 
 """
 
@@ -113,28 +111,6 @@ def prensa(request):
     }
     return render (request, template_name, context)
 
-def categorias(request, slug):
-    categoria = Categoria.objects.filter(slug=slug).last()
-    articulos_list = Articulo.objects.filter(publicado=True, categoria=categoria)
-    paginator = Paginator(articulos_list, 4) 
-    page = request.GET.get('page')
-    articulos = paginator.get_page(page)
-
-    last_articles =  Articulo.objects.filter(publicado=True).order_by('-fecha')[:10]
-
-    tags = Tag.objects.all()[:15]
-    categorias = Categoria.objects.exclude(id=categoria.id)[:10]
-
-    template_name = 'page/prensa/query.html'
-    context = {
-        'last' : last_articles,
-        'articulos': articulos,
-        'tags': tags,
-        'categorias': categorias,
-        'categoria':categoria,
-
-    }
-    return render (request, template_name, context)
 
 def tags(request, slug):
     tag = Tag.objects.filter(slug=slug).last()

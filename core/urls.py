@@ -10,7 +10,7 @@ from drf_yasg.views import get_schema_view
 from drf_yasg import openapi
 
 from core import settings
-from prensa.views import index, articulo, prensa, categorias, tags
+from prensa.views import index, articulo, prensa,  tags
 
 
 
@@ -27,6 +27,7 @@ handler500 = _500_view
 
 
 
+###
 
 def fake_admin(request):
     if request.method == 'GET':
@@ -35,7 +36,7 @@ def fake_admin(request):
 
 
 
-## swager generation documentación 
+## documentación 
 
 schema_view = get_schema_view(
    openapi.Info(
@@ -50,11 +51,30 @@ schema_view = get_schema_view(
 
 
 urlpatterns = [
+
+################## DJANGO FE 
+    #
+    # pagina de inicio
+    path('', index, name="index"),
+    #
+    # página de prensa (CMS)
+    path('prensa/nota/<slug:slug>/', articulo, name="articulo"),
+    path('prensa/', prensa, name="prensa"),
+    path('prensa/tag/<slug:slug>/', tags, name="tag"),
+
+############################# OTHER UI FE (REACT)
+    # 
     # api docs
     path('api/docs/', schema_view.with_ui('swagger', cache_timeout=0), name='schema-swagger-ui'),
+    #
+    # endpoint para el servicio CMS Prensa
+    path('api/prensa/', include('prensa.urls')),
 
 
-    # panel de administración
+
+################ backend management
+
+    # panel de administración / CMS, users, perms, etc
     path('acceso_interno/', admin.site.urls),
     
     # admin honeypots 
@@ -62,18 +82,5 @@ urlpatterns = [
     path('admin/', fake_admin),
     path('administrator/', fake_admin),
     path('wp-admin/', fake_admin),
-
-    # pagina de inicio
-    path('', index, name="index"),
-
-    # página de prensa
-    path('prensa/nota/<slug:slug>/', articulo, name="articulo"),
-    path('prensa/', prensa, name="prensa"),
-    path('prensa/categoria/<slug:slug>/', categorias, name="categoria"),
-    path('prensa/tag/<slug:slug>/', tags, name="tag"),
-
-    # endpoint para el servicio CMS Prensa
-    path('api/prensa/', include('prensa.urls')),
-
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) # manejar esto diferente en prod
