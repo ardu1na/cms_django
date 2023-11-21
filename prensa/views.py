@@ -2,7 +2,7 @@ from django.core.paginator import Paginator
 from django.shortcuts import render
 from django.db.models import Q
 
-from prensa.models import Articulo, Tag, Categoria
+from prensa.models import Articulo, Tag
 """
 
 ## TODO:
@@ -70,12 +70,14 @@ def articulo(request, slug):
         siguiente = articulo_siguiente.slug
     else:
         siguiente = None
+    tags = Tag.objects.all()[:15]
 
     context = {
         'articles' : last_six_articles,
         'object': articulo,
         'anterior': anterior,
         'siguiente': siguiente,
+        'tags': tags,
 
     }
     return render (request, template_name, context)
@@ -90,7 +92,7 @@ def prensa(request):
             Q(texto__icontains=query)
         )
 
-    paginator = Paginator(articulos_list, 2) 
+    paginator = Paginator(articulos_list, 4) 
     page = request.GET.get('page')
     articulos = paginator.get_page(page)
 
@@ -98,7 +100,6 @@ def prensa(request):
     last_destacados = Articulo.objects.filter(publicado=True, destacado=True).order_by('-fecha')[:4]
 
     tags = Tag.objects.all()[:15]
-    categorias = Categoria.objects.all()[:10]
 
     template_name = 'page/prensa/prensa.html'
     context = {
@@ -106,7 +107,6 @@ def prensa(request):
         'last' : last_articles,
         'articulos': articulos,
         'tags': tags,
-        'categorias': categorias,
 
     }
     return render (request, template_name, context)
@@ -115,21 +115,19 @@ def prensa(request):
 def tags(request, slug):
     tag = Tag.objects.filter(slug=slug).last()
     articulos_list = Articulo.objects.filter(publicado=True, tags=tag)
-    paginator = Paginator(articulos_list, 4) 
+    paginator = Paginator(articulos_list, 2) 
     page = request.GET.get('page')
     articulos = paginator.get_page(page)
 
     last_articles =  Articulo.objects.filter(publicado=True).order_by('-fecha')[:10]
 
     tags = Tag.objects.exclude(id=tag.id)[:15]
-    categorias = Categoria.objects.all()[:10]
 
     template_name = 'page/prensa/query.html'
     context = {
         'last' : last_articles,
         'articulos': articulos,
         'tags': tags,
-        'categorias': categorias,
         'tag':tag,
 
     }

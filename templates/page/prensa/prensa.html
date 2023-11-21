@@ -30,22 +30,18 @@
 
 
         
-
-        <br>
-
-        <div class="row">
+        <div class="row py-5">
 
             
             
             <div class="col-md-8 mb-4">
                 {% if articulos %}
-                <div class="container-fluid">
-                      
                     <div class="row">
                         {% for article in articulos  %} <!-- Artículo {{ article.id }} -->
                         
-                            <div class="col-md-5 mb-4 ">
-                                <div class="card">
+                            <div class="col-md-6 mb-4 ">
+                                <div class="card" style="height: 666px; overflow: hidden;">
+
                             
                                     <img 
                                     {% if article.image_top %}
@@ -71,12 +67,8 @@
                             </div>
                         {% endfor %}
                     </div>
-            
-                </div>
-
-
-                
-               <!-- PAGINATION -->
+                        
+                    <!-- PAGINATION -->
                     {% if articulos.has_other_pages %}
                     <nav aria-label="Page navigation">
                         <ul class="pagination justify-content-center my-3">
@@ -109,6 +101,8 @@
                         </ul>
                     </nav>
                     {% endif %}
+               
+                    
 
 
                 {% else %}
@@ -117,12 +111,7 @@
                     <div class="card-body">
                         
                         <p class="card-text">No se han encontrado artículos, prueba con otra palabra.</p>
-                    </div>
-                                            
-
-                    {% if articulo.image_bottom %} <img src="{{ articulo.image_bottom.url }}" class="img-fluid my-2" alt="{{ articulo.titulo }} - Prensa de la Municipalidad de El Bolsón"> {% endif %}    
-
-                
+                    </div> 
                 </div>
                 {% endif %}
 
@@ -143,20 +132,9 @@
                         {% endfor %}
                     </div>
 
+                   
+
                     <div class="row my-5">                 
-                        <h5>CATEGORIAS</h5>
-                        <hr>
-                        <ul class="list-group">
-
-                            {% for categoria in categorias %}
-                            <li class="list-group-item"><a class="text-decoration-none text-secondary" href="{% url 'categoria' slug=categoria.slug %}"> {{ categoria.nombre }}</a></li>
-                            {% endfor %}
-                        </ul>
-
-                    </div>
-
-
-                    <div class="row">                 
                         <h5>TAGS</h5>
                         <hr>
                         {% for tag in tags %}
@@ -171,14 +149,14 @@
         <!-- Sección Destacados -->
         <div class="container">
         {% if destacados %}
-            <br>
             <h2 class="my-5">DESTACADOS</h2>
 
             <div class="row">
                 {% for article in destacados %} <!-- Artículo {{ article.id }} -->
                 
                     <div class="col-md-3 mb-4">
-                        <div class="card">
+                        <div class="card" style="height: 666px; overflow: hidden;">
+
                     
                             <img 
                             {% if article.image_top %}

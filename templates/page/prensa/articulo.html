@@ -20,23 +20,21 @@
 
             
             <nav aria-label="breadcrumb">
-                <ol class="breadcrumb mt-4">
+                <ol class="breadcrumb my-5">
                   <li class="breadcrumb-item "><a class="text-decoration-none text-secondary" href="{% url 'index' %}">Inicio</a></li>
                   <li class="breadcrumb-item"><a class="text-decoration-none text-secondary" href="{% url 'prensa' %}">Prensa</a></li>
-                  {% if object.categoria %}
-                  <li class="breadcrumb-item"><a class="text-decoration-none text-secondary" href="{% url 'categoria' slug=object.categoria.slug %}">{{ object.categoria}}</a></li>
-                  {% endif %}
+                  
                   
                   <li class="breadcrumb-item active" aria-current="page"> {{object.titulo}}</li>
                 </ol>
-              </nav>
+            </nav>
 
-              <br>
 
             <div class="row">
                
                 <div class="col-md-8 mb-4">
                     <div class="card">
+
                         
                         <div class="card-body">
                             <h4 class="card-title">{{ object.titulo }}</h4>
@@ -51,10 +49,12 @@
                             {% if object.image_top %} <img src="{{ object.image_top.url }}" class="img-fluid" alt="{{ object.titulo }} - Prensa de la Municipalidad de El Bolsón"> {% endif %}                     
                         
                             <p class="card-text">{{ object.texto|safe }}</p>
+
+                            {% if object.image_bottom %} <img src="{{ object.image_bottom.url }}" class="img-fluid my-2" alt="{{ object.titulo }} - Prensa de la Municipalidad de El Bolsón"> {% endif %}   
                         </div>
                                                 
 
-                        {% if object.image_bottom %} <img src="{{ object.image_bottom.url }}" class="img-fluid my-2" alt="{{ object.titulo }} - Prensa de la Municipalidad de El Bolsón"> {% endif %}    
+                         
 
                         {% if object.updated %}
                             <hr>
@@ -96,7 +96,15 @@
                     {% for article in articles %}
                     <p><a class="text-decoration-none text-secondary" href="{{article.get_absolute_url}}"><i class="bi bi-play-fill"></i> {{ article.titulo }}</a></p>
                     {% endfor %}
-                </div>
+
+                    <div class="row my-5">                 
+                        <h5>TAGS</h5>
+                        <hr>
+                        {% for tag in tags %}
+                            <a class="text-decoration-none mx-1" href="{% url 'tag' slug=tag.slug %}"><span class="badge rounded-pill text-bg-success">{{tag.nombre}}<span></a>
+                        {% endfor %}
+                    </div>
+                </div>                
             </div>
 
         </div>
