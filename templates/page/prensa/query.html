@@ -50,8 +50,6 @@
                             <div class="card-body">
                                 <h5 class="card-title"> <a href="{{ article.get_absolute_url }}" >{{ article.titulo }}</a></h5>
                                 <p class="text-extra-small mt-3"> <i class="bi bi-calendar-week pe-2"></i> Publicado el {{ article.fecha }}</p>
-                                <hr>
-                                <p class="card-text">{{ article.texto|safe|slice:":200" }} ...</p>
                                
                             </div>
                         </div>

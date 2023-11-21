@@ -67,9 +67,7 @@
                                         <h5 class="card-title"><a href="{{ article.get_absolute_url }}" >{{ article.titulo }}</a></h5>
                                         <br>
                                         <p class="text-extra-small"><i class="bi bi-calendar-week pe-2"></i>  Publicado el {{ article.fecha }}</p>
-                                        <hr>
-                                        <p class="card-text">{{ article.texto|safe|slice:":200" }} ...</p>
-                                       
+                                                                               
                                     </div>
                                 </div>
                             </div>
@@ -118,7 +116,7 @@
                     
                     <div class="card-body">
                         
-                        <p class="card-text">No se han encontrado artículos, prueba con otra palabra.</p>
+                        <p class="card-text text-secondary">No se han encontrado artículos, prueba con otra palabra.</p>
                     </div> 
                 </div>
                 {% endif %}
@@ -194,9 +192,9 @@
                             class="card-img-top" alt="{{ article.titulo }} Municipalidad de El Bolsón">
 
                             <div class="card-body">
-                                <h5 class="card-title">{{ article.titulo }}</h5>
+                                <h5 class="card-title"><a href="{{ article.get_absolute_url }}">{{ article.titulo }}</a></h5>
                                 <p class="card-text">{{ article.fecha }}</p>
-                                <a href="{{ article.get_absolute_url }}" class="btn btn-success btn-lg rounded-pill mb-4">Leer más</a>
+                                
                             </div>
                         </div>
                     </div>
