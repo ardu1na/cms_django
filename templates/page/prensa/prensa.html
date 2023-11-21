@@ -57,11 +57,12 @@
                                     class="card-img-top" alt="{{ article.titulo }} Municipalidad de El Bolsón">
         
                                     <div class="card-body">
-                                        <h5 class="card-title">{{ article.titulo }}</h5>
-                                        <p class="card-text">{{ article.fecha }}</p>
+                                        <h5 class="card-title"><a href="{{ article.get_absolute_url }}" >{{ article.titulo }}</a></h5>
+                                        <br>
+                                        <p class="text-extra-small"><i class="bi bi-calendar-week pe-2"></i>  Publicado el {{ article.fecha }}</p>
                                         <hr>
                                         <p class="card-text">{{ article.texto|safe|slice:":200" }} ...</p>
-                                        <a href="{{ article.get_absolute_url }}" class="btn btn-success btn-lg rounded-pill my-4 px-4">Leer más</a>
+                                       
                                     </div>
                                 </div>
                             </div>
@@ -122,17 +123,29 @@
                 
             </div>
 
-            <div class="col-md-2 mt-4">
-                <div class="container-fluid">       
+            <div class="col-md-3 ms-4">
+                <div class="container-fluid"> 
+                    {% if last %}
+      
                     <div class="row">                 
                         <h5>ÚLTIMAS NOTICIAS</h5>
                         <hr>
                         {% for article in last %}
-                            <p><a class="text-decoration-none text-secondary" href="{{article.get_absolute_url}}"><i class="bi bi-play-fill"></i> {{ article.titulo }}</a></p>
-                        {% endfor %}
+                        <div class="row">
+                            <div class="col-2 pe-0 pe-3 d-flex flex-row-reverse">
+                                <i class="bi bi-file-earmark-text-fill"></i> 
+                            </div>
+                            <div class="col-10 ps-0 me-0">
+                                <p><a class="text-decoration-none text-secondary" href="{{article.get_absolute_url}}">
+                                    {{ article.titulo }}
+                                </a></p>
+                            </div>
+                        </div>                        {% endfor %}
                     </div>
+                    {% endif %}
 
                    
+                    {% if tags %}
 
                     <div class="row my-5">                 
                         <h5>TAGS</h5>
@@ -141,6 +154,8 @@
                             <a class="text-decoration-none mx-1" href="{% url 'tag' slug=tag.slug %}"><span class="badge rounded-pill text-bg-success">{{tag.nombre}}<span></a>
                         {% endfor %}
                     </div>
+                    {% endif %}
+
                 </div>
             </div>
         </div>

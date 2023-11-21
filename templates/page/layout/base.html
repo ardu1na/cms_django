@@ -39,11 +39,22 @@
                 padding-left: 0;
                 list-style: none;
             }
+            .card-title a {
+                text-decoration: none;
+                color: var(--bs-secondary-color); 
+              }
+            
+            a:hover {
+                color: #0aca22; 
+              }
             
             .card-img-top {
                 height: 300px; 
                 object-fit: cover; 
             }
+            .text-extra-small {
+                font-size: 0.9rem;
+              }
         </style>
         {% block 'extra_styles' %}{% endblock %}
     </head>
