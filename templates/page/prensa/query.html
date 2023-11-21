@@ -41,7 +41,7 @@
                     <!-- Artículo {{ article.id }} -->
                     
                     <div class="col-md-6 mb-4 px-2">
-                        <div class="card" style="height: 666px; overflow: hidden;">
+                        <div class="card" style="height: 100%;">
 
                     
                             <img {% if article.image_top %} src="{{ article.image_top.url }}" {% else %} {% if article.image_bottom %} src="{{ article.image_bottom.url }}" {% else %} src="{% static 'img/logo.png' %}"{% endif %}{% endif %} class="card-img-top p-1" alt="{{ article.titulo }} Municipalidad de El Bolsón">

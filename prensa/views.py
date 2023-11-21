@@ -115,7 +115,7 @@ def prensa(request):
 def tags(request, slug):
     tag = Tag.objects.filter(slug=slug).last()
     articulos_list = Articulo.objects.filter(publicado=True, tags=tag)
-    paginator = Paginator(articulos_list, 2) 
+    paginator = Paginator(articulos_list, 4) 
     page = request.GET.get('page')
     articulos = paginator.get_page(page)
 
