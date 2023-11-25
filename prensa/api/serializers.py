@@ -7,6 +7,12 @@ from prensa.models import Articulo, Tag
 
 
 
+class LastArticulosSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Articulo
+        fields = ['id','fecha','titulo', 'image_top', 'image_bottom', 'destacado', 'slug']
+        
+     
 class ArticuloListSerializer(serializers.ModelSerializer):
     class Meta:
         model = Articulo
@@ -27,5 +33,5 @@ class ArticuloDetailSerializer(serializers.ModelSerializer):
     
     class Meta:
         model = Articulo
-        fields = ['id','fecha','titulo','texto', 'meta', 'slug', 'tags']
+        fields = ['id','fecha','titulo','texto', 'meta', 'slug', 'tags', 'image_top', 'image_bottom',]
         

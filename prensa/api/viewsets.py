@@ -1,5 +1,8 @@
 from rest_framework import viewsets, permissions
-from prensa.api.serializers import ArticuloListSerializer, ArticuloDetailSerializer
+from rest_framework.decorators import api_view
+from rest_framework.response import Response
+
+from prensa.api.serializers import ArticuloListSerializer, ArticuloDetailSerializer, LastArticulosSerializer
 from prensa.models import Articulo
 
 class ArticulosViewSet(viewsets.ModelViewSet):
@@ -14,3 +17,13 @@ class ArticulosViewSet(viewsets.ModelViewSet):
         if self.action in ['list', 'retrieve']:
             return [permissions.AllowAny()]
         return [permissions.IsAuthenticated()]
+    
+
+
+    
+@api_view(['GET'])
+def lastArticulosView(request):
+    last_articulos = Articulo.objects.filter(publicado=True).order_by('-fecha')[:3]  
+    serializer = LastArticulosSerializer(last_articulos, many=True)  
+    return Response(serializer.data)  
+

@@ -4,7 +4,7 @@ import logo_footer from "../logo_escudo.png";
 export const Footer = () => {
     return (
         <>
-        <footer className="justify-content-around mx-0 bg-dark d-flex p-4 footer fixed-bottom">
+        <footer className="justify-content-around mx-0 bg-dark d-flex p-4 ">
             <div className="row pt-3">
 
                 <div className="col mt-4 d-none d-sm-block">

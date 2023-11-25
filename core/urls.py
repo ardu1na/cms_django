@@ -10,7 +10,9 @@ from drf_yasg.views import get_schema_view
 from drf_yasg import openapi
 
 from core import settings
+
 from prensa.views import index, articulo, prensa,  tags
+from prensa.api.viewsets import lastArticulosView
 
 
 
@@ -69,6 +71,7 @@ urlpatterns = [
     #
     # endpoint para el servicio CMS Prensa
     path('api/prensa/', include('prensa.urls')),
+    path('api/prensa/last/', lastArticulosView, name="last"),
 
 
 
