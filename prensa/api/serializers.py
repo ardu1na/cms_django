@@ -5,7 +5,13 @@ from rest_framework import serializers
 from prensa.models import Articulo, Tag
 
 
-class LastArticulosSerializer(serializers.ModelSerializer):
+class LastArticulosListSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Articulo
+        fields = ['id','titulo']
+
+
+class CardArticulosSerializer(serializers.ModelSerializer):
     date = serializers.SerializerMethodField()
 
     class Meta:
@@ -34,9 +40,15 @@ class TagSerializer(serializers.ModelSerializer):
         
 
 class ArticuloDetailSerializer(serializers.ModelSerializer):
+    date = serializers.SerializerMethodField()
     tags = TagSerializer(many=True)
+
     
     class Meta:
         model = Articulo
-        fields = ['id','fecha','titulo','texto', 'meta', 'slug', 'tags', 'image_top', 'image_bottom',]
+        fields = ['id','date','titulo','texto', 'meta', 'slug', 'tags', 'image_top', 'image_bottom',]
         
+    def get_date(self, obj):
+        fecha = obj.fecha
+        formatted_date = datetime.strftime(fecha, "%d/%m/%Y %H:%M hs.")
+        return formatted_date

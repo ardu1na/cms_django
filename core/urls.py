@@ -12,7 +12,7 @@ from drf_yasg import openapi
 from core import settings
 
 from prensa.views import index, articulo, prensa,  tags
-from prensa.api.viewsets import lastArticulosView
+from prensa.api.viewsets import lastArticulosView, lastArticulosList, DestacadosArticulosView
 
 
 
@@ -65,13 +65,17 @@ urlpatterns = [
     path('prensa/tag/<slug:slug>/', tags, name="tag"),
 
 ############################# OTHER UI FE (REACT)
-    # 
+    #     # API DE PRENSA
+
     # api docs
     path('api/docs/', schema_view.with_ui('swagger', cache_timeout=0), name='schema-swagger-ui'),
-    #
+
     # endpoint para el servicio CMS Prensa
-    path('api/prensa/', include('prensa.urls')),
-    path('api/prensa/last/', lastArticulosView, name="last"),
+    path('api/prensa/', include('prensa.urls')), # VER DOCS
+    # micro servicios
+    path('api/prensa/destacados/', DestacadosArticulosView, name="destacados"), # DEVUELVE TITULO E IMAGEN DE LOS 3 ULTIMOS DESTACADOS
+    path('api/prensa/last/', lastArticulosView, name="last"), # DEVUELVE TITULO E IMAGEN DE LOS ULTIMOS 3
+    path('api/prensa/last/list/', lastArticulosList, name="last-list"), # DEVUELVE LOS TITULOS DE LOS ULTIMOS 7
 
 
 
