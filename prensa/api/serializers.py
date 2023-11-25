@@ -38,6 +38,12 @@ class TagSerializer(serializers.ModelSerializer):
         fields = '__all__'
         
         
+        
+class TagListSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Tag
+        fields = ['id','nombre']
+
 
 class ArticuloDetailSerializer(serializers.ModelSerializer):
     date = serializers.SerializerMethodField()

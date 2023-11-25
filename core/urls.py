@@ -12,7 +12,9 @@ from drf_yasg import openapi
 from core import settings
 
 from prensa.views import index, articulo, prensa,  tags
-from prensa.api.viewsets import lastArticulosView, lastArticulosList, DestacadosArticulosView
+
+from prensa.api.viewsets import lastArticulosView, lastArticulosList, \
+    DestacadosArticulosView, tagsList
 
 
 
@@ -50,7 +52,8 @@ schema_view = get_schema_view(
    public=True,
    permission_classes=(permissions.AllowAny,),
 )
-
+###############################################################################################################
+########### PATHS 
 
 urlpatterns = [
 
@@ -72,10 +75,13 @@ urlpatterns = [
 
     # endpoint para el servicio CMS Prensa
     path('api/prensa/', include('prensa.urls')), # VER DOCS
+
     # micro servicios
     path('api/prensa/destacados/', DestacadosArticulosView, name="destacados"), # DEVUELVE TITULO E IMAGEN DE LOS 3 ULTIMOS DESTACADOS
     path('api/prensa/last/', lastArticulosView, name="last"), # DEVUELVE TITULO E IMAGEN DE LOS ULTIMOS 3
+
     path('api/prensa/last/list/', lastArticulosList, name="last-list"), # DEVUELVE LOS TITULOS DE LOS ULTIMOS 7
+    path('api/prensa/tags/list/', tagsList, name="tags-list"), # DEVUELVE LOS TITULOS DE LOS TAGS
 
 
 

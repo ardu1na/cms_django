@@ -3,8 +3,8 @@ from rest_framework.decorators import api_view
 from rest_framework.response import Response
 
 from prensa.api.serializers import ArticuloListSerializer, ArticuloDetailSerializer,\
-      CardArticulosSerializer, LastArticulosListSerializer
-from prensa.models import Articulo
+      CardArticulosSerializer, LastArticulosListSerializer, TagListSerializer
+from prensa.models import Articulo, Tag
 
 
 
@@ -52,4 +52,11 @@ def lastArticulosView(request):
 def lastArticulosList(request):
     last_articulos = Articulo.objects.filter(publicado=True).order_by('-fecha')[:7]  
     serializer = LastArticulosListSerializer(last_articulos, many=True)  
+    return Response(serializer.data)  
+
+## DEVUELVE LA LISTA DE tags 
+@api_view(['GET'])
+def tagsList(request):
+    tags = Tag.objects.all[:10]  
+    serializer = TagListSerializer(tags, many=True)  
     return Response(serializer.data)  
