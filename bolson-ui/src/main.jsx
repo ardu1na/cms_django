@@ -13,8 +13,8 @@ export default function App() {
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
-          <Route path="blogs" element={<Blogs />} />
-          <Route path="blogs/:blogId" element={<BlogDetail />} />
+          <Route path="prensa" element={<Blogs />} />
+          <Route path="prensa/:blogId" element={<BlogDetail />} />
           <Route path="*" element={<NoPage />} />
         </Route>
       </Routes>

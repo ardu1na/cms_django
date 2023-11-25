@@ -6,6 +6,7 @@ export function Home() {
 
   return (
     <>
+    
         <Hero />
         <LastArticles />
 

@@ -20,7 +20,7 @@ export const LastArticles = () => {
 
   return (
     <div className="container mt-5">
-      <Link className="text-decoration-none text-secondary mt-5" to="/blogs"><h2>Últimas noticias</h2></Link>
+      <Link className="text-decoration-none text-secondary mt-5" to="/prensa"><h2>Últimas noticias</h2></Link>
 
       <div className="row my-5">
         {articles.map((article) => (
@@ -34,7 +34,9 @@ export const LastArticles = () => {
 
               <div className="card-body">
                 <h5 className="card-title">
-                  <a>{article.titulo}</a>
+                <Link to={`prensa/${article.id}`}>
+                   <a>{article.titulo}</a> 
+                    </Link>
                 </h5>
                 <p className="text-extra-small mt-3">
                   <i className="bi bi-calendar-week pe-2"></i> Publicado el {article.date}

@@ -7,7 +7,7 @@ export const Header = () => {
     <>
       <header className="navbar navbar-expand-lg navbar-light bg-light">
         <div className="container">
-            <img className="navbar-brand" src={logo} alt="Logo" height="85" />         
+        <Link to="/"><img className="navbar-brand" src={logo} alt="Logo" height="85" />     </Link>    
 
             <div className="collapse navbar-collapse justify-content-end" id="navbarNav">
                 <ul className="navbar-nav">
@@ -16,7 +16,7 @@ export const Header = () => {
                     </li>                  
                 
                     <li className="nav-item">
-                        <Link className="nav-link" to="/blogs">Prensa</Link>
+                        <Link className="nav-link" to="/prensa">Prensa</Link>
 
                     </li>
                 </ul>
