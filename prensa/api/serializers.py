@@ -1,16 +1,21 @@
+from datetime import datetime
+
 from rest_framework import serializers
 
 from prensa.models import Articulo, Tag
 
-## TODO: serializer con titulo , sino hay texto cortado, fecha, foto,  de las ultimas tres o cuatro notas o de destacados,
-
-
-
 
 class LastArticulosSerializer(serializers.ModelSerializer):
+    date = serializers.SerializerMethodField()
+
     class Meta:
         model = Articulo
-        fields = ['id','fecha','titulo', 'image_top', 'image_bottom', 'destacado', 'slug']
+        fields = ['id','date','titulo', 'image_top', 'image_bottom', 'destacado', 'slug']
+
+    def get_date(self, obj):
+        fecha = obj.fecha
+        formatted_date = datetime.strftime(fecha, "%d/%m/%Y %H:%M hs.")
+        return formatted_date
         
      
 class ArticuloListSerializer(serializers.ModelSerializer):

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import logo from "../logo.png";
+import { Link } from "react-router-dom";
 
 export const LastArticles = () => {
   const [articles, setArticles] = useState([]);
@@ -20,9 +20,9 @@ export const LastArticles = () => {
 
   return (
     <div className="container mt-5">
-      <h2 className="my-4">Últimas noticias</h2>
+      <Link className="text-decoration-none text-secondary mt-5" to="/blogs"><h2>Últimas noticias</h2></Link>
 
-      <div className="row mb-5">
+      <div className="row my-5">
         {articles.map((article) => (
           <div key={article.id} className="col-md-4 mb-4">
             <div className="card" style={{ height: '100%' }}>
@@ -37,7 +37,7 @@ export const LastArticles = () => {
                   <a>{article.titulo}</a>
                 </h5>
                 <p className="text-extra-small mt-3">
-                  <i className="bi bi-calendar-week pe-2"></i> Publicado el {article.fecha}
+                  <i className="bi bi-calendar-week pe-2"></i> Publicado el {article.date}
                 </p>
               </div>
             </div>

@@ -37,6 +37,7 @@ export const Hero = () => {
         </a>
       </div>
     </div>
+    
   );
 };
 
