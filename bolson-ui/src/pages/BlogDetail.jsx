@@ -25,7 +25,7 @@ export function BlogDetail() {
   }, [blogId]);
 
   if (!blogData) {
-    return <p>Loading...</p>;
+    return <p className="m-5 text-secondary fs-3">Loading...</p>;
   }
 
   return (

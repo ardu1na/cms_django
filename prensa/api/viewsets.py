@@ -11,8 +11,11 @@ from prensa.models import Articulo, Tag
 ## CRUD PRINCIPAL PARA SOLICITUDES PUBLICAS 
 class ArticulosViewSet(viewsets.ModelViewSet):
     queryset = Articulo.objects.filter(publicado=True)
-
+    """
+        Devuelve una lista de los últimos artículos
+        """
     def get_serializer_class(self):
+        
         if self.action == 'list':
             return ArticuloListSerializer
         return ArticuloDetailSerializer
