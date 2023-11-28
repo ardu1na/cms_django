@@ -1,4 +1,4 @@
-from rest_framework import viewsets, permissions
+from rest_framework import viewsets, permissions, pagination
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 
@@ -8,14 +8,19 @@ from prensa.models import Articulo, Tag
 
 
 
+class ArticulosPagination(pagination.PageNumberPagination):
+    page_size = 4
+    page_size_query_param = 'page_size'
+    max_page_size = 100
+
+
+
 ## CRUD PRINCIPAL PARA SOLICITUDES PUBLICAS 
 class ArticulosViewSet(viewsets.ModelViewSet):
     queryset = Articulo.objects.filter(publicado=True)
-    """
-        Devuelve una lista de los últimos artículos
-        """
+    pagination_class = ArticulosPagination 
+
     def get_serializer_class(self):
-        
         if self.action == 'list':
             return ArticuloListSerializer
         return ArticuloDetailSerializer
@@ -24,7 +29,7 @@ class ArticulosViewSet(viewsets.ModelViewSet):
         if self.action in ['list', 'retrieve']:
             return [permissions.AllowAny()]
         return [permissions.IsAuthenticated()]
-    
+
 
 
 
