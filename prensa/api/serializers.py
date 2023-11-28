@@ -23,7 +23,9 @@ class CardArticulosSerializer(serializers.ModelSerializer):
 class ArticuloListSerializer(serializers.ModelSerializer):
     class Meta:
         model = Articulo
-        fields = ['id', 'fecha', 'titulo', 'destacado', 'slug']
+        fields = ['id', 'fecha', 'titulo', 'destacado',  'image_top', 'image_bottom', 'slug']
+
+   
 
 class TagSerializer(serializers.ModelSerializer):
     articulos = ArticuloListSerializer(many=True)

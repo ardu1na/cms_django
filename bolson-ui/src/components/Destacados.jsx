@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from "react-router-dom";
 
-export const LastArticles = () => {
+export const Destacados = () => {
   const [articles, setArticles] = useState([]);
 
   useEffect(() => {
     const fetchArticles = async () => {
       try {
-        const response = await fetch('http://127.0.0.1:8000/api/prensa/last/');
+        const response = await fetch('http://127.0.0.1:8000/api/prensa/destacados/');
         const data = await response.json();
         setArticles(data);
       } catch (error) {
@@ -22,9 +22,10 @@ export const LastArticles = () => {
     return null;
   }
 
+
   return (
     <div className="container mt-5">
-      <Link className="text-decoration-none text-secondary mt-5" to="/prensa"><h2>Últimas noticias</h2></Link>
+      <Link className="text-decoration-none text-secondary mt-5" to="/prensa"><h2>Artículos Destacados</h2></Link>
 
       <div className="row my-5">
         {articles.map((article) => (
@@ -40,7 +41,7 @@ export const LastArticles = () => {
                 <h5 className="card-title">
                 <Link to={`prensa/${article.id}`}>
                    <a>{article.titulo}</a> 
-                    </Link>
+                </Link>
                 </h5>
                 <p className="text-extra-small mt-3">
                   <i className="bi bi-calendar-week pe-2"></i> Publicado el {article.date}

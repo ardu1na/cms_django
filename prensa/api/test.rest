@@ -17,7 +17,7 @@ Content-Type: application/json
 
 ###
 
-GET     http://127.0.0.1:8000/api/prensa/last/list/
+GET     http://localhost:8000/api/prensa/articulos/
 
 
 Content-Type: application/json

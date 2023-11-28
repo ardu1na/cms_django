@@ -14,7 +14,6 @@ class ArticulosPagination(pagination.PageNumberPagination):
     max_page_size = 100
 
 
-
 ## CRUD PRINCIPAL PARA SOLICITUDES PUBLICAS 
 class ArticulosViewSet(viewsets.ModelViewSet):
     queryset = Articulo.objects.filter(publicado=True)
@@ -29,9 +28,6 @@ class ArticulosViewSet(viewsets.ModelViewSet):
         if self.action in ['list', 'retrieve']:
             return [permissions.AllowAny()]
         return [permissions.IsAuthenticated()]
-
-
-
 
 
 
