@@ -57,6 +57,6 @@ def lastArticulosList(request):
 ## DEVUELVE LA LISTA DE tags 
 @api_view(['GET'])
 def tagsList(request):
-    tags = Tag.objects.all[:10]  
+    tags = Tag.objects.all()[:10]  
     serializer = TagListSerializer(tags, many=True)  
     return Response(serializer.data)  

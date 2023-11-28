@@ -76,12 +76,20 @@ urlpatterns = [
     # endpoint para el servicio CMS Prensa
     path('api/prensa/', include('prensa.urls')), # VER DOCS
 
-    # micro servicios
-    path('api/prensa/destacados/', DestacadosArticulosView, name="destacados"), # DEVUELVE TITULO E IMAGEN DE LOS 3 ULTIMOS DESTACADOS
-    path('api/prensa/last/', lastArticulosView, name="last"), # DEVUELVE TITULO E IMAGEN DE LOS ULTIMOS 3
+    ## micro servicios
 
-    path('api/prensa/last/list/', lastArticulosList, name="last-list"), # DEVUELVE LOS TITULOS DE LOS ULTIMOS 7
-    path('api/prensa/tags/list/', tagsList, name="tags-list"), # DEVUELVE LOS TITULOS DE LOS TAGS
+    # DEVUELVE TITULO E IMAGEN DE LOS 3 ULTIMOS DESTACADOS
+    path('api/prensa/destacados/', DestacadosArticulosView, name="destacados"),
+
+    # DEVUELVE TITULO E IMAGEN DE LOS ULTIMOS 3
+    path('api/prensa/last/', lastArticulosView, name="last"), 
+
+
+    # DEVUELVE LOS TITULOS DE LOS ULTIMOS 7
+    path('api/prensa/last/list/', lastArticulosList, name="last-list"), 
+    
+    # DEVUELVE LOS TITULOS DE LOS TAGS
+    path('api/prensa/tags/list/', tagsList, name="tags-list"), 
 
 
 

@@ -6,3 +6,18 @@ GET     http://127.0.0.1:8000/api/prensa/articulos/10/
 Content-Type: application/json
 
 
+###
+
+GET     http://127.0.0.1:8000/api/prensa/tags/list/
+
+
+Content-Type: application/json
+
+
+
+###
+
+GET     http://127.0.0.1:8000/api/prensa/last/list/
+
+
+Content-Type: application/json

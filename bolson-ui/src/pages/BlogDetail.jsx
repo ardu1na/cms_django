@@ -1,5 +1,6 @@
-import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { Link, useParams } from "react-router-dom";
+import  { SideBar } from "../components/SideBar";
 
 export function BlogDetail() {
   const { blogId } = useParams();
@@ -28,10 +29,46 @@ export function BlogDetail() {
   }
 
   return (
-    <div>
-      <h2>{blogData.titulo}</h2>
-      <p>Blog ID: {blogData.id}</p>
-      <div dangerouslySetInnerHTML={{ __html: blogData.texto }} />
+    <>
+    <div className="container my-4">
+      
+      <nav aria-label="breadcrumb">
+        <ol className="breadcrumb my-5">
+          <li className="breadcrumb-item"><Link to="/"><i className="bi bi-house-door-fill"></i> <strong>Inicio</strong></Link></li>
+          <li className="breadcrumb-item"><Link to="/prensa"><strong>Prensa</strong></Link></li>
+          <li className="breadcrumb-item active" aria-current="page">{blogData.titulo}</li>
+        </ol>
+      </nav>
+
+      <div className="row">
+        <div className="col-md-8 mb-4">
+          <div className="card">
+            <div className="card-body">
+              <h3 className="card-title pt-3 text-secondary">{blogData.titulo}</h3>
+              <br />
+              <p className="text-extra-small"><i className="bi bi-calendar-week pe-2"></i> Publicado el {blogData.fecha}</p>
+              <p className="card-text">
+                {blogData.tags.map((tag) => (
+                  <Link to={`/tag/${tag.slug}`} key={tag.id}><span className="badge rounded-pill text-bg-success">{tag.nombre}</span></Link>
+                ))}
+              </p>
+              <hr />
+              {blogData.image_top && <img src={blogData.image_top.url} className="img-fluid" alt={`${blogData.titulo} - Prensa de la Municipalidad de El Bolsón`} />}
+              <p className="card-text" dangerouslySetInnerHTML={{ __html: blogData.texto }} />
+              {blogData.image_bottom && <img src={blogData.image_bottom.url} className="img-fluid my-2" alt={`${blogData.titulo} - Prensa de la Municipalidad de El Bolsón`} />}
+            </div>
+            {blogData.updated && (
+              <>
+                <hr />
+                <p className="text-secondary mx-3"> (actualizado: {blogData.updated})</p>
+              </>
+            )}
+          </div>
+        </div>
+
+        <SideBar />
+      </div>
     </div>
+    </>
   );
 }

@@ -56,21 +56,27 @@ def index(request):
 
 def articulo(request, slug):
     articulo = Articulo.objects.filter(slug=slug, publicado=True).last()
-    template_name = 'page/prensa/articulo.html'
+    
     last_six_articles =  Articulo.objects.filter(publicado=True).order_by('-fecha').exclude(slug=articulo.slug)[:7]
 
     
     articulo_anterior = Articulo.objects.filter(publicado=True, fecha__lt=articulo.fecha).order_by('-fecha').first()
+
     if articulo_anterior:
         anterior = articulo_anterior.slug
     else:
         anterior = None
+
     articulo_siguiente = Articulo.objects.filter(publicado=True, fecha__gt=articulo.fecha).order_by('fecha').first()
+
     if articulo_siguiente:
         siguiente = articulo_siguiente.slug
     else:
         siguiente = None
+
     tags = Tag.objects.all()[:15]
+
+    template_name = 'page/prensa/articulo.html'
 
     context = {
         'articles' : last_six_articles,
