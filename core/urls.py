@@ -10,10 +10,8 @@ from core.views import my_404_view, my_500_view, \
 from prensa.views import index, articulo, prensa,  tags
 
 from prensa.api.utils import schema_view
-
 from prensa.api.viewsets import lastArticulosView, lastArticulosList, \
     DestacadosArticulosView, tagsList
-
 
 
 handler404 = my_404_view
