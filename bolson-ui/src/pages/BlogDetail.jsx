@@ -51,7 +51,7 @@ export function BlogDetail() {
               <p className="text-extra-small"><i className="bi bi-calendar-week pe-2"></i> Publicado el {blogData.date}</p>
               <p className="card-text">
                 {blogData.tags.map((tag) => (
-                  <Link to={`/tag/${tag.slug}`} key={tag.id}><span className="badge rounded-pill text-bg-success">{tag.nombre}</span></Link>
+                  <Link to={`/tag/${tag.slug}`} key={tag.id}><span className="badge rounded-pill text-bg-success me-2">{tag.nombre}</span></Link>
                 ))}
               </p>
               <hr />

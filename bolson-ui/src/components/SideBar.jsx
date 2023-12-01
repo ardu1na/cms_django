@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from "react-router-dom";
 
 export const SideBar = () => {
   const [ultimas, setUltimas] = useState([]);
@@ -42,13 +43,16 @@ export const SideBar = () => {
                 <i className="bi bi-file-earmark-text-fill"></i>
               </div>
               <div className="col-10 ps-0 me-0">
-                <p>
-                  <a
-                    className="text-decoration-none text-secondary"
-                  >
-                    {article.titulo}
-                  </a>
-                </p>
+
+              <Link
+                className="text-decoration-none text-secondary"
+                to={`/prensa/${article.id}`}
+                replace
+              >
+                {article.titulo}
+              </Link>
+
+                  
               </div>
             </div>
           ))}

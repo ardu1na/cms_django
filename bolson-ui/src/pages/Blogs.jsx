@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { SideBar } from "../components/SideBar";
 import { Destacados } from "../components/Destacados";
+import { Link } from "react-router-dom";
 
 export function Blogs() {
   const [articulos, setArticulos] = useState([]);
@@ -39,9 +40,11 @@ export function Blogs() {
                     />
 
                       <div className="card-body">
-                        <h5 className="card-title">
-                          <a href={article.get_absolute_url}>{article.titulo}</a>
-                        </h5>
+                       
+                        <Link className="text-decoration-none text-secondary "
+                    to={`/prensa/${article.id}`} replace>
+                   <h5 className="card-title">{article.titulo}</h5>
+                    </Link>
                         <br />
                         <p className="text-extra-small">
                           <i className="bi bi-calendar-week pe-2"></i> Publicado el {article.fecha}
