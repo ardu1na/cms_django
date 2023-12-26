@@ -21,9 +21,13 @@ class CardArticulosSerializer(serializers.ModelSerializer):
         return get_formatted_date(obj.fecha)
 
 class ArticuloListSerializer(serializers.ModelSerializer):
+    date = serializers.SerializerMethodField()
     class Meta:
         model = Articulo
-        fields = ['id', 'fecha', 'titulo', 'destacado',  'image_top', 'image_bottom', 'slug']
+        fields = ['id', 'date', 'titulo', 'destacado',  'image_top', 'image_bottom', 'slug']
+
+    def get_date(self, obj):
+        return get_formatted_date(obj.fecha)
 
    
 
@@ -37,7 +41,7 @@ class TagSerializer(serializers.ModelSerializer):
 class TagListSerializer(serializers.ModelSerializer):
     class Meta:
         model = Tag
-        fields = ['id', 'nombre']
+        fields = ['id', 'nombre','slug']
 
 class ArticuloDetailSerializer(serializers.ModelSerializer):
     date = serializers.SerializerMethodField()

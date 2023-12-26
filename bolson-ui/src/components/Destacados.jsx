@@ -32,14 +32,14 @@ export const Destacados = () => {
           <div key={article.id} className="col-md-4 mb-4">
             <div className="card" style={{ height: '100%' }}>
               <img
-              src={`http://127.0.0.1:8000/${article.image_top}`}
+              src={article.image_top ? article.image_top : article.image_bottom ? article.image_bottom : '/static/img/logo.png'}
               className="card-img-top"
                 alt={`${article.titulo} Municipalidad de El Bolsón`}
               />
 
               <div className="card-body">
                 <h5 className="card-title">
-                <Link to={`prensa/${article.id}`}>
+                <Link to={`/prensa/${article.id}`}>
                    <a>{article.titulo}</a> 
                 </Link>
                 </h5>

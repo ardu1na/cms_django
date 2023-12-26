@@ -47,7 +47,7 @@ export function Blogs() {
                     </Link>
                         <br />
                         <p className="text-extra-small">
-                          <i className="bi bi-calendar-week pe-2"></i> Publicado el {article.fecha}
+                          <i className="bi bi-calendar-week pe-2"></i> Publicado el {article.date}
                         </p>
                       </div>
                     </div>
@@ -65,7 +65,7 @@ export function Blogs() {
             {/* Pagination Controls */}
             <div className="d-flex justify-content-center mt-4">
               <button
-                className="btn btn-outline-primary mx-2"
+                className="btn btn-outline-success mx-2"
                 disabled={currentPage === 1}
                 onClick={() => setCurrentPage(currentPage - 1)}
               >
@@ -73,7 +73,7 @@ export function Blogs() {
               </button>
               <span>{`Page ${currentPage} of ${totalPages}`}</span>
               <button
-                className="btn btn-outline-primary mx-2"
+                className="btn btn-outline-success mx-2"
                 disabled={currentPage === totalPages}
                 onClick={() => setCurrentPage(currentPage + 1)}
               >
