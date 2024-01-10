@@ -110,15 +110,15 @@
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="mb-3">
-                                        <label for="nombre" class="form-label"><strong>Nombre</strong></label>
-                                        <input type="text" class="form-control" id="nombre" placeholder="Ingresa tu nombre" required>
+                                        <label for="propietario" class="form-label"><strong>Propietario</strong></label>
+                                        <input type="text" class="form-control" id="propietario" placeholder="Ingresa tu nombre y apellido" required>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
 
                                     <div class="mb-3">
-                                        <label for="apellido" class="form-label"><strong>Apellido</strong></label>
-                                        <input type="text" class="form-control" id="apellido" placeholder="Ingresa tu apellido" required>
+                                        <label for="dominio" class="form-label"><strong>Dominio</strong></label>
+                                        <input type="text" class="form-control" id="dominio" placeholder="Ingresa la patente de tu vehículo" required>
                                     </div>
                                 </div>
                             </div>
@@ -126,15 +126,36 @@
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="mb-3">
-                                        <label for="dni" class="form-label"><strong>DNI</strong></label>
-                                        <input type="text" class="form-control" id="dni" placeholder="Ingresa tu DNI" required>
+                                        <label for="marca" class="form-label"><strong>Marca</strong></label>
+                                        <input type="text" class="form-control" id="marca" placeholder="Ingresa la marca" required>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
 
                                     <div class="mb-3">
-                                        <label for="patente" class="form-label"><strong>Patente</strong></label>
-                                        <input type="text" class="form-control" id="patente" placeholder="Ingresa la patente de tu vehículo" required>
+                                        <label for="modelo" class="form-label"><strong>Modelo</strong></label>
+                                        <input type="text" class="form-control" id="modelo" placeholder="Ingresa el modelo" required>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="mb-3">
+                                        <label for="anio" class="form-label"><strong>Modelo/Año</strong></label>
+                                        <input type="text" class="form-control" id="anio" placeholder="Ingresa el modelo/año" required>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+
+                                                
+                                    <div class="mb-3">
+                                        <label for="tipo" class="form-label"><strong>Tipo</strong></label>
+                                        <select class="form-select" id="tipo" name="tipo" required>
+                                            <option value="" disabled selected>Selecciona el tipo</option>
+                                            <option value="auto">Auto</option>
+                                            <option value="camioneta">Camioneta</option>
+                                        </select>
                                     </div>
                                 </div>
                             </div>
@@ -142,7 +163,7 @@
                             <div class="row">
                                 <div class="mb-3">
                                     <label for="fileField" class="form-label"><strong>Certificado</strong></label>
-                                    <input type="file" class="form-control" id="certificado" name="certificado" required>
+                                    <input type="file" class="form-control" id="certificado" name="certificado">
                                 </div>
                             </div>
                             <p class="my-5" id="resultadoForm"></p>
@@ -160,10 +181,10 @@
                 <div class="col-12 justify-content-between align-items-center text-center pb-5">
                     
                         <p class="mb-2"><i class="bi bi-pin-fill fs-4 pe-3 me-1" style="color: #6ecdb2;"></i>Gral. Roca 689, El Bolsón, Río Negro, Argentina</p>
-            <p class="mb-2"><i class="bi bi-telephone-fill fs-4 pe-3  me-1" style="color: #6ecdb2;"></i>Teléfono: 0294 449-2204</p>
-            <p class="mb-2"><i class="bi bi-envelope-fill fs-4 pe-3 me-1" style="color: #6ecdb2;"></i> <a href="mailto:sem@elbolson.gob.ar" style="color: #6ecdb2;">sem@elbolson.gob.ar</a></p>
-            
-            
+                        <p class="mb-2"><i class="bi bi-telephone-fill fs-4 pe-3  me-1" style="color: #6ecdb2;"></i>Teléfono: 0294 449-2204</p>
+                        <p class="mb-2"><i class="bi bi-envelope-fill fs-4 pe-3 me-1" style="color: #6ecdb2;"></i> <a href="mailto:sem@elbolson.gob.ar" style="color: #6ecdb2;">sem@elbolson.gob.ar</a></p>
+                        
+                        
                         <hr>
                         <p class="py-4 text-secondary"> <strong>CON SU APORTE UD. COLABORA CON EL BOLETO ESTUDIANTIL MUNICIPAL </strong></p>
             
@@ -612,13 +633,15 @@
             event.preventDefault();
     
             const formData = new FormData();
-            formData.append('nombre', document.getElementById('nombre').value);
-            formData.append('apellido', document.getElementById('apellido').value);
-            formData.append('dni', document.getElementById('dni').value);
-            formData.append('patente', document.getElementById('patente').value);
+            formData.append('propietario', document.getElementById('propietario').value);
+            formData.append('dominio', document.getElementById('dominio').value);
+            formData.append('marca', document.getElementById('marca').value);
+            formData.append('modelo', document.getElementById('modelo').value);
+            formData.append('anio', document.getElementById('anio').value);
+            formData.append('tipo', document.getElementById('tipo').value);
             formData.append('certificado', document.getElementById('certificado').files[0]);
     
-            fetch('https://elbolson2025.pythonanywhere.com/api/sem/certificados/', {
+            fetch('https://elbolson2025.pythonanywhere.com/api/sem/exentos/', {
                 method: 'POST',
                 body: formData,
             })
