@@ -266,7 +266,7 @@
                                 <p class="text-white my-4 ps-3">El valor del estacionamiento es de $ 350 por hora. 
         
                                 </p>
-                                <p class="text-white my-4 ps-3">Tiempo de tolerancia: 15 minutos.
+                                <p class="text-white my-4 ps-3">Tiempo de tolerancia: 10 minutos.
         
                                 </p>
                             </div>
@@ -367,7 +367,7 @@
                                 <ul class="mt-3 p-3">
                                     <li class="text-white ms-2 pb-3" >Regístrese por única vez  con su celular para crear el usuario y contraseña. Le llegará un sms/email para validar su registro.
                                     </li>
-                                    <li class="text-white ms-2  pb-3" >Compre crédito desde la App con tarjetas de débito o crédito de cualquier banco a través del botón Macro Click de Pago integrado en la APP.
+                                    <li class="text-white ms-2  pb-3" >Compre crédito desde la App con tarjetas de débito o crédito de cualquier banco a través del botón de pago integrado en la APP.
         
                                     </li>
                                     <li class="text-white ms-2  pb-3" >Compre crédito en efectivo en cualquier punto de venta SEM adheridos (móviles o fijo), brindando su número de celular y el monto que desea recargar.
@@ -558,63 +558,8 @@
                             <div class="container px-2">
                                 <hr>
                                 <br>
-                                <h3 class="text-white pb-3"><strong>¿CÓMO PAGAR EL ESTACIONAMIENTO?</strong></h3>
+                                <h3 class="text-white pb-3"><strong>Próximamente...</strong></h3>
                                 
-                                <h4 class="text-white ms-1"><strong>1. CON TELÉFONO CELULAR DESDE LA<span style="color: #00ff00"> APP</span></strong></h4>
-                                
-                                <ul>
-                                    <li class="text-white pb-2" >Descargue en forma gratuita e instale en su celular la <strong>App SEM EL BOLSÓN.</strong></li>
-                                    <li class="text-white pb-2" >Carga de crédito con tarjetas de débito o crédito de cualquier banco a través del botón <strong>Macro Click de Pago</strong> integrado en la APP o en efectivo en puntos de venta SEM adheridos.</li>
-                                    <li class="text-white" >Registre en la App sus patentes de uso habitual.</li>
-                                    
-                                </ul>                                  
-                                
-                                
-                                
-                                <h5 class="text-white pt-1 ms-2">PARA INICIAR EL ESTACIONAMIENTO</h5>
-                                
-                                <ul>
-                                    <li class="text-white ms-2" >Abra la aplicación y oprima el botón <strong>"Iniciar Estacionamiento"</strong>.</li>
-                                </ul>
-                                
-                                <h5 class="text-white pt-1 ms-2">PARA FINALIZAR EL ESTACIONAMIENTO</h5>
-                                
-                                <ul>
-                                    <li class="text-white ms-2 pb-2" >Abra la aplicación y oprima el botón <strong>"Finalizar Estacionamiento"</strong>.</li>
-                                    <li class="text-white ms-2" >Se le descontará el monto correspondiente de su crédito precargado.</li>
-                                </ul>
-                                
-        
-                                <h4 class="text-white pt-3"><strong>2. ESTACIONAMIENTO PUNTUAL <span style="color: #00ff00">CON</span> TELÉFONO CELULAR</strong></h4>
-                                
-                                <ul>
-                                    <li class="text-white pb-2" >Escanee los QR dispuestos en toda la ciudad con su cámara de celular.</li>
-                                    <li class="text-white pb-2" >Ingrese su patente y pague con tarjeta de débito y crédito de cualquier banco.</li>
-                                    <li class="text-white pb-2" >Con esta opción, no hace falta descargar la APP.</li>
-                                    <li class="text-white pb-2" >Recibirá el comprobante en su e-mail.</li>
-                                    <li class="text-white" >No es necesario dejar el comprobante en su vehículo.</li>
-                                </ul>
-                                
-                                <h4 class="text-white pt-3"><strong>3. ESTACIONAMIENTO PUNTUAL <span style="color: #00ff00">SIN</span> TELÉFONO CELULAR</strong></h4>
-                                <ul>
-                                    <li class="text-white pb-2" >Estacione su vehículo. Diríjase a un puntos de venta SEM adheridos, solicite "Estacionamiento Medido", indique su patente y tiempo de permanencia. Recibirá el comprobante digital en su e-mail, el comprobante no hace falta dejarlo en su vehículo.</li>
-                                    <li class="text-white" >Mínimo de compra: 1 hora.</li>
-                                </ul>
-                                <hr>
-                                <br>
-        
-                                <h3 class="text-white"><strong>¿CÓMO SE INSPECCIONARÁ EL ESTACIONAMIENTO?</strong></h3>
-                                <ul>
-                                    <li class="text-white pb-2" >Los inspectores de tránsito y los permisionarios, provistos de dispositivos móviles, recorren la zona de<br>estacionamiento medido verificando si cada vehículo tiene estacionamiento válido en curso.</li>
-                                    <li class="text-white" >Si el sistema responde que un vehículo no cuenta con estacionamiento válido en curso, el inspector procederá a labrar el acta correspondiente, quedando la comprobación de la infracción registrada en el sistema y dejando el inspector un comprobante de la infracción en el vehículo. Adicionalmente, el conductor infraccionado recibirá un aviso a través de su App SEM.</li>
-                                </ul>
-                                <hr>
-                                <br>
-                                <h3 class="text-white"><strong>¿CÓMO PAGAR SUS INFRACCIONES DE ESTACIONAMIENTO?</strong></h3>
-                                <ul>
-                                    <li class="text-white pb-2" >Digitalmente: a través de la <strong>App SEM EL BOLSÓN</strong> utilizando el crédito precargado.</li>
-                                    <li class="text-white" >Presencialmente: En los puntos de venta adheridos en efectivo.</li>
-                                </ul>
                             </div>
                         </div>
                     </div>

@@ -73,6 +73,7 @@ INSTALLED_APPS = [
     #'tinymce', # elegir si la renderización actual o un paquete
 
     'prensa',
+    'sem',
 
 ]
 

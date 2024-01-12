@@ -10,9 +10,15 @@ migrations/
 db.sqlite3-journal
 .env
 /media
+/joomla4
+/graficas
+concejo/Digesto
 # Logs
 logs
 *.log
+/static
+joomla4.zip
+/graficas
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
@@ -24,7 +30,8 @@ dist
 dist-ssr
 *.local
 
-/concejo 
+concejo.zip
+concejo/media/ 
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json

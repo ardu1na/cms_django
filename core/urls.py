@@ -13,6 +13,7 @@ from prensa.api.utils import schema_view
 from prensa.api.viewsets import lastArticulosView, lastArticulosList, \
     DestacadosArticulosView, tagsList
 
+from sem import urls 
 
 handler404 = my_404_view
 handler500 = my_500_view
@@ -54,6 +55,8 @@ urlpatterns = [
     # DEVUELVE LOS TITULOS DE LOS TAGS
     path('api/prensa/tags/list/', tagsList, name="tags-list"), 
 
+#     # API DE SEM
+    path('api/sem/', include('sem.urls'), name="sem"), 
 
 
 ################ backend management
