@@ -111,13 +111,14 @@ class ItemDigesto (models.Model):
                         blank=True,
                         upload_to='digesto'
     )
+
     
     @property
     def anio(self):
         return self.fecha.year
 
     def __str__ (self):
-        return f'{self.categoria} n° {self.numero} - {self.anio}  {self.titulo}'
+        return f'{self.anio} - {self.categoria} n° {self.numero} - {self.titulo}'
     
     class Meta:
         verbose_name = "Item del Digesto Municipal"
