@@ -1,61 +1,53 @@
 
-<!-- CUSTOM CSS Y STYLE  -->
 <!-- SEM  -->
 <!-- LOGO HEADER CENTRADO OK . MENU NO SÉ QUE PASABA PUSE EL NO MOVIL  -->
-<!-- FOOTER CENTRADO OK . SIN SOCIAL  -->
+<!-- FOOTER CENTRADO OK  -->
 
 
 
 <!-- BOOTSTRAP CSS -->
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
 <!-- BOOTSTRAP ICONS  -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
 
  <style>
-#logo-2790-particle .logo-1 img {
-    max-height: 150px;
-}
-#logo-2790-particle .logo-1 img {
-    max-height: 150px;
-}
+
 .g-social a {
     font-size: 30px;
-padding-top: 30px; 
-}
-.g-main-nav {
-    padding-top: 20px; 
-}
-.g-main-nav ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-.g-social a {
-    font-size: 30px;
-padding-top: 30px; 
-}
-.g-main-nav {
-    padding-top: 20px; 
-}
-.g-main-nav ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-@media only all and (max-width: 47.99rem)
-div.modal.fade {
-top:  0px !important;
+    padding-top: 30px;
+    color: white;
 }
 
-/* Adjust the close button size in the modal */
+@media only screen and (max-width: 768px) {
+    #g-footer .g-grid {
+        text-align: center;
+        }
+
+    #g-footer .g-block {
+        width: 100%;
+        box-sizing: border-box;
+        }
+}
+
+
+
+#logo-2790-particle .logo-1 img {
+    max-height: 150px;
+}
+
+.g-main-nav {
+    padding-top: 20px; 
+}
+.g-main-nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
 .btn-close {
-font-size: 24px; /* Adjust the font size as needed */
-padding: 10px 20px; /* Adjust the padding as needed */
-}
-}
-.g-content {
-margin: 0rem;
-padding: 0rem;
+    font-size: 24px;
+    padding: 10px 20px;
 }
 
 .g-content{
@@ -66,92 +58,6 @@ padding: 0px;
 #logo-9608-particle {
 padding: 30px; 
 }
-@media only screen and (max-width: 768px) {
-#logo-9608-particle {
-text-align: center;
-}
-
-#logo-9608-particle img {
-display: inline-block;
-}
-.g-social {
-display: none;
-}
-}
-.g-social a {
-color: white;
-}
-
-/* Media query for mobile view */
-@media only screen and (max-width: 768px) {
-#g-footer .g-grid {
-text-align: center;
-}
-
-#g-footer .g-block {
-width: 100%;
-box-sizing: border-box;
-}
-}
-.img-media-size{
-width: 50px;
-    height: 50px;}
-</style>
-
-
-<!-- CUSTOM CSS Y STYLE  -->
-<!-- COMERCIO  -->
-<!-- LOGO HEADER NO CENTRADO . MENU MOVIL MUY VERDE FLUO -->
-<!-- FOOTER NO CENTRADO  . CON SOCIAL  -->
-
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-<style>
-.icon-wp{
-          width:60px;
-          height:60px;
-          background-color:#25d366;
-          color:#FFF;
-          border-radius:50px;
-          text-align:center;
-        font-size:30px;
-          box-shadow: 2px 2px 3px #999;
-      }
-.g-social a {
-    font-size: 30px;
-    padding-top: 30px; 
-    color: white;
-}
-        .float{
-            position:fixed;
-            width:60px;
-            height:60px;
-            bottom:40px;
-            right:40px;
-            background-color:#25d366;
-            color:#FFF;
-            border-radius:50px;
-            text-align:center;
-          font-size:30px;
-            box-shadow: 2px 2px 3px #999;
-          z-index:100;
-        }
-        
-        .my-float{
-            margin-top:16px;
-        }
-    </style>
-
-
-
-    
-<!-- CUSTOM CSS Y STYLE  -->
-<!-- index  -->
-<!-- LOGO HEADER NO CENTRADO  . MENU MOVIL MUUY FLUO -->
-<!-- FOOTER NO CENTRADO  SIN SOCIAL  -->
-
- 
-<style>
 
 @media only screen and (max-width: 768px) {
     #logo-9608-particle {
@@ -161,19 +67,130 @@ width: 50px;
     #logo-9608-particle img {
         display: inline-block;
     }
-.g-social {
-        display: none;
+
+
+    .img-media-size{
+        width: 50px;
+        height: 50px;
     }
-}
- .g-social a {
-        color: white;
-    }
-        #logo-2790-particle .logo-1 img {
-            max-height: 150px;
-        }
+</style>
+
+
+
+
+
+
+
+<!-- COMERCIO  -->
+<!-- LOGO HEADER NO CENTRADO -->
+<!-- FOOTER CON SOCIAL  -->
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+<style>
+
+
 .g-social a {
-            font-size: 30px;
-padding-top: 30px; 
+    font-size: 30px;
+    padding-top: 30px; 
+    color: white;
+}
+
+
+@media only screen and (max-width: 768px) {
+    #g-footer .g-grid {
+        text-align: center;
+        }
+
+    #g-footer .g-block {
+        width: 100%;
+        box-sizing: border-box;
+        }
+}
+
+
+
+.float{
+    position:fixed;
+    width:60px;
+    height:60px;
+    bottom:40px;
+    right:40px;
+    background-color:#25d366;
+    color:#FFF;
+    border-radius:50px;
+    text-align:center;
+    font-size:30px;
+    box-shadow: 2px 2px 3px #999;
+    z-index:100;
+}       
+.my-float{
+    margin-top:16px;
+}
+.icon-wp{
+    width:60px;
+    height:60px;
+    background-color:#25d366;
+    color:#FFF;
+    border-radius:50px;
+    text-align:center;
+    font-size:30px;
+    box-shadow: 2px 2px 3px #999;
+}
+
+
+
+        </style>
+
+
+
+
+
+
+
+
+
+    
+<!-- index sin bootstrap -->
+<!-- LOGO HEADER NO CENTRADO -->
+<!-- FOOTER NO CENTRADO  -->
+
+ 
+<style>
+@media only screen and (max-width: 768px) {
+    #g-footer .g-grid {
+        text-align: center;
+        }
+
+    #g-footer .g-block {
+        width: 100%;
+        box-sizing: border-box;
+        }
+}
+
+
+.g-social a {
+    font-size: 30px;
+    padding-top: 30px; 
+    color: white;
+}
+
+
+
+
+@media only screen and (max-width: 768px) {
+    #logo-9608-particle {
+        text-align: center;
+    }
+
+    #logo-9608-particle img {
+        display: inline-block;
+    }
+
+}
+
+#logo-2790-particle .logo-1 img {
+            max-height: 150px;
         }
  .g-main-nav {
             padding-top: 20px; 
@@ -191,9 +208,6 @@ padding-top: 30px;
     #logo-9608-particle img {
         display: inline-block;
     }
-.g-social {
-        display: none;
-    }
 }
         
-    </style>
+</style>

@@ -64,7 +64,7 @@ class ItemDigesto (models.Model):
                         blank=True
                         )
     
-    tema = models.ManyToManyField(
+    temas = models.ManyToManyField(
                         Tema,
                         related_name="ordenanzas",
                         null=True,
@@ -111,12 +111,14 @@ class ItemDigesto (models.Model):
                         blank=True,
                         upload_to='digesto'
     )
+    publicado = models.BooleanField(default=False)
 
     
     @property
     def anio(self):
         return self.fecha.year
-
+    
+    
     def __str__ (self):
         return f'{self.anio} - {self.categoria} n° {self.numero} - {self.titulo}'
     
