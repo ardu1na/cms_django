@@ -1,6 +1,11 @@
 from django.db import models
 
-
+class Archivo(models.Model):
+    archivo = models.FileField(
+                        null=True,
+                        blank=True,
+                        upload_to='digesto'
+    )
 
 class Tema(models.Model):
     nombre = models.CharField(
@@ -12,18 +17,22 @@ class Tema(models.Model):
         return self.nombre
 
 
+  
+
 class ItemDigesto (models.Model):
     ORDENANZA = 'ordenanza'
     RESOLUCION = 'resolución'
     COMUNICADO = 'comunicado'
-    DECLARACION = 'declaración de interés'
+    DECLARACION = 'declaración'
+    BOLETIN = 'boletín'
 
     CATEGORIA_CHOICES = (
         (ORDENANZA, ('ordenanza')),
         (RESOLUCION, ('resolución')),
-        (COMUNICADO, ('modificada')),
-        (DECLARACION, ('comunicado de interés')),
-        
+        (COMUNICADO, ('comunicado')),
+        (DECLARACION, ('declaración')),
+        (BOLETIN, ('boletín')),
+
     )
 
     EN_VIGENCIA = 'en vigencia'
@@ -66,7 +75,7 @@ class ItemDigesto (models.Model):
     
     temas = models.ManyToManyField(
                         Tema,
-                        related_name="ordenanzas",
+                        related_name="items",
                         null=True,
                         blank=True
                         )
@@ -106,11 +115,8 @@ class ItemDigesto (models.Model):
                         null= True,
                         blank = True,
                         )
-    archivo = models.FileField(
-                        null=True,
-                        blank=True,
-                        upload_to='digesto'
-    )
+    archivo = models.ForeignKey(Archivo, on_delete=models.DO_NOTHING, related_name="items", null=True,
+                        blank=True)
     publicado = models.BooleanField(default=False)
 
     
