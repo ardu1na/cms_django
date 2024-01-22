@@ -6,18 +6,22 @@ class Archivo(models.Model):
                         blank=True,
                         upload_to='digesto'
     )
+    nombre = models.CharField(max_length=200)
+
+    def __str__(self):
+        return self.nombre
 
 class Tema(models.Model):
     nombre = models.CharField(
                             max_length=200
             )
-    
-    
+
+
     def __str__ (self):
         return self.nombre
 
 
-  
+
 
 class ItemDigesto (models.Model):
     ORDENANZA = 'ordenanza'
@@ -38,7 +42,7 @@ class ItemDigesto (models.Model):
     EN_VIGENCIA = 'en vigencia'
     DEROGADA = 'derogada'
     MODIFICADA = 'modificada'
-    
+
     ESTADO_CHOICES = (
         (EN_VIGENCIA, ('en vigencia')),
         (DEROGADA, ('derogada')),
@@ -47,7 +51,7 @@ class ItemDigesto (models.Model):
 
     GENERAL = 'general'
     PARTICULAR = 'particular'
-    
+
     ALCANCE_CHOICES = (
         (GENERAL, ('general')),
         (PARTICULAR, ('particular')),
@@ -59,20 +63,17 @@ class ItemDigesto (models.Model):
                         max_length=50,
                         choices=CATEGORIA_CHOICES,
                         )
-    
+
     fecha = models.DateField(
                         )
-    
-    titulo = models.CharField(
-                        max_length=200,
-                        )
-    
+
+
     numero = models.CharField(
                         max_length=50,
                         null=True,
                         blank=True
                         )
-    
+
     temas = models.ManyToManyField(
                         Tema,
                         related_name="items",
@@ -91,14 +92,20 @@ class ItemDigesto (models.Model):
                         null=True,
                         blank=True
                         )
+
+    texto = models.TextField(
+                        null= True,
+                        blank = True,
+                        )
+    archivo = models.ForeignKey(Archivo, on_delete=models.DO_NOTHING, related_name="items", null=True,
+                        blank=True)
+
     observaciones = models.TextField(
                         null=True,
                         blank=True
                         )
-    resumen = models.TextField(
-                        null=True,
-                        blank=True
-                        )
+
+
     modifica_a = models.ManyToManyField(
                         'ItemDigesto',
                         related_name="modificada_por",
@@ -111,23 +118,19 @@ class ItemDigesto (models.Model):
                         null=True,
                         blank=True
                         )
-    texto = models.TextField(
-                        null= True,
-                        blank = True,
-                        )
-    archivo = models.ForeignKey(Archivo, on_delete=models.DO_NOTHING, related_name="items", null=True,
-                        blank=True)
-    publicado = models.BooleanField(default=False)
 
-    
+
+    publicado = models.BooleanField(default=True)
+
+
     @property
     def anio(self):
         return self.fecha.year
-    
-    
+
+
     def __str__ (self):
-        return f'{self.anio} - {self.categoria} n° {self.numero} - {self.titulo}'
-    
+        return f'{self.anio} - {self.categoria} n° {self.numero}'
+
     class Meta:
         verbose_name = "Item del Digesto Municipal"
         verbose_name_plural = "Items del Digesto Municipal"
