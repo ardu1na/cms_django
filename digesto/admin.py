@@ -7,11 +7,10 @@ from digesto.resources import ItemDigestoResource, TemaResource, ArchivoResource
 
 
 class ItemDigestoAdmin(ImportExportModelAdmin):
-    list_display = ['publicado','numero', 'categoria', 'fecha',   'estado', 'alcance']
-    search_fields = ['categoria','numero', 'resumen', 'texto', 'temas__nombre']
+    list_display = ['categoria', 'numero',  'fecha', 'alcance']
+    search_fields = ['categoria','numero', 'observaciones', 'texto', 'temas__nombre']
     list_filter = ['categoria', 'estado', 'alcance']
     list_display_links = ['numero', 'categoria', 'fecha']
-    list_editable = ['publicado',]
     resource_class = ItemDigestoResource
 admin.site.register(ItemDigesto, ItemDigestoAdmin)
 

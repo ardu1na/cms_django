@@ -29,6 +29,7 @@ class ItemDigesto (models.Model):
     COMUNICADO = 'comunicado'
     DECLARACION = 'declaración'
     BOLETIN = 'boletín'
+    ANEXO = 'anexo'
 
     CATEGORIA_CHOICES = (
         (ORDENANZA, ('ordenanza')),
@@ -36,6 +37,7 @@ class ItemDigesto (models.Model):
         (COMUNICADO, ('comunicado')),
         (DECLARACION, ('declaración')),
         (BOLETIN, ('boletín')),
+        (ANEXO, ('anexo')),
 
     )
 
