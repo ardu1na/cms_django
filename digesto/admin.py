@@ -6,7 +6,7 @@ from digesto.resources import ItemDigestoResource, TemaResource, ArchivoResource
 
 
 class ItemDigestoAdmin(ImportExportModelAdmin):
-    list_display = ['custom_categoria_numero', 'fecha', 'alcance', 'display_temas']
+    list_display = ['custom_categoria_numero', 'formatted_fecha', 'alcance', 'display_temas']
     search_fields = ['categoria', 'numero', 'observaciones', 'texto', 'temas__nombre']
     list_filter = ['categoria', 'estado', 'alcance', 'temas']
     list_display_links = ['custom_categoria_numero', 'fecha', 'alcance']
@@ -19,6 +19,10 @@ class ItemDigestoAdmin(ImportExportModelAdmin):
     def display_temas(self, obj):
         return ', '.join([tema.nombre for tema in obj.temas.all()])
     display_temas.short_description = 'Temas'
+
+    def formatted_fecha(self, obj):
+        return obj.fecha.strftime('%m/%d/%y') if obj.fecha else ''
+    formatted_fecha.short_description = 'Fecha'
 
 admin.site.register(ItemDigesto, ItemDigestoAdmin)
 
