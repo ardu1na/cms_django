@@ -9,7 +9,7 @@ class ItemDigestoAdmin(ImportExportModelAdmin):
     list_display = ['custom_categoria_numero', 'formatted_fecha', 'alcance', 'display_temas']
     search_fields = ['categoria', 'numero', 'observaciones', 'texto', 'temas__nombre']
     list_filter = ['categoria', 'estado', 'alcance', 'temas']
-    list_display_links = ['custom_categoria_numero', 'fecha', 'alcance']
+    list_display_links = ['custom_categoria_numero', 'formatted_fecha', 'alcance']
     resource_class = ItemDigestoResource
 
     def custom_categoria_numero(self, obj):

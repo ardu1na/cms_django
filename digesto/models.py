@@ -136,3 +136,5 @@ class ItemDigesto (models.Model):
     class Meta:
         verbose_name = "Item del Digesto Municipal"
         verbose_name_plural = "Items del Digesto Municipal"
+        unique_together  = [ ['numero', 'categoria'
+        ],]
