@@ -9,10 +9,8 @@ https://docs.djangoproject.com/en/4.2/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.2/ref/settings/
 """
-from decouple import config
-
 from pathlib import Path
-
+import os
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -32,12 +30,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = config('SECRET_KEY')
+SECRET_KEY ='django-insecure-b!jl)qlr76w*q-@b3&5)#39vlk+-&f&*0s&b4gx39e0og@4crh'
 
-# SECURITY WARNING: don't run with debug turned on in production!
+#SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['201.251.133.44', 'localhost']
 
 CORS_ALLOW_ALL_ORIGINS = True # # SECURITY WARNING: don't run with ALLOW ALL turned on in production!
 """
@@ -87,6 +85,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
+
 ]
 
 ROOT_URLCONF = 'core.urls'
@@ -110,8 +110,6 @@ TEMPLATES = [
 WSGI_APPLICATION = 'core.wsgi.application'
 
 
-
-# change this on prod
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
@@ -155,14 +153,12 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 MEDIA_URL = 'media/'
-
-STATICFILES_DIRS = [
-    BASE_DIR / "static",
-    
-]
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 
-MEDIA_ROOT = "media"
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
 
 
 

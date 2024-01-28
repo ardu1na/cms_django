@@ -65,7 +65,7 @@ urlpatterns = [
 ################ backend management
 
     # panel de administración / CMS, users, perms, etc
-    path('acceso_interno/', admin.site.urls),
+    path('acceso_interno/', admin.site.urls, name="admin"),
     
     # admin honeypots 
     path('cpanel/', fake_admin),
