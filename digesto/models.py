@@ -1,4 +1,7 @@
 from django.db import models
+from django.contrib.auth.models import User
+
+
 
 class Archivo(models.Model):
     archivo = models.FileField(
@@ -123,8 +126,15 @@ class ItemDigesto (models.Model):
 
 
     publicado = models.BooleanField(default=True)
-
-
+    
+    date_updated = models.DateField(auto_now=True)
+    
+    updated_by = models.ForeignKey(
+                        User,
+                        on_delete=models.SET_NULL,
+                        null=True, blank=True,
+                        editable=False)
+    
     @property
     def anio(self):
         return self.fecha.year
