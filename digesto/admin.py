@@ -21,7 +21,7 @@ class ItemDigestoAdmin(ImportExportModelAdmin):
     display_temas.short_description = 'Temas'
 
     def formatted_fecha(self, obj):
-        return obj.fecha.strftime('%m/%d/%y') if obj.fecha else ''
+        return obj.fecha.strftime('%d/%m/%y') if obj.fecha else ''
     formatted_fecha.short_description = 'Fecha'
 
 admin.site.register(ItemDigesto, ItemDigestoAdmin)
