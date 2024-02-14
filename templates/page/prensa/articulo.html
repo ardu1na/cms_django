@@ -21,8 +21,9 @@
             
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb my-5">
-                  <li class="breadcrumb-item "><a class="text-decoration-none text-secondary" href="{% url 'index' %}">Inicio</a></li>
-                  <li class="breadcrumb-item"><a class="text-decoration-none text-secondary" href="{% url 'prensa' %}">Prensa</a></li>
+                  <li class="breadcrumb-item "><a class="text-decoration-none text-secondary" href="{% url 'index' %}"><i class="bi bi-house-door-fill"></i> <strong>Inicio</strong></a></li>
+                  
+                  <li class="breadcrumb-item"><a class="text-decoration-none text-secondary" href="{% url 'prensa' %}"><strong>Prensa</strong></a></li>
                   
                   
                   <li class="breadcrumb-item active" aria-current="page"> {{object.titulo}}</li>
@@ -37,8 +38,9 @@
 
                         
                         <div class="card-body">
-                            <h4 class="card-title">{{ object.titulo }}</h4>
-                            <p class="card-text">{{ object.fecha }}</p>
+                            <h3 class="card-title pt-3 text-secondary">{{ object.titulo }}</h4>
+                            <br>
+                            <p class="text-extra-small"><i class="bi bi-calendar-week pe-2"></i> Publicado el {{ object.fecha }}</p>
                             <p class="card-text">
                                 {% for tag in object.tags.all %}
                                 <a href="{% url 'tag' slug=tag.slug %}"><span class="badge rounded-pill text-bg-success">{{tag.nombre}}</span></a>
@@ -90,20 +92,35 @@
                     </nav>
                 </div>
 
-                <div class="col-md-2">                        
-                    <h5>ÚLTIMAS NOTICIAS</h5>
-                    <hr>
-                    {% for article in articles %}
-                    <p><a class="text-decoration-none text-secondary" href="{{article.get_absolute_url}}"><i class="bi bi-play-fill"></i> {{ article.titulo }}</a></p>
-                    {% endfor %}
-
-                    <div class="row my-5">                 
-                        <h5>TAGS</h5>
+                <div class="col-md-3 ms-4">    
+                    {% if articles %}
+                    
+                        <h5>ÚLTIMAS NOTICIAS</h5>
                         <hr>
-                        {% for tag in tags %}
-                            <a class="text-decoration-none mx-1" href="{% url 'tag' slug=tag.slug %}"><span class="badge rounded-pill text-bg-success">{{tag.nombre}}<span></a>
+                        {% for article in articles %}
+                        <div class="row">
+                            <div class="col-2 pe-0 pe-3 d-flex flex-row-reverse">
+                                <i class="bi bi-file-earmark-text-fill"></i> 
+                            </div>
+                            <div class="col-10 ps-0 me-0">
+                                <p><a class="text-decoration-none text-secondary" href="{{article.get_absolute_url}}">
+                                    {{ article.titulo }}
+                                </a></p>
+                            </div>
+                        </div>
                         {% endfor %}
-                    </div>
+                    {% endif %}
+                    {% if tags %}
+
+                        <div class="row my-5">                 
+                            <h5>TAGS</h5>
+                            <hr>
+                            {% for tag in tags %}
+                                <a class="text-decoration-none mx-1" href="{% url 'tag' slug=tag.slug %}"><span class="badge rounded-pill text-bg-success">{{tag.nombre}}<span></a>
+                            {% endfor %}
+                        </div>
+                    {% endif %}
+
                 </div>                
             </div>
 

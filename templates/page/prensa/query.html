@@ -1,7 +1,7 @@
 {% extends 'page/layout/base.html' %}
 
 {% load static %}
-{% block 'title' %}| Prensa {% endblock %} 
+{% block 'title' %}| Prensa {% endblock %}
 {% block 'content' %}
 <!-- Pagina del detalle de búsqueda de tags de Artículos de Prensa -->
 
@@ -20,16 +20,17 @@
 
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb my-5">
-                <li class="breadcrumb-item "><a class="text-decoration-none text-secondary" href="{% url 'index' %}">Inicio</a></li>
-                <li class="breadcrumb-item"><a class="text-decoration-none text-secondary" href="{% url 'prensa' %}">Prensa</a></li>
-                
+                <li class="breadcrumb-item "><a class="text-decoration-none text-secondary" href="{% url 'index' %}"><i class="bi bi-house-door-fill"></i> <strong>Inicio</strong></a></li>
+                <li class="breadcrumb-item"><a class="text-decoration-none text-secondary" href="{% url 'prensa' %}"><strong>Prensa</strong></a></li>
+
                 {% if tag %}
-                <li class="breadcrumb-item active" aria-current="page">  <strong> {{ tag }} </strong></li>
+                <li class="breadcrumb-item active" aria-current="page">   {{ tag }} </li>
+
                 {% endif %}
             </ol>
         </nav>
 
-        
+
         <div class="row pb-5">
 
 
@@ -39,25 +40,24 @@
 
                     {% for article in articulos  %}
                     <!-- Artículo {{ article.id }} -->
-                    
+
                     <div class="col-md-6 mb-4 px-2">
                         <div class="card" style="height: 100%;">
 
-                    
+
                             <img {% if article.image_top %} src="{{ article.image_top.url }}" {% else %} {% if article.image_bottom %} src="{{ article.image_bottom.url }}" {% else %} src="{% static 'img/logo.png' %}"{% endif %}{% endif %} class="card-img-top p-1" alt="{{ article.titulo }} Municipalidad de El Bolsón">
 
                             <div class="card-body">
-                                <h5 class="card-title">{{ article.titulo }}</h5>
-                                <p class="card-text">{{ article.fecha }}</p>
+                                <h5 class="card-title"> <a href="{{ article.get_absolute_url }}" >{{ article.titulo }}</a></h5>
+                                <p class="text-extra-small mt-3"> <i class="bi bi-calendar-week pe-2"></i> Publicado el {{ article.fecha }}</p>
                                 <hr>
-                                <p class="card-text">{{ article.texto|safe|slice:":200" }} ...</p>
-                                <a href="{{ article.get_absolute_url }}" class="btn btn-success btn-lg rounded-pill my-4 px-4">Leer más</a>
+
                             </div>
                         </div>
                     </div>
                     {% endfor %}
                 </div>
-        
+
                 <!-- PAGINATION -->
                 {% if articulos.has_other_pages %}
                 <nav aria-label="Page navigation">
@@ -91,46 +91,59 @@
                     </ul>
                 </nav>
                 {% endif %}
-                
+
                 {% else %}
                     <div class="card m-2">
                         <div class="card-body">
-                            <h4 class="card-title">Ups</h4>
+                            <h3 class="card-title">Ups</h4>
                             <p class="card-text">No se han podido encontrar artículos para esta búsqueda.</p>
                             <hr>
                         </div>
                     </div>
                 {% endif %}
             </div>
-        
-            <div class="col-md-2 mt-4">
-                <div class="container-fluid">       
-                    <div class="row">   
+
+            <div class="col-md-3 ms-3">
+                <div class="container-fluid">
+                    {% if last %}
+
+                    <div class="row">
                         <h5>ÚLTIMAS NOTICIAS</h5>
                         <hr>
                         {% for article in last %}
-                            <p><a class="text-decoration-none text-secondary" href="{{article.get_absolute_url}}"><i class="bi bi-play-fill"></i> {{ article.titulo }}</a></p>
+                        <div class="row">
+                            <div class="col-2 pe-0 pe-3 d-flex flex-row-reverse">
+                                <i class="bi bi-file-earmark-text-fill"></i>
+                            </div>
+                            <div class="col-10 ps-0 me-0">
+                                <p><a class="text-decoration-none text-secondary" href="{{article.get_absolute_url}}">
+                                    {{ article.titulo }}
+                                </a></p>
+                            </div>
+                        </div>
                         {% endfor %}
                     </div>
+                    {% endif %}
 
-                
-        
-                    <div class="row my-5">                 
+
+                    {% if tags %}
+                    <div class="row my-5">
                         <h5>TAGS</h5>
                         <hr>
                         {% for tag in tags %}
                             <a class="text-decoration-none mx-1" href="{% url 'tag' slug=tag.slug %}"><span class="badge rounded-pill text-bg-success">{{tag.nombre}}<span></a>
                         {% endfor %}
                     </div>
+                    {% endif %}
                 </div>
             </div>
         </div>
-        
-    
+
+
     </div>
 
-    
-    
+
+
 
 
 {% endblock %}

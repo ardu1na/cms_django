@@ -5,39 +5,31 @@
 <!-- contenido de la PAGINA DE INICIO -->
 
     <!-- Hero Imagen y texto + BOTON -->
-            <div class="jumbotron jumbotron-fluid mb-5" style="position: relative; background: url('{% static 'img/index_img.jpg' %}') center/cover no-repeat; color: white; height: 600px; display: flex; align-items: center; justify-content: center;">
-                <div class="container text-center col-lg-6 my-5" style="background-color: rgba(0, 0, 0, 0.5); padding: -50px; margin-top: 150px;">
-                    <div class="my-4">
-                        <h2 class="display-4">AUDIENCIA PÚBLICA 2023</h2>
-                        <h4 class="display-4">Proyecto de Sistema de Desagües Cloacales</h4>
-
-                        <p class="lead">
-                            La Municipalidad de El Bolsón informa que, mediante la resolución municipal 409/2023, se convoca a una audiencia pública en el marco del procedimiento de Evaluación del Estudio de Impacto Ambiental del proyecto de "Sistema de Desagües Cloacales para la Ciudad de El Bolsón”.</p>
+            <a href="https://elbolson.gob.ar" target="_blank">
+                <div class="jumbotron jumbotron-fluid mb-5" style="position: relative; background: url('{% static 'img/index_img.jpg' %}') center/cover no-repeat; color: white; height: 600px; display: flex; align-items: center; justify-content: center;">
+                    <div class="container text-center col-lg-6 my-5" style="background-color: rgba(0, 0, 0, 0.5); padding: -50px; margin-top: 150px;">
                     </div>
-
-                    <!-- Botón a la nota : TODO: ADD LINK -->
-                    <a class="btn btn-success btn-lg rounded-pill mb-4" href="http://127.0.0.1:8000/prensa/nota/audiencia-publica-2023-proyecto-de-sistema-de-desagues-cloacales/" role="button" style="color: white;">Más Información</a>
                 </div>
-            </div>
+            </a>
     <!-- FIN HERO INDEX -->
 
-
+            <br>
 
     {% if articles %}
     <!-- Sección de Resumen de Prensa -->
             <div class="container mt-5">
-                
 
-                    <h2 class="mb-4">Últimas noticias</h2>
+
+                    <h2 class="my-4">Últimas noticias</h2>
 
                     <div class="row mb-5">
                         {% for article in articles %} <!-- Artículo {{ article.id }} -->
-                        
+
                             <div class="col-md-4 mb-4">
                                 <div class="card" style="height: 100%;">
 
-                            
-                                    <img 
+
+                                    <img
                                     {% if article.image_top %}
                                         src="{{ article.image_top.url }}"
                                     {% else %}
@@ -46,21 +38,21 @@
                                     {% else %}
                                         src="{% static 'img/logo.png' %}"
 
-                                    {% endif %}                {% endif %}                     
-                                        
+                                    {% endif %}                {% endif %}
+
                                     class="card-img-top" alt="{{ article.titulo }} Municipalidad de El Bolsón">
 
                                     <div class="card-body">
-                                        <h5 class="card-title">{{ article.titulo }}</h5>
-                                        <p class="card-text">{{ article.fecha }}</p>
-                                        <a href="{{ article.get_absolute_url }}" class="btn btn-success btn-lg rounded-pill my-4 px-4">Leer más</a>
+                                        <h5 class="card-title"><a  href="{{ article.get_absolute_url }}">{{ article.titulo }}</a></h5>
+                                        <p class="text-extra-small mt-3"><i class="bi bi-calendar-week pe-2"></i> Publicado el {{ article.fecha }}</p>
+
                                     </div>
                                 </div>
                             </div>
                         {% endfor %}
                     </div>
 
-                
+
 
             </div>
     <!-- FIN Sección de Resumen de Prensa -->

@@ -13,7 +13,6 @@ from core import settings
 from prensa.views import index, articulo, prensa,  tags
 
 
-
 # páginas de error
 
 def _404_view(request, exception):
@@ -36,7 +35,7 @@ def fake_admin(request):
 
 
 
-## documentación 
+## documentación
 
 schema_view = get_schema_view(
    openapi.Info(
@@ -52,7 +51,7 @@ schema_view = get_schema_view(
 
 urlpatterns = [
 
-################## DJANGO FE 
+################## DJANGO FE
     #
     # pagina de inicio
     path('', index, name="index"),
@@ -63,7 +62,7 @@ urlpatterns = [
     path('prensa/tag/<slug:slug>/', tags, name="tag"),
 
 ############################# OTHER UI FE (REACT)
-    # 
+    #
     # api docs
     path('api/docs/', schema_view.with_ui('swagger', cache_timeout=0), name='schema-swagger-ui'),
     #
@@ -71,13 +70,18 @@ urlpatterns = [
     path('api/prensa/', include('prensa.urls')),
 
 
+#     # API DE SEM
+    path('api/sem/', include('sem.urls'), name="sem"),
+
+#     # API DE DIGESTO MUNICIPAL
+    path('api/digesto/', include('digesto.urls'), name="digesto"),
 
 ################ backend management
 
     # panel de administración / CMS, users, perms, etc
     path('acceso_interno/', admin.site.urls),
-    
-    # admin honeypots 
+
+    # admin honeypots
     path('cpanel/', fake_admin),
     path('admin/', fake_admin),
     path('administrator/', fake_admin),

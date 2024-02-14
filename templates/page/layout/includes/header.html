@@ -1,35 +1,11 @@
 {% load static %}
-<header class="navbar navbar-expand-lg navbar-light bg-light">
-    <div class="container">
+<header class="navbar navbar-expand-lg navbar-light bg-light ">
+    <div class="container text-center justify-content-around">
         <!-- Logo (imagen a la izquierda) -->
-        <a class="navbar-brand" href="{% url 'index' %}">
+        <a class="navbar-brand" href="https://elbolson.gob.ar">
             <img src="{% static 'img/logo.png' %}" alt="Logo" height="85">
         </a>
 
-        <!-- Menú a la derecha -->
-        <button class="navbar-toggler mx-4" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation" style="border-width: 0;">
-            <span class="navbar-toggler-icon"></span>
-        </button>
 
-        <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-            <ul class="navbar-nav">
-                <li class="nav-item active">
-                    <a class="nav-link" href="{% url 'index' %}">Inicio </a>
-                </li>
-                
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="serviciosDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Servicios
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="serviciosDropdown">
-                        <a class="dropdown-item" href="#">Consultar deuda</a>
-                    </div>
-                </li>
-
-                <li class="nav-item">
-                    <a class="nav-link" href="{% url 'prensa' %}">Prensa</a>
-                </li>
-            </ul>
-        </div>
     </div>
 </header>

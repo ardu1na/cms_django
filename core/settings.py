@@ -9,6 +9,7 @@ https://docs.djangoproject.com/en/4.2/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.2/ref/settings/
 """
+import os
 from decouple import config
 
 from pathlib import Path
@@ -35,14 +36,14 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = config('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['elbolson2025.pythonanywhere.com']
 
 CORS_ALLOW_ALL_ORIGINS = True # # SECURITY WARNING: don't run with ALLOW ALL turned on in production!
 """
 CORS_ALLOWED_ORIGINS = [
-    'http://your-frontend-domain.com',  
+    'http://your-frontend-domain.com',
     ]
 
 
@@ -57,7 +58,7 @@ CORS_ORIGIN_WHITELIST = [
 
 INSTALLED_APPS = [
     'jazzmin',
-    
+
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -73,7 +74,8 @@ INSTALLED_APPS = [
     #'tinymce', # elegir si la renderización actual o un paquete
 
     'prensa',
-
+    'sem',
+    'digesto',
 ]
 
 MIDDLEWARE = [
@@ -151,16 +153,14 @@ USE_I18N = True
 USE_TZ = True
 
 
+# https://docs.djangoproject.com/en/4.1/howto/static-files/
+
 STATIC_URL = 'static/'
 MEDIA_URL = 'media/'
-
-STATICFILES_DIRS = [
-    BASE_DIR / "static",
-    
-]
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 
-MEDIA_ROOT = "media"
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 
 
@@ -200,7 +200,7 @@ JAZZMIN_SETTINGS = {
     "copyright": "",
 
     # List of model admins to search from the search bar, search bar omitted if excluded
-    # If you want to use a single search field you dont need to use a list, you can use a simple string 
+    # If you want to use a single search field you dont need to use a list, you can use a simple string
     "search_model": ["auth.User", "auth.Group"],
 
     # Field name on user model that contains avatar ImageField/URLField/Charfield or a callable that receives the user
@@ -255,7 +255,7 @@ JAZZMIN_SETTINGS = {
     # List of apps (and/or models) to base side menu ordering off of (does not need to contain all apps/models)
     "order_with_respect_to": ["auth", "books", "books.author", "books.book"],
 
-    
+
 
     # Custom icons for side menu apps/models See https://fontawesome.com/icons?d=gallery&m=free&v=5.0.0,5.0.1,5.0.10,5.0.11,5.0.12,5.0.13,5.0.2,5.0.3,5.0.4,5.0.5,5.0.6,5.0.7,5.0.8,5.0.9,5.1.0,5.1.1,5.2.0,5.3.0,5.3.1,5.4.0,5.4.1,5.4.2,5.13.0,5.12.0,5.11.2,5.11.1,5.10.0,5.9.0,5.8.2,5.8.1,5.7.2,5.7.1,5.7.0,5.6.3,5.5.0,5.4.2
     # for the full list of 5.13.0 free icon classes
