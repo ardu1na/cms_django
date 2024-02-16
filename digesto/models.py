@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 
+# añadir fuente/archivo ej: durán jorge
 
 
 class Archivo(models.Model):
