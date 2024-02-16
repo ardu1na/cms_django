@@ -25,46 +25,68 @@
 
         <!-- MAIN -->
         <div class="container-fluid m-0 p-0">
-            <h1 class="mt-4 mx-1 mx-md-5"><strong>Digesto Municipal de El Bolsón</strong></h1>
+            <div class="col-12 bg-dark py-5">
+                <h2 class="mt-4 mx-2 mx-md-5 text-white text-center"><strong>Búsqueda Avanzada</strong></h2>
+                <h3 class="text-secondary text-center">Digesto Municipal de El Bolsón</h3>
+            </div>
 
-            <!-- link al buscador avanzado -->
-            <div class="card shadow-sm py-3 mx-1 my-4 px-md-5 mx-md-5">
+            <!-- intro buscador -->
+            <div class="row py-2 mx-2 my-4 px-md-5 mx-md-5">
+                
+
+                <p class="card-text">Busca normas, ordenanzas, resoluciones, comunicados y boletines dentro de el archivo histórico del digesto.</p>
+    
+            </div>
+
+            <!-- buscador x numero -->
+            <div class="card shadow-sm py-2 mx-2 my-4 px-md-5 mx-md-5">
                 <div class="card-body">                        
                     <div class="row my-3">
                         <div class="col-md-1">
-                            <a class="px-1 fs-1"><i class="bi bi-search fs-1"></i></a>
+                            <a class="px-1 fs-1"><i class="bi bi-binoculars fs-1"></i></a>
                         </div>
                         <div class="col-md-9 my-3">
-                            <h4 class="card-title text-secondary">Búsqueda avanzada</h4>
+                            <h4 class="card-title text-secondary">Buscar por número</h4>
 
-                            <p class="card-text">Busca normas, ordenanzas, resoluciones, comunicados y boletines dentro de el archivo histórico del digesto.</p>
+                            <p class="card-text">Si conoces el número exacto del elemento del digesto que estás buscando, escríbelo a continuación.</p>
+
+                            <div class="input-group mb-3">
+                                <input type="text" class="form-control" placeholder="Número de norma. ej: 027/03" aria-label="Número de norma." aria-describedby="numero">
+                                <button class="btn btn-outline-secondary" type="button" id="numero">Buscar</button>
+                              </div>
+                              
+
                         </div>    
-                        <div class="col-md-2  my-2">
-                            <a href="#" class="btn btn-outline-primary px-5 shadow-sm"><strong>Ir al buscador</strong></a>
-                        </div>
+               
                     </div>
                 </div>
             </div>
 
+
+            <!-- buscar x fecha -->
             <!-- link a ultimos items -->
-            <div class="card shadow-sm py-3 mx-1 my-4 px-md-5 mx-md-5">
+            <div class="card shadow-sm py-2 mx-2 my-4 px-md-5 mx-md-5">
                 <div class="card-body">                        
                     <div class="row my-3">
                         <div class="col-md-1">
-                            <a class="px-1 fs-1"><i class="bi bi-clock-history fs-1"></i></a>
+                            <a class="px-1 fs-1"><i class="bi bi-calendar-date fs-1"></i></i></a>
                         </div>
                         <div class="col-md-9 my-3">
-                            <h4 class="card-title text-secondary">Últimos elementos publicados</h4>
+                            <h4 class="card-title text-secondary">Buscar por fecha</h4>
 
-                            <p class="card-text">Conoce las normas, ordenanzas, resoluciones y los comunicados más recientes publicados en nuestra localidad.</p>
+                            <p class="card-text">Para encontrar las resoluciones, comunicados, normativas y ordenanzas dentro de un período determinado.</p>
+
+                            <div class="input-group mb-3">
+                                <input type="text" class="form-control" placeholder="Número de norma. ej: 027/03" aria-label="Número de norma." aria-describedby="numero">
+                                <button class="btn btn-outline-secondary" type="button" id="numero">Buscar</button>
+                              </div>
+                              
+
                         </div>    
-                        <div class="col-md-2 my-2">
-                            <a href="#" class="btn btn-outline-primary px-5 shadow-sm"><strong>Ver listado</strong></a>
-                        </div>
+               
                     </div>
                 </div>
             </div>
-
 
         </div>
         
