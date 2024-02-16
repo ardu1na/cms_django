@@ -1,7 +1,7 @@
 from rest_framework.routers import DefaultRouter
 
-from digesto.views import DigestoViewSet
+from digesto.views import DigestoViewSet, TemasDigestoViewSet
 router = DefaultRouter()
-router.register(r'', DigestoViewSet, basename='digesto')
-
+router.register(r'items', DigestoViewSet)
+router.register(r'temas', TemasDigestoViewSet)
 urlpatterns = router.urls
