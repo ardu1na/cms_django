@@ -119,18 +119,18 @@
                                         </datalist>
 
 
-                                        <button class="btn btn-outline-secondary" type="button" id="temas">Buscar</button>
+                                        <button class="btn btn-outline-secondary" type="button" id="tema">Seleccionar</button>
                                     </div>
                                     
 
                                     
                                     <div class="col-12" id="labels">
-                                        <span class="badge rounded-pill bg-primary me-1">
-                                            tema
-                                            <span class="badge"><a class="text-white text-decoration-none" href="">x</a></span>
-                                        </span>
-                                        
+                                     
                                     </div>  
+
+
+                                    <button class="btn btn-outline-secondary mt-3" type="button" id="temas">Buscar</button>
+
                                 </div>    
                     
                             </div>
@@ -188,7 +188,7 @@
                 }
         
                 // Event listener for the "Buscar" button
-                $('#temas').click(function () {
+                $('#tema').click(function () {
                     var selectedTema = $('#exampleDataList').val();
                     
                     if (selectedTema) {
