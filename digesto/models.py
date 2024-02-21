@@ -24,7 +24,14 @@ class Tema(models.Model):
         return self.nombre
 
 
+class Fuente(models.Model):
+    nombre = models.CharField(
+                            max_length=200
+            )
 
+
+    def __str__ (self):
+        return self.nombre
 
 class ItemDigesto (models.Model):
     ORDENANZA = 'ordenanza'
@@ -126,15 +133,25 @@ class ItemDigesto (models.Model):
 
 
     publicado = models.BooleanField(default=True)
-    
+
     date_updated = models.DateField(auto_now=True)
-    
+
     updated_by = models.ForeignKey(
                         User,
                         on_delete=models.SET_NULL,
                         null=True, blank=True,
                         editable=False)
-    
+
+    fuente = models.ForeignKey(
+                        Fuente,
+                        related_name="items",
+                        null=True,
+                        blank=True,
+                        on_delete=models.DO_NOTHING
+                        )
+
+
+
     @property
     def anio(self):
         return self.fecha.year
