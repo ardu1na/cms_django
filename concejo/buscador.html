@@ -34,139 +34,137 @@
             <div class="row py-2 mx-2 my-4 px-md-5 mx-md-5">
                 
 
-                <p class="card-text">Busca normas, ordenanzas, resoluciones, comunicados y boletines dentro de el archivo histórico del digesto.</p>
+                <p class="card-text">Encuentra normas, ordenanzas, resoluciones, comunicados y boletines dentro de el archivo histórico del digesto.</p>
     
             </div>
 
-            <!-- buscador x numero -->
-            <div class="card shadow-sm py-2 mx-2 my-4 px-md-5 mx-md-5">
-                <div class="card-body">                        
-                    <div class="row my-3">
-                        <div class="col-md-1">
-                            <a class="px-1 fs-1"><i class="bi bi-binoculars fs-1"></i></a>
-                        </div>
-                        <div class="col-md-9 my-3">
-                            <h4 class="card-title text-secondary">Buscar por número</h4>
+            <div class="row m-2 m-md-4">
+                <div class="col-md-6">
 
-                            <p class="card-text">Si conoces el número exacto del elemento del digesto que estás buscando, escríbelo a continuación.</p>
-
-                            <div class="input-group mb-3">
-                                <input type="text" class="form-control" placeholder="Número de norma. ej: 027/03" aria-label="Número de norma." aria-describedby="numero">
-                                <button class="btn btn-outline-secondary" type="button" id="numero">Buscar</button>
-                            </div>
-                              
-
-                        </div>    
-               
-                    </div>
-                </div>
-            </div>
-
-
-            <!-- buscar x fecha -->
-            <div class="card shadow-sm py-2 mx-2 my-4 px-md-5 mx-md-5">
-                <div class="card-body">                        
-                    <div class="row my-3">
-                        <div class="col-md-1">
-                            <a class="px-1 fs-1"><i class="bi bi-calendar-date fs-1"></i></i></a>
-                        </div>
-                        <div class="col-md-9 my-3">
-                            <h4 class="card-title text-secondary">Buscar por fecha</h4>
-
-                            <p class="card-text">Para encontrar las resoluciones, comunicados, normativas y ordenanzas dentro de un período determinado.</p>
-
-                            <div class="input-group mb-3">
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <input type="text" class="form-control" placeholder="Fecha de inicio ej: 3/2/2004" aria-label="Fecha de inicio" aria-describedby="fechaInicio">
-                                    </div>
-                                    <div class="col-md-6">
-                                        <input type="text" class="form-control" placeholder="Fecha final. ej: 31/3/2004" aria-label="Fecha final" aria-describedby="fechaFinal">
-                                    </div>
+                    <!-- buscador x numero -->
+                    <div class="card shadow-sm py-2 px-md-5 " style="height: 100%;">
+                        <div class="card-body">                        
+                            <div class="row my-3">
+                                <div class="col-md-1 me-2">
+                                    <a class="px-1 fs-1"><i class="bi bi-binoculars fs-1"></i></a>
                                 </div>
+                                <div class="col-md-9 my-3">
+                                    <h4 class="card-title text-secondary">Buscar por número</h4>
 
-                                <button class="btn btn-outline-secondary" type="button" id="fecha">Buscar</button>
-                              </div>
-                              
+                                    <p class="card-text">Si conoces el número exacto del elemento del digesto que estás buscando, escríbelo a continuación.</p>
 
-                        </div>    
-               
-                    </div>
-                </div>
-            </div>
+                                    <div class="input-group mb-3">
+                                        <input type="text" class="form-control" placeholder="Número de norma. ej: 027/03" aria-label="Número de norma." aria-describedby="numero">
+                                        <button class="btn btn-outline-secondary" type="button" id="numero">Buscar</button>
+                                    </div>
+                                    
 
-
-            <!-- buscador x temas -->
-            <div class="card shadow-sm py-2 mx-2 my-4 px-md-5 mx-md-5">
-                <div class="card-body">                        
-                    <div class="row my-3">
-                        <div class="col-md-1">
-                            <a class="px-1 fs-1"><i class="bi bi-bookmarks fs-1"></i></a>
-                        </div>
-                        <div class="col-md-9 my-3">
-                            <h4 class="card-title text-secondary">Buscar por temas</h4>
-
-                            <p class="card-text">Para filtrar los resultados empieza a escribir aquí o selecciona varios temas y presiona buscar.</p>
-
-                           
-                                  
-
-                            <div class="input-group my-3">
-                                
-
-                                <input class="form-control" list="datalistOptions" id="exampleDataList" placeholder="Type to search...">
-                                <datalist id="datalistOptions">
-                                    <option value="San Francisco">
-                                    <option value="New York">
-                                    <option value="Seattle">
-                                    <option value="Los Angeles">
-                                    <option value="Chicago">
-                                </datalist>
-
-
-                                <button class="btn btn-outline-secondary" type="button" id="temas">Buscar</button>
+                                </div>    
+                    
                             </div>
-                              
-
-                              
-                            <div class="col-12" id="labels">
-                                <span class="badge rounded-pill bg-primary me-1">
-                                    Primary
-                                    <span class="badge"><a class="text-white text-decoration-none" href="">x</a></span>
-                                </span>
-                                
-                            </div>  
-                        </div>    
-               
-                    </div>
-                </div>
-            </div>
-
-
-
-             <!-- buscador en texto -->
-             <div class="card shadow-sm py-2 mx-2 my-4 px-md-5 mx-md-5">
-                <div class="card-body">                        
-                    <div class="row my-3">
-                        <div class="col-md-1">
-                            <a class="px-1 fs-1"><i class="bi bi-card-checklist fs-1"></i></a>
                         </div>
-                        <div class="col-md-9 my-3">
-                            <h4 class="card-title text-secondary">Buscar texto</h4>
+                    </div>
+                </div>
+                <div class="col-md-6">
 
-                            <p class="card-text">Buscar texto del contenido de la norma, esta búsqueda puede tomar varios minutos.</p>
+                    <!-- buscar x fecha -->
+                    <div class="card shadow-sm py-2 px-md-5" style="height: 100%;">
+                        <div class="card-body">                        
+                            <div class="row my-3">
+                                <div class="col-md-1 me-2">
+                                    <a class="px-1 fs-1"><i class="bi bi-calendar-date fs-1"></i></i></a>
+                                </div>
+                                <div class="col-md-9 my-3">
+                                    <h4 class="card-title text-secondary">Buscar por fecha</h4>
 
-                                                           
-                            <div class="input-group mb-3">
-                                <input type="text" class="form-control" placeholder="Ingresa el texto a buscar" aria-label="Texto" aria-describedby="texto">
-                                <button class="btn btn-outline-secondary" type="button" id="texto">Buscar</button>
+                                    <p class="card-text">Para encontrar las resoluciones, comunicados, normativas y ordenanzas dentro de un período determinado.</p>
+
+                                    <input type="text" class="form-control my-2" placeholder="Fecha de inicio ej: 3/2/2004" aria-label="Fecha de inicio" aria-describedby="fechaInicio">
+                                    <input type="text" class="form-control my-2" placeholder="Fecha final. ej: 31/3/2004" aria-label="Fecha final" aria-describedby="fechaFinal">
+
+                                    <button class="btn btn-outline-secondary my-2" type="button" id="fecha">Buscar</button>
+
+
+                                </div>    
+                    
                             </div>
-                                                         
-                        </div>    
-               
+                        </div>
                     </div>
                 </div>
             </div>
+            <div class="row m-2 m-md-4">
+                <div class="col-md-6">
+
+                    <!-- buscador x temas -->
+                    <div class="card shadow-sm py-2  px-md-5" style="height: 100%;">
+                        <div class="card-body">                        
+                            <div class="row my-3">
+                                <div class="col-md-1 me-2">
+                                    <a class="px-1 fs-1"><i class="bi bi-bookmarks fs-1"></i></a>
+                                </div>
+                                <div class="col-md-9 my-3">
+                                    <h4 class="card-title text-secondary">Buscar por temas</h4>
+
+                                    <p class="card-text">Para filtrar los resultados empieza a escribir aquí o selecciona varios temas y presiona buscar.</p>
+
+                                
+                                        
+
+                                    <div class="input-group my-3">
+                                        
+
+                                        <input class="form-control" list="datalistOptions" id="exampleDataList" placeholder="Type to search...">
+                                        <datalist id="datalistOptions">
+                                    
+                                        </datalist>
+
+
+                                        <button class="btn btn-outline-secondary" type="button" id="temas">Buscar</button>
+                                    </div>
+                                    
+
+                                    
+                                    <div class="col-12" id="labels">
+                                        <span class="badge rounded-pill bg-primary me-1">
+                                            tema
+                                            <span class="badge"><a class="text-white text-decoration-none" href="">x</a></span>
+                                        </span>
+                                        
+                                    </div>  
+                                </div>    
+                    
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+
+                    <!-- buscador en texto -->
+                    <div class="card shadow-sm py-2 px-md-5 " style="height: 100%;">
+                        <div class="card-body">                        
+                            <div class="row my-3">
+                                <div class="col-md-1 me-2">
+                                    <a class="px-1 fs-1"><i class="bi bi-card-checklist fs-1"></i></a>
+                                </div>
+                                <div class="col-md-9 my-3">
+                                    <h4 class="card-title text-secondary">Buscar texto</h4>
+
+                                    <p class="card-text">Buscar texto del contenido de la norma, esta búsqueda puede tomar varios minutos.</p>
+
+                                                                
+                                    <div class="input-group mb-3">
+                                        <input type="text" class="form-control" placeholder="Ingresa el texto a buscar" aria-label="Texto" aria-describedby="texto">
+                                        <button class="btn btn-outline-secondary" type="button" id="texto">Buscar</button>
+                                    </div>
+                                                                
+                                </div>    
+                    
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
 
         </div>
         
@@ -177,21 +175,41 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
     
         <!-- custom JS -->
-                
         <script>
-        // LISTAR TEMAS DISPONIBLES EN EL SELECT
             $(document).ready(function () {
-                
+                // Function to add a badge for the selected tema
+                function addBadge(topic) {
+                    $('#labels').append(
+                        '<span class="badge rounded-pill bg-primary me-1">' +
+                            topic +
+                            '<span class="badge"><a class="text-white text-decoration-none remove-badge" href="#">x</a></span>' +
+                        '</span>'
+                    );
+                }
+        
+                // Event listener for the "Buscar" button
+                $('#temas').click(function () {
+                    var selectedTema = $('#exampleDataList').val();
+                    
+                    if (selectedTema) {
+                        addBadge(selectedTema);
+                    }
+                });
+        
+                // Event listener for removing badges
+                $('#labels').on('click', '.remove-badge', function () {
+                    $(this).closest('.badge').remove();
+                });
+        
+                // AJAX request to fetch temas and populate the datalist
                 $.ajax({
                     url: 'https://elbolson2025.pythonanywhere.com/api/digesto/temas/',
                     method: 'GET',
                     dataType: 'json',
                     success: function (data) {
                         $('#datalistOptions').empty();
-        
                         
                         for (var i = 0; i < data.length; i++) {
-                           
                             $('#datalistOptions').append('<option value="' + data[i].nombre + '" data-id="' + data[i].id + '">' + data[i].nombre + '</option>');
                         }
                     },
@@ -201,6 +219,7 @@
                 });
             });
         </script>
+        
 
     
     </body>
