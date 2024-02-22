@@ -175,51 +175,63 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
     
         <!-- custom JS -->
-        <script>
-            $(document).ready(function () {
-                // Function to add a badge for the selected tema
-                function addBadge(topic) {
-                    $('#labels').append(
-                        '<span class="badge rounded-pill bg-primary me-1">' +
-                            topic +
-                            '<span class="badge"><a class="text-white text-decoration-none remove-badge" href="#">x</a></span>' +
-                        '</span>'
-                    );
-                }
-        
-                // Event listener for the "Buscar" button
-                $('#tema').click(function () {
-                    var selectedTema = $('#exampleDataList').val();
-                    
-                    if (selectedTema) {
-                        addBadge(selectedTema);
-                    }
-                });
-        
-                // Event listener for removing badges
-                $('#labels').on('click', '.remove-badge', function () {
-                    $(this).closest('.badge').remove();
-                });
-        
-                // AJAX request to fetch temas and populate the datalist
-                $.ajax({
-                    url: 'https://elbolson2025.pythonanywhere.com/api/digesto/temas/',
-                    method: 'GET',
-                    dataType: 'json',
-                    success: function (data) {
-                        $('#datalistOptions').empty();
-                        
-                        for (var i = 0; i < data.length; i++) {
-                            $('#datalistOptions').append('<option value="' + data[i].nombre + '" data-id="' + data[i].id + '">' + data[i].nombre + '</option>');
-                        }
-                    },
-                    error: function (error) {
-                        console.error('Error fetching data:', error);
-                    }
-                });
+<script>
+    $(document).ready(function () {
+        // Función para agregar un badge para el tema seleccionado
+        function addBadge(topic) {
+            // Verifica si el tema ya ha sido seleccionado antes de agregarlo
+            if ($('#datalistOptions option[value="' + topic + '"]').length > 0) {
+                $('#labels').append(
+                    '<span class="badge rounded-pill bg-primary me-1">' +
+                        topic +
+                        '<span class="badge"><a class="text-white text-decoration-none remove-badge" href="#">x</a></span>' +
+                    '</span>'
+                );
+                // Elimina el tema de la lista de opciones
+                $('#datalistOptions option[value="' + topic + '"]').remove();
+            }
+        }
+
+        // Event listener para el botón "Buscar"
+        $('#tema').click(function () {
+            var selectedTema = $('#exampleDataList').val();
+
+            if (selectedTema) {
+                addBadge(selectedTema);
+            }
+        });
+            // Event listener para quitar badges
+            $('#labels').on('click', '.remove-badge', function () {
+                var removedTopic = $(this).closest('.badge').text().trim();
+                // Agrega el tema de nuevo a la lista de opciones
+                $('#datalistOptions').append('<option value="' + removedTopic + '">' + removedTopic + '</option');
+                // Elimina el contenedor completo del badge
+                $('.badge:contains("' + removedTopic + '")').remove();
+
+                
             });
-        </script>
-        
+
+
+
+        // AJAX request para obtener temas y poblar el datalist
+        $.ajax({
+            url: 'https://elbolson2025.pythonanywhere.com/api/digesto/temas/',
+            method: 'GET',
+            dataType: 'json',
+            success: function (data) {
+                $('#datalistOptions').empty();
+
+                for (var i = 0; i < data.length; i++) {
+                    $('#datalistOptions').append('<option value="' + data[i].nombre + '" data-id="' + data[i].id + '">' + data[i].nombre + '</option>');
+                }
+            },
+            error: function (error) {
+                console.error('Error fetching data:', error);
+            }
+        });
+    });
+</script>
+
 
     
     </body>
