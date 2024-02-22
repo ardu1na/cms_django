@@ -75,6 +75,7 @@ INSTALLED_APPS = [
     'prensa',
     'sem',
     'digesto',
+    'cultura',
 
 ]
 
