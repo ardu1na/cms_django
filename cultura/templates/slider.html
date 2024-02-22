@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Digesto de la Municipalidad de El Bolsón</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        
+        <!-- BOOTSTRAP CSS -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+        <!-- BOOTSTRAP ICONS  -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+        <!-- CUSTOM STYLE  -->
+        <style>
+           
+            
+            a:hover {
+                color: #0aca22; 
+              }
+        </style>
+
+    </head>
+    <body>
+
+        <div class="container-fluid m-0 p-0">
+            <div class="row text-center mx-md-2 my-4">
+                <div class="col-md-6">
+                    <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
+                    <div class="carousel-inner" id="carouselInner"></div>
+                </div>
+
+            </div>
+        </div>
+        
+        <script>
+            // Fetch data from the endpoint
+            fetch('http://127.0.0.1:8000/api/cultura/eventos/')
+                .then(response => response.json())
+                .then(data => {
+                    const carouselInner = document.getElementById('carouselInner');
+        
+                    // Loop through the data and create carousel items
+                    data.forEach(event => {
+                        const carouselItem = document.createElement('div');
+                        carouselItem.className = 'carousel-item';
+        
+                        if (event.id === 1) {
+                            carouselItem.classList.add('active'); // Set the first item as active
+                        }
+        
+                        const img = document.createElement('img');
+                        img.className = 'd-block w-100';
+                        img.src = event.imagen;
+                        img.alt = `Slide ${event.id}`;
+        
+                        carouselItem.appendChild(img);
+                        carouselInner.appendChild(carouselItem);
+                    });
+                })
+                .catch(error => console.error('Error fetching data:', error));
+        </script>
+        
+        
+        <!-- BOOTSTRAP CDNS -->
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.0.8/dist/umd/popper.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    </body>
+</html>
