@@ -24,12 +24,28 @@
     <body>
 
         <div class="container-fluid m-0 p-0">
-            <div class="row text-center mx-md-2 my-4">
-                <div class="col-md-6">
-                    <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
-                    <div class="carousel-inner" id="carouselInner"></div>
-                </div>
+            <h1 class="mt-4">Próximos Eventos Culturales</h1>
+            <h5>Municipalidad de El Bolsón</h5>
 
+            <div class="row mx-md-2 my-4">
+                <div class="col-md-5">
+                    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                        <ol class="carousel-indicators" id="carouselIndicators"></ol>
+                        <div class="carousel-inner" id="carouselInner"></div>
+                        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="sr-only fs-1 text-decoration-none"><</span>
+                        </a>
+                        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="sr-only fs-1 text-decoration-none">></span>
+                        </a>
+                    </div>
+                    
+                   
+                    
+                </div>
+                
             </div>
         </div>
         
@@ -39,7 +55,8 @@
                 .then(response => response.json())
                 .then(data => {
                     const carouselInner = document.getElementById('carouselInner');
-        
+                    const infoInner = document.getElementById('carouselInner');
+
                     // Loop through the data and create carousel items
                     data.forEach(event => {
                         const carouselItem = document.createElement('div');
