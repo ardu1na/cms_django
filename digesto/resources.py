@@ -1,5 +1,11 @@
 from import_export import resources
-from digesto.models import  ItemDigesto, Tema, Archivo, Fuente
+from digesto.models import  ItemDigesto, Tema, Archivo, Fuente, Boletin
+
+
+class BoletinResource(resources.ModelResource):
+    class Meta:
+        model = Boletin
+
 
 
 class FuenteResource(resources.ModelResource):

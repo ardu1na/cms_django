@@ -2,7 +2,7 @@ from django.contrib import admin
 from import_export.admin import ImportExportModelAdmin
 
 from digesto.models import ItemDigesto, Tema, Archivo, Fuente, Boletin
-from digesto.resources import ItemDigestoResource, TemaResource, ArchivoResource, FuenteResource
+from digesto.resources import ItemDigestoResource, TemaResource, ArchivoResource, FuenteResource, BoletinResource
 
 
 class ItemDigestoAdmin(ImportExportModelAdmin):
@@ -32,8 +32,9 @@ class ItemDigestoAdmin(ImportExportModelAdmin):
 admin.site.register(ItemDigesto, ItemDigestoAdmin)
 
 
-class BoletinAdmin(admin.ModelAdmin):
+class BoletinAdmin(ImportExportModelAdmin):
     search_fields = ['texto',]
+    resource_class = BoletinResource
 
 
     def save_model(self, request, obj, form, change):
@@ -43,9 +44,12 @@ class BoletinAdmin(admin.ModelAdmin):
 admin.site.register(Boletin, BoletinAdmin)
 
 
+
 class FuenteAdmin(ImportExportModelAdmin):
     resource_class = FuenteResource
 admin.site.register(Fuente, FuenteAdmin)
+
+
 
 class TemaAdmin(ImportExportModelAdmin):
     resource_class = TemaResource
