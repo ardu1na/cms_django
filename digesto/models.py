@@ -14,15 +14,6 @@ class Archivo(models.Model):
     def __str__(self):
         return self.nombre
 
-class Tema(models.Model):
-    nombre = models.CharField(
-                            max_length=200
-            )
-
-
-    def __str__ (self):
-        return self.nombre
-
 
 class Fuente(models.Model):
     nombre = models.CharField(
@@ -32,6 +23,62 @@ class Fuente(models.Model):
 
     def __str__ (self):
         return self.nombre
+    
+
+class Boletin(models.Model):
+    fecha = models.DateField()
+    texto = models.TextField()
+    archivo = models.ForeignKey(
+                        Archivo,
+                        related_name="boletines",
+                        on_delete=models.DO_NOTHING, 
+                        null=True,
+                        blank=True,
+                        )
+    observaciones = models.TextField(
+                        null=True,
+                        blank=True
+                        )
+    fuente = models.ForeignKey(
+                        Fuente,
+                        related_name="boletines",
+                        null=True,
+                        blank=True,
+                        on_delete=models.DO_NOTHING
+                        )
+    publicado = models.BooleanField(default=True)
+
+    date_updated = models.DateField(auto_now=True)
+
+    updated_by = models.ForeignKey(
+                        User,
+                        on_delete=models.SET_NULL,
+                        null=True, blank=True,
+                        editable=False)
+    
+    @property
+    def get_fecha(self):
+        fecha = self.fecha.strftime('%d/%m/%y') if self.fecha else ''
+        return fecha
+    
+    def __str__ (self):
+        return f'Boletín del {self.get_fecha}'
+
+    class Meta:
+        verbose_name = "Boletín"
+        verbose_name_plural = "Boletines"
+        
+
+
+class Tema(models.Model):
+    nombre = models.CharField(
+                            max_length=200
+            )
+
+
+    def __str__ (self):
+        return self.nombre
+
 
 class ItemDigesto (models.Model):
     ORDENANZA = 'ordenanza'

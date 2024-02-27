@@ -1,7 +1,7 @@
 from django.contrib import admin
 from import_export.admin import ImportExportModelAdmin
 
-from digesto.models import ItemDigesto, Tema, Archivo, Fuente
+from digesto.models import ItemDigesto, Tema, Archivo, Fuente, Boletin
 from digesto.resources import ItemDigestoResource, TemaResource, ArchivoResource, FuenteResource
 
 
@@ -32,6 +32,15 @@ class ItemDigestoAdmin(ImportExportModelAdmin):
 admin.site.register(ItemDigesto, ItemDigestoAdmin)
 
 
+class BoletinAdmin(admin.ModelAdmin):
+    search_fields = ['texto',]
+
+
+    def save_model(self, request, obj, form, change):
+        obj.updated_by = request.user
+        super().save_model(request, obj, form, change)
+
+admin.site.register(Boletin, BoletinAdmin)
 
 
 class FuenteAdmin(ImportExportModelAdmin):
