@@ -34,16 +34,20 @@
                         <div class="carousel-inner" id="carouselInner"></div>
                         <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
                             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                            <span class="sr-only fs-1 text-decoration-none"><</span>
                         </a>
                         <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
                             <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                            <span class="sr-only fs-1 text-decoration-none">></span>
                         </a>
-                    </div>
+                    </div>                    
+                </div>
+
+                <div class="col-md-5">
                     
-                   
-                    
+                        <div class="carousel-inner" id="dataInner">
+
+                        </div>
+                        
+                    </div>                    
                 </div>
                 
             </div>
@@ -55,7 +59,7 @@
                 .then(response => response.json())
                 .then(data => {
                     const carouselInner = document.getElementById('carouselInner');
-                    const infoInner = document.getElementById('carouselInner');
+                    const dataInner = document.getElementById('dataInner');
 
                     // Loop through the data and create carousel items
                     data.forEach(event => {
@@ -73,6 +77,20 @@
         
                         carouselItem.appendChild(img);
                         carouselInner.appendChild(carouselItem);
+
+                        const infoItem = document.createElement('div');
+                        infoItem.className = 'card';
+                
+                        const card = document.createElement('div');
+                        card.className = 'card-title';
+                        img.src = event.imagen;
+                        img.alt = `Slide ${event.id}`;
+        
+                        carouselItem.appendChild(img);
+                        carouselInner.appendChild(carouselItem);
+
+
+
                     });
                 })
                 .catch(error => console.error('Error fetching data:', error));
