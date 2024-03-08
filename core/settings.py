@@ -76,6 +76,7 @@ INSTALLED_APPS = [
     'sem',
     'digesto',
     'cultura',
+    'transporte',
 
 ]
 

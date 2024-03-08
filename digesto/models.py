@@ -54,7 +54,8 @@ class Boletin(models.Model):
                         User,
                         on_delete=models.SET_NULL,
                         null=True, blank=True,
-                        editable=False)
+                        editable=False,
+                        verbose_name="items_editados")
     
     @property
     def get_fecha(self):
