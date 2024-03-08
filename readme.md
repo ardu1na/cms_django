@@ -1,0 +1,1 @@
+# https://select2.org/getting-started/installation ver para el buscador del digesto
