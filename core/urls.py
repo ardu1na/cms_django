@@ -76,6 +76,10 @@ urlpatterns = [
 #     # API DE DIGESTO MUNICIPAL
     path('api/digesto/', include('digesto.urls'), name="digesto"),
 
+
+   # API DE DIRECCIÓN DE TRANSPORTE
+    path('api/transporte/', include('transporte.urls'), name="transporte"),
+    
 ################ backend management
 
     # panel de administración / CMS, users, perms, etc
