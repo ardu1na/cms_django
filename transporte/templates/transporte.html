@@ -113,8 +113,8 @@ p {
 
     <!-- detalle cat -->
     <div id="pasajeros">               
-      <div class="card  shadow border-0 p-2 p-md-5">
-          <i class="bi bi-people-fill me-5 fs-3"></i><span class="fw-medium text-decoration-none">TRANSPORTE DE PASAJEROS</span>
+      <div class="card  shadow border-0 p-2 p-md-5 mb-3">
+          <i class="bi bi-people-fill"></i><span class="fw-medium text-decoration-none">TRANSPORTE DE PASAJEROS</span>
           <h5>Requisitos para la Habilitación Comercial</h5>
           <ul>
               <li>Taxi y Remis</li>
@@ -123,6 +123,61 @@ p {
       </div>
   </div>
 
+    <div id="cargas">               
+        <div class="card  shadow border-0 p-2 p-md-5 mb-3">
+            <i class="bi bi-truck-front-fill"></i>
+        </i><span class="fw-medium text-decoration-none">CARGAS GENERALES</span>
+            <h5>Requisitos para la Habilitación Comercial</h5>
+            <ul>
+                <li>Taxi y Remis</li>
+                <li>Viajes Especiales y Turismo </li>
+            </ul>  
+        </div>
+    </div>
+
+    <div id="pesado">               
+        <div class="card  shadow border-0 p-2 p-md-5 mb-3">
+            <i class="bi bi-truck-front-fill"></i><span class="fw-medium text-decoration-none">PESADOS Y ÁRIDOS</span>
+            <h5>Requisitos para la Habilitación Comercial</h5>
+            <ul>
+                <li>Taxi y Remis</li>
+                <li>Viajes Especiales y Turismo </li>
+            </ul>  
+        </div>
+    </div>
+  
+      <div id="pan">               
+          <div class="card  shadow border-0 p-2 p-md-5 mb-3">
+            <i class="bi bi-shop-window "></i><span class="fw-medium text-decoration-none">SUSTANCIAS Y PANIFICADOS</span>
+              <h5>Requisitos para la Habilitación Comercial</h5>
+              <ul>
+                  <li>Taxi y Remis</li>
+                  <li>Viajes Especiales y Turismo </li>
+              </ul>  
+          </div>
+      </div>
+      <div id="delivery">               
+        <div class="card  shadow border-0 p-2 p-md-5 mb-3">
+            <i class="bi bi-bicycle mx-4"></i><span class="fw-medium text-decoration-none">DELIVERY Y LOGÍSTICA</span>
+            <h5>Requisitos para la Habilitación Comercial</h5>
+            <ul>
+                <li>Taxi y Remis</li>
+                <li>Viajes Especiales y Turismo </li>
+            </ul>  
+        </div>
+    </div>
+  
+      <div id="rent">               
+          <div class="card  shadow border-0 p-2 p-md-5 mb-3">
+            <i class="bi bi-car-front-fill mx-4"></i><span class="fw-medium text-decoration-none">RENT A CAR</span>
+              <h5>Requisitos para la Habilitación Comercial</h5>
+              <ul>
+                  <li>Taxi y Remis</li>
+                  <li>Viajes Especiales y Turismo </li>
+              </ul>  
+          </div>
+      </div>
+    
 
      <!-- faqa -->
             <!-- faqs toggle -->
@@ -198,7 +253,7 @@ p {
       <div class="card border-0 rounded shadow p-md-5 p-3 pt-3">
       <h4 class="mt-3 text-primary ">INFORMACIÓN </h4>
       <h5 class="mb-3 text-primary pb-3">Dirección de Transporte</h5>
-      <p> <i class="bi bi-geo-alt-fill me-2"></i> Avenida 25 de Mayo esquina Roca </p><p> <i class="bi bi-telephone-fill me-2"> </i> 4498-966 </p> <p><i class="bi bi-calendar-check me-2"></i>Lunes a viernes de 8.30hs a 13.30 hs</p><p>  <i class="bi bi-envelope-fill me-2"></i> transitoytransporteelbolson@gmail.com</p>
+      <p> <i class="bi bi-geo-alt-fill me-2"></i> 25 de Mayo esquina Roca </p><p> <i class="bi bi-telephone-fill me-2"> </i> 4498-966 </p> <p><i class="bi bi-calendar-check me-2"></i>Lunes a viernes de 8.30 hs a 13.30 hs</p><p>  <i class="bi bi-envelope-fill me-2"></i> transitoytransporteelbolson@gmail.com</p>
       </div>
       </div>
       <div class="col-md-6  my-2 d-flex justify-content-center"><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2966.679159585255!2d-71.53498812484347!3d-41.96422598244609!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x961bbfce21ea5add%3A0x5a54a0385aef4a27!2sGeneral%20Roca%20%26%2025%20de%20Mayo%2C%20El%20Bols%C3%B3n%2C%20R%C3%ADo%20Negro%2C%20Argentina!5e0!3m2!1ses-419!2sbe!4v1710469662119!5m2!1ses-419!2sbe" width="400" height="400" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div>
@@ -221,16 +276,16 @@ p {
                       
                         $("#cargasButton").on("click", function (event) {
                           event.preventDefault();
-                          scrollToSection("#otrostramites");
+                          scrollToSection("#cargas");
                         });
                       
                         $("#pesadoButton").on("click", function (event) {
                           event.preventDefault();
-                          scrollToSection("#contacto");
+                          scrollToSection("#pesado");
                         });
                         $("#panButton").on("click", function (event) {
                           event.preventDefault();
-                          scrollToSection("#contacto");
+                          scrollToSection("#pan");
                         });
                         $("#deliveryButton").on("click", function (event) {
                           event.preventDefault();
@@ -238,7 +293,7 @@ p {
                         });
                         $("#rentButton").on("click", function (event) {
                           event.preventDefault();
-                          scrollToSection("#rent");
+                          scrollToSection("#contacto");
                         });
                       
                       
