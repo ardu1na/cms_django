@@ -1,196 +1,276 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>Dirección de Transporte - Municipalidad de El Bolsón</title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-GHL08J5CD0"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
 
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-        <style>
-        .g-social a {
-                font-size: 30px;
-                padding-top: 30px; 
-                color: white;
-            }
-        .accordion {
-                            border-radius: 24px; 
-            border: 0;
+  gtag('config', 'G-GHL08J5CD0');
+</script>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+<style>
+.gradient-background {
+  background: linear-gradient(to right, #c3ff0f, #ffffff, #ffffff, #c3ff0f);
+  width: 100%;
+
+}
+
+.g-social a {
+            font-size: 30px;
+            padding-top: 30px; 
+            color: white;
         }
-        .card {
+p {
+  text-decoration: none;
+}
+    .accordion {
+                     border-radius: 24px; 
+     border: 0;
+}
+ .card {
+                border-radius: 20px; }
+        .card-mine {
                 border-radius: 20px; 
                 width: 100%;
                 height: 100%;
                 transition: background-color 0.3s, color 0.3s; /* Smooth transition */
         }
-        .card:hover {
+        .card-mine:hover {
             background-color: #007bff; /* Primary color */
             color: white; /* Text color */
         }
-        .card:hover i {
-                color: white; /* Icon color */
-            }
-        .card i {
+ .card-mine:hover i {
+            color: white; /* Icon color */
+        }
+        .card-mine i {
             font-size: 5em;
             transition: color 0.3s; 
-            color: #007bff;
+           color: #007bff;
         }
-    </style>
+         </style>
 
-    </head>
+        <!-- title -->
 
-    <body>
+<div class="py-5 px-md-5 text-center m-0">
+  <h1 class="py-5 px-md-5 fw-bolder"><strong>DIRECCIÓN DE TRANSPORTE</strong></h1>
+  </div>
 
-        <!-- main -->
-        <div class="container-fluid m-0 p-0">
-            <!-- title section -->
-            <div class="row py-4">
-                <img class="img-fluid" src="#"/>
-            </div>
-
-            
-            <!-- requisitos y forms -->
-            <h2 class="text-center text-primary mt-5"><strong>GUÍA DE TRÁMITES</strong></h2>
-            <div class="row py-4"> 
+          <!-- categorias -->
+            <h2 class="text-center fw-light">GUÍA DE TRÁMITES</h2>
+<div class="container">
+            <div class="row py-4 justify-content-center align-items-center"> 
                 <div class="col-md-2 my-3 d-flex text-center"> 
-                    <div class="card  shadow border-0 p-md-3  h-100 d-flex flex-column justify-content-center" data-bs-toggle="collapse" href="#pasajeros" role="button" aria-expanded="false" aria-controls="pasajeros">
+                    <a href="#" class="text-decoration-none" id="pasajerosButton">
+                        <div class="card card-mine shadow border-0 p-md-3  h-100 d-flex flex-column justify-content-center" >
                         <i class="bi bi-people-fill mx-4"></i>
-                        <p class="fw-medium">TRANSPORTE DE PASAJEROS</p>
-                    </div>
+                        <p class="fw-medium text-decoration-none">TRANSPORTE DE PASAJEROS</p>
+                    </div></a>
                 </div>
                 <div class="col-md-2 my-3 d-flex text-center"> 
-                    <div class="card  shadow border-0 p-md-3  h-100 d-flex flex-column justify-content-center" data-bs-toggle="collapse" href="#cargas" role="button" aria-expanded="false" aria-controls="cargas">
+                    <a href="#" class="text-decoration-none"  id="cargasButton">
+                        <div class="card card-mine shadow border-0 p-md-3  h-100 d-flex flex-column justify-content-center">
                         <i class="bi bi-train-freight-front mx-4"></i>
-                        <p class="fw-medium">CARGAS GENERALES</p>
-                    </div>
+                        <p class="fw-medium text-decoration-none">CARGAS GENERALES</p>
+                    </div></a>
                 </div>
                 <div class="col-md-2 my-3 d-flex text-center"> 
-                    <div class="card  shadow border-0 p-md-3  h-100 d-flex flex-column justify-content-center" data-bs-toggle="collapse" href="#pesado" role="button" aria-expanded="false" aria-controls="pesado">
+                    <a href="#" class="text-decoration-none"  id="pesadoButton">
+                        <div class="card card-mine shadow border-0 p-md-3  h-100 d-flex flex-column justify-content-center"  >
                         <i class="bi bi-truck-front-fill mx-4"></i>
-                        <p class="fw-medium">PESADOS Y ÁRIDOS</p>
-                    </div>
+                        <p class="fw-medium text-decoration-none">PESADOS Y ÁRIDOS</p>
+                    </div></a>
                 </div>
                 <div class="col-md-2 my-3 d-flex text-center"> 
-                    <div class="card  shadow border-0 p-md-3  h-100 d-flex flex-column justify-content-center" data-bs-toggle="collapse" href="#pan" role="button" aria-expanded="false" aria-controls="pan">
+                    <a href="#" class="text-decoration-none"  id="panButton" >
+                        <div class="card card-mine shadow border-0 p-md-3  h-100 d-flex flex-column justify-content-center" >
                         <i class="bi bi-shop-window mx-4"></i>
-                        <p class="fw-medium">SUSTANCIAS Y PANIFICADOS</p>
-                    </div>
+                        <p class="fw-medium text-decoration-none">SUSTANCIAS Y PANIFICADOS</p>
+                    </div></a>
                 </div>
                 <div class="col-md-2 my-3 d-flex text-center"> 
-                    <div class="card  shadow border-0 p-md-3  h-100 d-flex flex-column justify-content-center" data-bs-toggle="collapse" href="#delivery" role="button" aria-expanded="false" aria-controls="delivery">
+                    <a href="#" class="text-decoration-none"   id="deliveryButton">
+
+                    <div class="card card-mine shadow border-0 p-md-3  h-100 d-flex flex-column justify-content-center" >
                         <i class="bi bi-bicycle mx-4"></i>
-                        <p class="fw-medium">DELIVERY Y LOGÍSTICA</p>
-                    </div>
+                        <p class="fw-medium text-decoration-none">DELIVERY Y LOGÍSTICA</p>
+                    </div></a>
                 </div>
                 <div class="col-md-2 my-3 d-flex text-center"> 
-                    <div class="card  shadow border-0 p-md-3  h-100 d-flex flex-column justify-content-center" data-bs-toggle="collapse" href="#rent" role="button" aria-expanded="false" aria-controls="rent">
+                    <a href="#" class="text-decoration-none"  id="rentButton">
+
+                    <div class="card card-mine shadow border-0 p-md-3  h-100 d-flex flex-column justify-content-center" >
                         <i class="bi bi-car-front-fill mx-4"></i>
-                        <p class="fw-medium">RENT A CAR</p>
-                    </div>
+                        <p class="fw-medium text-decoration-none">RENT A CAR</p>
+                    </div></a>
                 </div>
             </div>
-            <div class="collapse" id="pasajeros" data-parent="#accordion">               
-                <div class="card  shadow border-0 p-md-3  h-100 d-flex flex-column justify-content-center">
-                    <i class="bi bi-people-fill me-5"></i> <a class="fw-medium fs-3">TRANSPORTE DE PASAJEROS</a>
-                    <h5>Requisitos para la Habilitación Comercial</h5>
-                    <ul>
-                        <li>Taxi y Remis</li>
-                        <li>Viajes Especiales y Turismo </li>
-                    </ul>  
-                </div>
             </div>
 
-        <!-- faqs toggle -->
-        <div class="row py-4">
-            <div class="container-fluid">
-                <h2><strong>PREGUNTAS FRECUENTES</strong></h2>
-                <div class="row d-flex align-items-center">
+
+
+    <!-- detalle cat -->
+    <div id="pasajeros">               
+      <div class="card  shadow border-0 p-2 p-md-5">
+          <i class="bi bi-people-fill me-5 fs-3"></i><span class="fw-medium text-decoration-none">TRANSPORTE DE PASAJEROS</span>
+          <h5>Requisitos para la Habilitación Comercial</h5>
+          <ul>
+              <li>Taxi y Remis</li>
+              <li>Viajes Especiales y Turismo </li>
+          </ul>  
+      </div>
+  </div>
+
+
+     <!-- faqa -->
+            <!-- faqs toggle -->
+            <div class="row py-4">
+              <div class="container-fluid">
+                  <h2><strong>PREGUNTAS FRECUENTES</strong></h2>
+                  <div class="row d-flex align-items-center">
                     <div class="col-md-8 pe-md-5">
-                    <div class="accordion mt-3 border-0 shadow" id="accordionExample">
+                      <div class="accordion mt-3 border-0 shadow" id="accordionExample">
                         <div class="accordion-item w-100 py-3">
-                        <h2 class="accordion-header">
+                          <h2 class="accordion-header">
                             <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne" style="white-space: normal;">
-                            <strong>¿Cuánto vale la habilitación comercial de remis?</strong></button>
-                        </h2>
-                        <div id="collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                              <strong>¿Cuánto vale la habilitación comercial de remis?</strong></button>
+                          </h2>
+                          <div id="collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
                             <div class="accordion-body">
-                            El valor de la habilitación comercial para los taxis o remises varía según la ordenanza tarifaria vigente. En este momento el precio es de <strong>$<a class="text-black text-decoration-none"  id="hc-remis">140000</a></strong>
+                              El valor de la habilitación comercial para los taxis o remises varía según la ordenanza tarifaria vigente. En este momento el precio es de <strong>$<a class="text-black text-decoration-none"  id="hc-remis">140000</a></strong>
                             </div>
-                        </div>
+                          </div>
                         </div>
                         <div class="accordion-item w-100 py-3">
-                        <h2 class="accordion-header">
+                          <h2 class="accordion-header">
                             <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo" style="white-space: normal;">
-                            <strong>¿Cuántos años puede tener un vehículo para obtener la habilitación comercial de transporte de pasajeros?</strong>
+                              <strong>¿Cuántos años puede tener un vehículo para obtener la habilitación comercial de transporte de pasajeros?</strong>
                             </button>
-                        </h2>
-                        <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                          </h2>
+                          <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
                             <div class="accordion-body">
-                            Según las ordenanzas vigentes, para que un vehículo pueda ser habilitado para el transporte de pasajeros, el mismo debe de ser posterior al año <strong>2016</strong>. 
+                              Según las ordenanzas vigentes, para que un vehículo pueda ser habilitado para el transporte de pasajeros, el mismo debe de ser posterior al año <strong>2016</strong>. 
                             </div>
-                        </div>
+                          </div>
                         </div>
                         <div class="accordion-item w-100 py-3">
-                        <h2 class="accordion-header">
+                          <h2 class="accordion-header">
                             <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree" style="white-space: normal;">
-                            <strong>¿Cuánto vale la transferencia de la habilitación de taxi o remis?</strong>        </button>
-                        </h2>
-                        <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                              <strong>¿Cuánto vale la transferencia de la habilitación de taxi o remis?</strong>        </button>
+                          </h2>
+                          <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
                             <div class="accordion-body">
-                            El valor de la transferencia de propietario de la habilitación comercial para los taxis o remises varía según la ordenanza tarifaria vigente. En este momento el precio es de <strong>$<a class="text-black text-decoration-none" id="transferencia-remis">200000</a></strong>
+                              El valor de la transferencia de propietario de la habilitación comercial para los taxis o remises varía según la ordenanza tarifaria vigente. En este momento el precio es de <strong>$<a class="text-black text-decoration-none" id="transferencia-remis">200000</a></strong>
                             </div>
-                        </div>
+                          </div>
                         </div>
                         
                 
                         <div class="accordion-item w-100 py-3">
-                        <h2 class="accordion-header">
+                          <h2 class="accordion-header">
                             <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse6" aria-expanded="false" aria-controls="collapse6" style="white-space: normal;">
-                            <strong>¿Cómo puedo obtener ayuda adicional?</strong></button>
-                        </h2>
-                        <div id="collapse6" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                              <strong>¿Cómo puedo obtener ayuda adicional para la habilitación de mi vehículo?</strong></button>
+                          </h2>
+                          <div id="collapse6" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
                             <div class="accordion-body">
-                            Si tienes preguntas adicionales o necesitas asistencia personalizada, no dudes en visitarnos en nuestra oficina de la <strong>Dirección de Transporte de El Bolsón de lunes a viernes de 8.30hs a 13.30 hs</strong> o comunicarte con nosotros a través del número 4498966 o vía correo electrónico a nuestro <a href="mailto:transitoytransporteelbolson@gmail.com" target="_blank">e-mail</a> para recibir orientación y apoyo personalizados. 
+                              Si tienes preguntas adicionales o necesitas asistencia personalizada, no dudes en visitarnos en la <strong>Dirección de Transporte de El Bolsón de lunes a viernes de 8.30hs a 13.30 hs</strong> o comunicarte con nosotros a través del número 4498966 o vía correo electrónico a nuestro <a href="mailto:transitoytransporteelbolson@gmail.com" target="_blank">e-mail</a> para recibir orientación y apoyo personalizados. 
                             </div>
+                          </div>
                         </div>
-                        </div>
-                    </div>
+                      </div>
                     </div>
                     <div class="col-md-3 ms-md-5 pt-4">
-                    <img src="https://elbolson.gob.ar/clon/images/faqs.png" class="img-fluid" height=200 />
+                      <img src="https://elbolson.gob.ar/clon/images/faqs.png" class="img-fluid" height=200 />
                     </div>
                 
+                  </div>
                 </div>
-                </div>
-        </div>
+          </div>
 
-                <div class="row py-4 mt-5">
-                    <p class="text-primary text-center mt-5"><strong>Dirección de Transporte - Avenida 25 de Mayo esquina Roca - 4498-966 </strong></p>
-                </div>
-            
-
-            <!-- contacto section -->
-            <div class="row py-4">
-                
-            </div>
+          
 
 
-        </div>
-        
-        <script>
-            // Fetch data from the endpoint
-            fetch('http://127.0.0.1:8000/api/transporte/valores/')
-                
-        </script>
-        
-        
-        <!-- BOOTSTRAP CDNS -->
-        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.0.8/dist/umd/popper.min.js"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <!-- contacto -->
+    <div class="row align-items-center py-5 mx-2"><div class="col-md-6 d-flex justify-content-center my-2">
 
-    </body>
-</html>
+      <div class="card border-0 rounded shadow p-md-5 p-3 pt-3">
+      <h4 class="mt-3 text-primary ">INFORMACIÓN </h4>
+      <h5 class="mb-3 text-primary pb-3">Dirección de Transporte</h5>
+      <p> <i class="bi bi-geo-alt-fill me-2"></i> Avenida 25 de Mayo esquina Roca </p><p> <i class="bi bi-telephone-fill me-2"> </i> 4498-966 </p> <p><i class="bi bi-calendar-check me-2"></i>Lunes a viernes de 8.30hs a 13.30 hs</p><p>  <i class="bi bi-envelope-fill me-2"></i> transitoytransporteelbolson@gmail.com</p>
+      </div>
+      </div>
+      <div class="col-md-6  my-2 d-flex justify-content-center"><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2966.679159585255!2d-71.53498812484347!3d-41.96422598244609!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x961bbfce21ea5add%3A0x5a54a0385aef4a27!2sGeneral%20Roca%20%26%2025%20de%20Mayo%2C%20El%20Bols%C3%B3n%2C%20R%C3%ADo%20Negro%2C%20Argentina!5e0!3m2!1ses-419!2sbe!4v1710469662119!5m2!1ses-419!2sbe" width="400" height="400" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div>
+      </div>
+
+
+          <!-- js -->
+          <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+          <script src="https://www.google-analytics.com/analytics.js"></script>
+          <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
+          
+          
+          <script>
+                      $(document).ready(function () {
+                        $("#pasajerosButton").on("click", function (event) {
+                          event.preventDefault();
+                          scrollToSection("#pasajeros");
+                        });
+                      
+                        $("#cargasButton").on("click", function (event) {
+                          event.preventDefault();
+                          scrollToSection("#otrostramites");
+                        });
+                      
+                        $("#pesadoButton").on("click", function (event) {
+                          event.preventDefault();
+                          scrollToSection("#contacto");
+                        });
+                        $("#panButton").on("click", function (event) {
+                          event.preventDefault();
+                          scrollToSection("#contacto");
+                        });
+                        $("#deliveryButton").on("click", function (event) {
+                          event.preventDefault();
+                          scrollToSection("#delivery");
+                        });
+                        $("#rentButton").on("click", function (event) {
+                          event.preventDefault();
+                          scrollToSection("#rent");
+                        });
+                      
+                      
+                        function scrollToSection(sectionId) {
+                          var targetOffset = $(sectionId).offset().top;
+                          $("html, body").animate({ scrollTop: targetOffset }, 1000);
+                        }
+                      });
+                      </script>
+          <script>
+            // Función para obtener el número de visitantes
+            function obtenerNumeroDeVisitantes() {
+              // ID de seguimiento de Google Analytics
+              var trackingId = 'G-GHL08J5CD0'; // 
+          
+              // Llamada a la API de Google Analytics para obtener el número total de visitantes
+              gapi.client.load('analytics', 'v3', function() {
+                var request = gapi.client.analytics.data.ga.get({
+                  'ids': 'ga:' + trackingId,
+                  'metrics': 'ga:users'
+                });
+          
+                request.execute(function(response) {
+                  // Muestra el número de visitantes en un elemento h1
+                  document.getElementById('numero_de_visitantes').innerText = response.totalsForAllResults['ga:users'];
+                });
+              });
+            }
+          
+            // Llama a la función cuando la página se carga
+            window.onload = function() {
+              obtenerNumeroDeVisitantes();
+            };
+          </script>
+          
