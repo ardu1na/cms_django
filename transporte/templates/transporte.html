@@ -437,16 +437,55 @@ p {
     <div id="rent" class="my-3">               
       <div class="card  shadow border-0 p-2 p-md-5 mx-md-5 mb-3 py-3 my-5">
           <i class="bi bi-car-front-fill  text-primary fs-1"></i><span class="fw-medium text-decoration-none  text-primary">RENT A CAR</span>
-            <h5>Habilitación Comercial</h5>
-            <ul>
-                <li>Requisitos</li>
-                <li>Valores
-                  <ul>
-                      <li>Con Local: $150000</li>
-                      <li>Sin Local: $2000000</li>
-                  </ul> 
-                </li>
-            </ul>  
+            <h5 class="mb-4">Habilitación Comercial</h5>
+            <div class="ms-3">
+              <p class="fw-bold"> Documentación Necesaria</p>
+              <p>(original y fotocopias)</p>
+
+              <div class="ms-3">
+                  
+                  <p ><i class="bi bi-check2 fs-4 text-primary me-2" ></i> Inscripción a AFIP e Ingresos Brutos </p>
+                  <p ><i class="bi bi-check2 fs-4 text-primary me-2" ></i> Título del vehículo (a nombre del habilitante) y Tarjeta Verde</p>
+                  <p ><i class="bi bi-check2 fs-4 text-primary me-2" ></i>  Póliza de Seguro + Recibo de seguro al día</p>
+                  <p ><i class="bi bi-check2 fs-4 text-primary me-2" ></i>  Últimos 2 recibos de pago de patente</p>
+                  <p > <i class="bi bi-check2 fs-4 text-primary me-2" ></i>Revisión Técnica Obligatoria</p>
+                  <p > <i class="bi bi-check2 fs-4 text-primary me-2" ></i>DNI + Libre de infracción original del titular</p>
+                  <p > <i class="bi bi-check2 fs-4 text-primary me-2" ></i>Contrato de locación /// Bolsón</p>
+                  <p > <i class="bi bi-check2 fs-4 text-primary me-2" ></i>Contrato de alquiler del vehículo</p>
+                  <p > <i class="bi bi-check2 fs-4 text-primary me-2" ></i>Contrato de la sociedad</p>
+
+              </div>  
+          </div>
+          <div class="ms-3">
+              <p class="fw-bold"> Requisitos del Vehículo</p>
+              <div class="ms-3">
+
+                  <p  ><i class="bi bi-check2 fs-4 text-primary me-2" ></i>El vehículo debe de estar <strong>radicado en Río Negro</strong> (mismo domicilio que el DNI del titular habilitante)</p>
+                  <p><i class="bi bi-check2 fs-4 text-primary me-2" ></i> <strong>Año:</strong> 2016 en adelante </p>
+                  
+              </div> 
+              
+          </div>  
+          <div class="ms-3">
+                  <p class="fw-bold"> Inspección</p>
+                  <div class="ms-3">
+                  <p><i class="bi bi-check2 fs-4 text-primary me-2" ></i>Horario: de lunes a viernes de 08:30 a 13 HS</p>
+                  <p><i class="bi bi-check2 fs-4 text-primary me-2" ></i>Valor: $4200</p>
+                  </div>  
+          </div>  
+
+          <div class="ms-3">
+            <p class="fw-bold"> Valores</p>
+            <p> (único pago, luego se debe abonar la tasa de actuación mensualmente)</p>
+
+            <div class="ms-3">
+            <p><i class="bi bi-check2 fs-4 text-primary me-2" ></i>Habilitación Comercial Sin Local <strong>$<a class="text-black text-decoration-none"  id="renta-car-sin-local">140000</a></strong></p>
+            <p><i class="bi bi-check2 fs-4 text-primary me-2" ></i>Habilitación Comercial con Local <strong>$<a class="text-black text-decoration-none"  id="renta-car-con-local">140000</a></strong></p>
+            </div>  
+    </div>  
+                      
+
+
         </div>
     </div>
 
@@ -484,11 +523,11 @@ p {
                   <div class="accordion-item w-100 py-3">
                     <h2 class="accordion-header">
                       <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree" style="white-space: normal;">
-                        <strong>¿Cuánto vale la transferencia de la habilitación de taxi o remis?</strong>        </button>
+                        <strong>¿Cuánto vale la transferencia de la habilitación comercial?</strong>        </button>
                     </h2>
                     <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
                       <div class="accordion-body">
-                        El valor de la transferencia de propietario de la habilitación comercial para los taxis o remises varía según la ordenanza tarifaria vigente. En este momento el precio es de <strong>$<a class="text-black text-decoration-none" id="transferencia-remis">200000</a></strong>
+                        El valor de la transferencia de propietario de la habilitación comercial varía según la ordenanza tarifaria vigente. En este momento el precio es de <strong>$<a class="text-black text-decoration-none" id="transferencia-habilitacion-comercial">200000</a></strong>
                       </div>
                     </div>
                   </div>
@@ -529,7 +568,7 @@ p {
 
           
    
-          <!-- contacto -->
+  <!-- contacto -->
     <div class="row align-items-center py-5 mx-2"><div class="col-md-6 d-flex justify-content-center my-2">
 
       <div class="card border-0 rounded shadow p-md-5 p-3 pt-3">
@@ -542,7 +581,7 @@ p {
       </div>
 
 
-    <!-- js -->
+<!-- js -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <script src="https://www.google-analytics.com/analytics.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
@@ -615,4 +654,25 @@ p {
     
 
 
+    <script>
+      // Fetch data from API
+      fetch('https://elbolson2025.pythonanywhere.com/api/transporte/valores/')
+          .then(response => response.json())
+          .then(data => {
+              const habilitacionComercial = data.find(item => item.slug === 'habilitacion-comercial-remis-y-taxi');
+              const transferHabilitacionComercial = data.find(item => item.slug === 'transferencia-habilitacion-comercial');
+
+              // Check if the object is found
+              if (habilitacionComercial) {
+                  // Update the value inside the span element
+                  document.getElementById('habilitacion-comercial-remis-y-taxi').textContent = habilitacionComercial.precio;
+              }
+
+              if (transferHabilitacionComercial) {
+                document.getElementById('transferencia-habilitacion-comercial').textContent = transferHabilitacionComercial.precio;
+              }
+          })
+          .catch(error => console.error('Error fetching data:', error));
+  </script>
+   
     
