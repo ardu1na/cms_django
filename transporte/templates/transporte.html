@@ -479,7 +479,7 @@ p {
             <p> (único pago, luego se debe abonar la tasa de actuación mensualmente)</p>
 
             <div class="ms-3">
-            <p><i class="bi bi-check2 fs-4 text-primary me-2" ></i>Habilitación Comercial Sin Local <strong>$<a class="text-black text-decoration-none"  id="renta-car-sin-local">140000</a></strong></p>
+            <p><i class="bi bi-check2 fs-4 text-primary me-2" ></i>Habilitación Comercial SIN Local <strong>$<a class="text-black text-decoration-none"  id="renta-car-sin-local">140000</a></strong></p>
             <p><i class="bi bi-check2 fs-4 text-primary me-2" ></i>Habilitación Comercial con Local <strong>$<a class="text-black text-decoration-none"  id="renta-car-con-local">140000</a></strong></p>
             </div>  
     </div>  
@@ -661,12 +661,19 @@ p {
           .then(data => {
               const habilitacionComercial = data.find(item => item.slug === 'habilitacion-comercial-remis-y-taxi');
               const transferHabilitacionComercial = data.find(item => item.slug === 'transferencia-habilitacion-comercial');
+              const rentCarSin = data.find(item => item.slug === 'renta-car-sin-local');
+              const rentCar = data.find(item => item.slug === 'renta-car-con-local');
 
               // Check if the object is found
-              if (habilitacionComercial) {
+              if (rentCarSin) {
                   // Update the value inside the span element
-                  document.getElementById('habilitacion-comercial-remis-y-taxi').textContent = habilitacionComercial.precio;
+                  document.getElementById('renta-car-sin-local').textContent = rentCarSin.precio;
               }
+
+              if (rentCar) {
+                // Update the value inside the span element
+                document.getElementById('renta-car-con-local').textContent = rentCar.precio;
+            }
 
               if (transferHabilitacionComercial) {
                 document.getElementById('transferencia-habilitacion-comercial').textContent = transferHabilitacionComercial.precio;
