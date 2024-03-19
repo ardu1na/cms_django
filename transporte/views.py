@@ -20,6 +20,6 @@ class ValorViewSet(viewsets.ModelViewSet):
 ## contador de viistas a la pag
 
 def actualizar_visita(request):
-    visita = Visita.objects.all().last()
+    visita, created = Visita.objects.get_or_create(pk=1)
     visita.save()
     return JsonResponse({'cantidad': visita.cantidad})
