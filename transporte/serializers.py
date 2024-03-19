@@ -7,4 +7,3 @@ class ValorSerializer(serializers.ModelSerializer):
         model = Valor
         fields = ['id', 'nombre', 'precio', 'slug']
 
-

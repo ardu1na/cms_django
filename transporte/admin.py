@@ -1,7 +1,7 @@
 from django.contrib import admin
 from import_export.admin import ImportExportModelAdmin
 
-from transporte.models import  Valor
+from transporte.models import  Valor, Visita
 from transporte.resources import ValorResource
 
 
@@ -22,3 +22,4 @@ class ValorAdmin(ImportExportModelAdmin):
         super().save_model(request, obj, form, change)
 
 admin.site.register(Valor, ValorAdmin)
+admin.site.register(Visita)

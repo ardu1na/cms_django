@@ -11,7 +11,7 @@ from drf_yasg import openapi
 
 from core import settings
 from prensa.views import index, articulo, prensa,  tags
-
+from transporte.views import actualizar_visita
 
 # páginas de error
 
@@ -79,7 +79,8 @@ urlpatterns = [
 
    # API DE DIRECCIÓN DE TRANSPORTE
     path('api/transporte/', include('transporte.urls'), name="transporte"),
-    
+    path('api/transporte/visitas/', actualizar_visita, name='actualizar_visita'),
+
 ################ backend management
 
     # panel de administración / CMS, users, perms, etc

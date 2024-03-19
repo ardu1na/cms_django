@@ -40,3 +40,19 @@ class Valor(models.Model):
     def save(self, *args, **kwargs):
         self.slug = slugify(self.nombre)            
         super().save(*args, **kwargs)
+
+
+       
+class Visita(models.Model):
+    cantidad = models.PositiveIntegerField(default=0)
+
+    date_updated = models.DateField(
+                        auto_now=True
+                        )
+    def __str__ (self):
+        return f'{self.date_updated} visita id° {self.id}'
+    
+    def save(self, *args, **kwargs):
+        self.cantidad += 1
+        super().save(*args, **kwargs)
+    

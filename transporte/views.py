@@ -1,9 +1,9 @@
 
-from django.shortcuts import HttpResponsePermanentRedirect
 from rest_framework import viewsets, permissions
+from django.http import JsonResponse
 
 from transporte.serializers import ValorSerializer
-from transporte.models import Valor
+from transporte.models import Valor, Visita
 
 
 ## lista de valores de habilitaciones de transporte
@@ -16,3 +16,10 @@ class ValorViewSet(viewsets.ModelViewSet):
         if self.action in ['list', 'retrieve']:
             return [permissions.AllowAny()]
         return [permissions.IsAuthenticated()]
+    
+## contador de viistas a la pag
+
+def actualizar_visita(request):
+    visita = Visita.objects.all().last()
+    visita.save()
+    return JsonResponse({'cantidad': visita.cantidad})
